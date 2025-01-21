@@ -1,0 +1,6 @@
+make a main page
+h1"welcome"h1
+
+username
+
+close session
