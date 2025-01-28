@@ -20,3 +20,11 @@ $routes->get('users/save/(:num)', 'UserController::saveUser/$1'); //Mostrar form
 $routes->get('users/save/', 'UserController::saveUser');// Crear usuario (POST)
 $routes->get('users/save/(:num)', 'UserController::saveUser/$1'); //Editar usuario (POST)
 $routes->get('users/delete(:num)', 'UserController::delete/$1'); //Eliminar usuario
+
+
+// PROCESAR LOGIN/REGISTER
+$routes->get('login', 'AuthController::login'); //Página de login
+$routes->post('login/process', 'AuthController::loginProcess'); //Procesar login
+$routes->get('register', 'AuthController::register'); //Página de registro
+$routes->post('register/process', 'AuthController::registerProcess'); //Procesar registro
+$routes->get('logout', 'AuthController::logout'); //Cerrar sesión

@@ -47,10 +47,6 @@
                 <?php endforeach; ?>
             </tbody>
         </table>
-        <!-- Paginador -->
-        <div class="mt-4">
-            <?= $pager->links() ?> <!-- Usa la plantilla predeterminada  -->
-        </div>
     <?php else: ?>
         <p class="text-center">No hay usuarios registrados.</p>
     <?php endif; ?>

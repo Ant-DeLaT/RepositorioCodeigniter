@@ -1,3 +1,3 @@
 <?php
 
-echo"Vuelta a empezar";
+echo "Vuelta a empezar";
