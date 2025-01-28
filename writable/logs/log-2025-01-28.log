@@ -1,1 +1,121 @@
 INFO - 2025-01-28 07:41:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-28 11:48:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-01-28 11:48:37 --> ErrorException: Undefined variable $pager
+[Method: GET, Route: users]
+in APPPATH\Views\user_listView2.php on line 52.
+ 1 APPPATH\Views\user_listView2.php(52): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $pager', 'C:\\xampp\\htdocs\\TercerCodeigniter\\app\\Views\\user_listView2.php', 52)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\TercerCodeigniter\\app\\Views\\user_listView2.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('user_listView2', [], true)
+ 5 APPPATH\Controllers\UserController.php(8): view('user_listView2', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\UserController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2025-01-28 11:50:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-01-28 11:50:09 --> ErrorException: Undefined variable $pager
+[Method: GET, Route: users]
+in APPPATH\Views\user_listView2.php on line 52.
+ 1 APPPATH\Views\user_listView2.php(52): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $pager', 'C:\\xampp\\htdocs\\TercerCodeigniter\\app\\Views\\user_listView2.php', 52)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\TercerCodeigniter\\app\\Views\\user_listView2.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('user_listView2', [], true)
+ 5 APPPATH\Controllers\UserController.php(8): view('user_listView2', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\UserController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2025-01-28 11:53:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-01-28 11:53:40 --> ErrorException: Undefined variable $pager
+[Method: GET, Route: users]
+in APPPATH\Views\user_listView2.php on line 52.
+ 1 APPPATH\Views\user_listView2.php(52): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $pager', 'C:\\xampp\\htdocs\\TercerCodeigniter\\app\\Views\\user_listView2.php', 52)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\TercerCodeigniter\\app\\Views\\user_listView2.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('user_listView2', [], true)
+ 5 APPPATH\Controllers\UserController.php(8): view('user_listView2', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\UserController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2025-01-28 11:53:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-01-28 11:53:41 --> ErrorException: Undefined variable $pager
+[Method: GET, Route: users]
+in APPPATH\Views\user_listView2.php on line 52.
+ 1 APPPATH\Views\user_listView2.php(52): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $pager', 'C:\\xampp\\htdocs\\TercerCodeigniter\\app\\Views\\user_listView2.php', 52)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\TercerCodeigniter\\app\\Views\\user_listView2.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('user_listView2', [], true)
+ 5 APPPATH\Controllers\UserController.php(8): view('user_listView2', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\UserController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2025-01-28 11:53:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-01-28 11:53:48 --> ErrorException: Undefined variable $pager
+[Method: GET, Route: users]
+in APPPATH\Views\user_listView2.php on line 52.
+ 1 APPPATH\Views\user_listView2.php(52): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $pager', 'C:\\xampp\\htdocs\\TercerCodeigniter\\app\\Views\\user_listView2.php', 52)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\TercerCodeigniter\\app\\Views\\user_listView2.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('user_listView2', [], true)
+ 5 APPPATH\Controllers\UserController.php(8): view('user_listView2', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\UserController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2025-01-28 12:00:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-01-28 12:00:46 --> ErrorException: Undefined variable $pager
+[Method: GET, Route: users]
+in APPPATH\Views\user_listView2.php on line 52.
+ 1 APPPATH\Views\user_listView2.php(52): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $pager', 'C:\\xampp\\htdocs\\TercerCodeigniter\\app\\Views\\user_listView2.php', 52)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\TercerCodeigniter\\app\\Views\\user_listView2.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('user_listView2', [], true)
+ 5 APPPATH\Controllers\UserController.php(8): view('user_listView2', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\UserController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2025-01-28 12:00:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-01-28 12:00:47 --> ErrorException: Undefined variable $pager
+[Method: GET, Route: users]
+in APPPATH\Views\user_listView2.php on line 52.
+ 1 APPPATH\Views\user_listView2.php(52): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $pager', 'C:\\xampp\\htdocs\\TercerCodeigniter\\app\\Views\\user_listView2.php', 52)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\TercerCodeigniter\\app\\Views\\user_listView2.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('user_listView2', [], true)
+ 5 APPPATH\Controllers\UserController.php(8): view('user_listView2', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\UserController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2025-01-28 12:00:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-01-28 12:00:48 --> ErrorException: Undefined variable $pager
+[Method: GET, Route: users]
+in APPPATH\Views\user_listView2.php on line 52.
+ 1 APPPATH\Views\user_listView2.php(52): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $pager', 'C:\\xampp\\htdocs\\TercerCodeigniter\\app\\Views\\user_listView2.php', 52)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\TercerCodeigniter\\app\\Views\\user_listView2.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('user_listView2', [], true)
+ 5 APPPATH\Controllers\UserController.php(8): view('user_listView2', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\UserController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
