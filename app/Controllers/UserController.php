@@ -8,6 +8,8 @@ class UserController extends BaseController{
         // Aplicar filtro (query) con un nombre introducido
         if($name){
             $query=$userModel->like('name',$name);
+        }else{
+            $query=$userModel->like("name");
         }
         // $perPage=10;
         $perPage=3; //NUEVO NUMERO DE PAGINA: 3 elementos/pagina

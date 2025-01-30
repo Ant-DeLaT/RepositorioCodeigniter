@@ -2,14 +2,14 @@
 namespace App\Models;
 use CodeIgniter\Model;
 class UserModel extends Model{
-    protected $table='users';
-    // Nombre tabla
+    protected $table='userbase';
+    // TABLE NAME, CHANGE IF TABLE CHANGED
     protected $primaryKey='id';
-    // Clave primaria 
+    // Primary key 
     protected $useTimestamps=true;
-    // Habilitamos el uso de las marcas de tiempo automáticas (created_at, updated_at)
+    // We allow the use of time (date + currentTime)
     protected $allowedFields=['name',"email","password","created_at"];
-    // Campos permitidos para insetar/actualizar
+    // Fields to update/create to
     /**
     *   Método personalizado para encontrar un usuario por correo electrónico.
     *   @param string $email El correo que se desea buscar
