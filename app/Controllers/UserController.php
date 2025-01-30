@@ -4,7 +4,16 @@ use App\Models\UserModel;
 class UserController extends BaseController{
     public function index() {
         $userModel=new UserModel();
-        $data['users']=$userModel->findAll(); //Obtener todos los usuarios
+        $name=$this->request->getVar('name');//Búsqueda desde formulario
+        // Aplicar filtro (query) con un nombre introducido
+        if($name){
+            $query=$userModel->like('name',$name);
+        }
+        // $perPage=10;
+        $perPage=3; //NUEVO NUMERO DE PAGINA: 3 elementos/pagina
+        // $data['users']=$userModel->findAll(); //Obtener todos los usuarios
+        $data['users']=$query->paginate($perPage);
+        $data['pager']=$userModel->pager;// Pasar el objeto del paginador a la vista
         return view('user_listView2',$data);
     }
     public function saveUser($id=null){
