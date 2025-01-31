@@ -1285,8 +1285,9 @@ abstract class BaseModel
         $perPage     = $this->pager->getPerPage($group);
         $offset      = ($pager->getCurrentPage($group) - 1) * $perPage;
 
-        return $this->findAll($perPage, $offset);
+        return $this->findAll($perPage, intval($offset));
     }
+    // CHANGED $OFFSET: added intval
 
     /**
      * It could be used when you have to change default or override current allowed fields.
