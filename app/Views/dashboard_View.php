@@ -19,8 +19,9 @@
         </script>
     <?php endif; ?>
 
-    <a href="<?= base_url('users/save') ?>" class="btn btn-primary mb-3">Crear Usuario</a>
+    <a href="<?= base_url('users/save') ?>" class="btn btn-primary mb-3">Create user</a>
 
+    <a href="<?= base_url('logout') ?>" class="btn btn-danger mb-3">Close session</a>
     <?php if (!empty($users) && is_array($users)): ?>
         <table class="table table-bordered">
             <thead>
@@ -41,8 +42,8 @@
                         <td><?= esc($user['email']) ?></td>
                         <td><?= esc($user['password']) ?></td>
                         <td><?= esc($user['role']) ?></td>
-                        <td><?= esc($user['Created_at'])?></td>
-                        <td><?= esc($user['Deleted_at'])?></td>
+                        <td><?= esc($user['created_at'])?></td>
+                        <td><?= esc($user['deleted_at'])?></td>
                         <td>
                             <a href="<?= base_url('users/save/' . $user['id']) ?>" class="btn btn-warning">Editar</a>
                             <a href="<?=base_url('users/delete/') . esc($user['id']) ?>" 

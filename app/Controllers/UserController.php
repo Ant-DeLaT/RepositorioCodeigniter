@@ -16,7 +16,7 @@ class UserController extends BaseController{
         // $data['users']=$userModel->findAll(); //Obtener todos los usuarios
         $data['users']=$query->paginate($perPage);
         $data['pager']=$userModel->pager;// Pasar el objeto del paginador a la vista
-        return view('user_listView2',$data);
+        return view('dashboard_View',$data);
     }
     public function saveUser($id=null){
         $userModel=new UserModel();
