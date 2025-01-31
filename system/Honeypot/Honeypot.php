@@ -111,11 +111,10 @@ class Honeypot
     {
         $template = str_ireplace('{label}', $this->config->label, $template);
         $template = str_ireplace('{name}', $this->config->name, $template);
-
+        
         if ($this->config->hidden) {
             $template = str_ireplace('{template}', $template, $this->config->container);
         }
-
         return $template;
     }
 }

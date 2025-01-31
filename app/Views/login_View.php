@@ -18,7 +18,7 @@
     <?php endif; ?>
 
     <!-- Formulario -->
-    <form action="<?= base_url('ProcessLogin')  ?>" method="post">
+    <form action="<?= base_url('login/process')  ?>" method="post">
         <?= csrf_field(); ?>
         <!-- <div class="mb-3">
             <label for="name" class="form-label">Nombre</label>
