@@ -18,20 +18,26 @@
     <?php endif; ?>
 
     <!-- Formulario -->
-    <form action="<?= isset($user) ? base_url('users/save/') . $user['id'] : base_url('users/save') ?>" method="post">
+    <form action="<?= base_url('ProcessLogin')  ?>" method="post">
         <?= csrf_field(); ?>
-        <div class="mb-3">
+        <!-- <div class="mb-3">
             <label for="name" class="form-label">Nombre</label>
             <input type="text" name="name" id="name" class="form-control" 
-                   value="<?= isset($user) ? esc($user['name']) : '' ?>" required>
+                    required> -->
         </div>
         <div class="mb-3">
             <label for="email" class="form-label">Email</label>
             <input type="email" name="email" id="email" class="form-control" 
-                   value="<?= isset($user) ? esc($user['email']) : '' ?>" required>
+                   required>
         </div>
-        <button type="submit" class="btn btn-success"><?= isset($user) ? 'Actualizar' : 'Guardar' ?></button>
-        <a href="<?= base_url('users') ?>" class="btn btn-secondary">Cancelar</a>
+            <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" name="password" id="password" class="form-control" 
+                    required>
+        </div>
+        <button type="submit" class="btn btn-success">Login</button>
+        <a href="<?= base_url('register') ?>" class="btn btn-link">¿Still not registered?</a>
+        <a href="<?= base_url('users') ?>" class="btn btn-link">"Dashboard view"</a>
     </form>
 </div>
 </body>

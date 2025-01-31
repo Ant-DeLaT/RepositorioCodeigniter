@@ -29,7 +29,8 @@ class UserController extends BaseController{
             $validation= \Config\Services::validation();
             $validation->setRules([
                 "name"=>'required|min_length[3]|max_length[50]',
-                "email"=>'required|valid|is_unique[users.email]'
+                "email"=>'required|valid|is_unique[users.email]',
+                "password"=>'required|min_length[3]|max_length[50]',
             ]);
             if (!$validation->withRequest($this->request)->run()) {
                 //Mostrar errores de validacion
@@ -37,7 +38,9 @@ class UserController extends BaseController{
             }else{
                 $userData=[
                     'name'=>$this->request->getPost('name'),
-                    'email'=>$this->request->getPost('email')
+                    'email'=>$this->request->getPost('email'),
+                    'password'=>$this->request->getPost('password'),
+                    'role'=>$this->request->getPost('role')
                 ];
                 if($id){
                     // Actualizar usuario existente
@@ -56,7 +59,12 @@ class UserController extends BaseController{
     }
     public function delete($id)  {
         $userModel=new UserModel();
-        $userModel->delete($id); //Eliminar usuario
+        // $userModel->delete($id); //Eliminar usuario
+        $userData=[
+            'deleted_at'=>$this->request->getPost("current_timestamp()")
+        ];
+        $userModel->update($id,$userData["deleted_at"]);
+
         return redirect()->to('/users')->with('success','Usuario eliminado correctamente');
     }
 }

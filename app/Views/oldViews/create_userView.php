@@ -18,10 +18,10 @@
     <?php endif; ?>
 
     <!-- Formulario -->
-    <form action="<?= isset($user) ? base_url('users/save/') . $user['id'] : base_url('users/save') ?>" method="post">
+    <form action="<?= isset($user) ? base_url('home/create') . $user['id'] : base_url('users/save') ?>" method="post">
         <?= csrf_field(); ?>
         <div class="mb-3">
-            <label for="name" class="form-label">Name</label>
+            <label for="name" class="form-label">Nombre</label>
             <input type="text" name="name" id="name" class="form-control" 
                    value="<?= isset($user) ? esc($user['name']) : '' ?>" required>
         </div>
@@ -29,16 +29,6 @@
             <label for="email" class="form-label">Email</label>
             <input type="email" name="email" id="email" class="form-control" 
                    value="<?= isset($user) ? esc($user['email']) : '' ?>" required>
-        </div>
-        <div class="mb-3">
-            <label for="password" class="form-label">Password</label>
-            <input type="password" name="password" id="password" class="form-control" 
-                   value="<?= isset($user) ? esc($user['password']) : '' ?>" required>
-        </div>
-        <div class="mb-3">
-            <label for="role" class="form-label">Role</label>
-            <input type="text" name="role" id="role" class="form-control" 
-                   value="<?= isset($user) ? esc($user['role']) : '' ?>">
         </div>
         <button type="submit" class="btn btn-success"><?= isset($user) ? 'Actualizar' : 'Guardar' ?></button>
         <a href="<?= base_url('users') ?>" class="btn btn-secondary">Cancelar</a>

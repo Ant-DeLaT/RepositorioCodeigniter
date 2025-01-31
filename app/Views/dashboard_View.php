@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Listado de Usuarios</title>
+    <title>Listed Users</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet">
 </head>
@@ -11,7 +11,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 <body>
 <div class="container mt-5">
-    <h1 class="text-center">Listado de Usuarios</h1>
+    <h1 class="text-center">User List</h1>
 
     <?php if (session()->getFlashdata('success')): ?>
         <script>
@@ -26,8 +26,10 @@
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Nombre</th>
+                    <th>Name</th>
                     <th>Email</th>
+                    <th>Password</th>
+                    <th>Role</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
@@ -37,6 +39,10 @@
                         <td><?= esc($user['id']) ?></td>
                         <td><?= esc($user['name']) ?></td>
                         <td><?= esc($user['email']) ?></td>
+                        <td><?= esc($user['password']) ?></td>
+                        <td><?= esc($user['role']) ?></td>
+                        <td><?= esc($user['Created_at'])?></td>
+                        <td><?= esc($user['Deleted_at'])?></td>
                         <td>
                             <a href="<?= base_url('users/save/' . $user['id']) ?>" class="btn btn-warning">Editar</a>
                             <a href="<?=base_url('users/delete/') . esc($user['id']) ?>" 

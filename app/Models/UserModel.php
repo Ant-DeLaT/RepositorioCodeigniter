@@ -8,7 +8,7 @@ class UserModel extends Model{
     // Primary key 
     protected $useTimestamps=true;
     // We allow the use of time (date + currentTime)
-    protected $allowedFields=['name',"email","password","created_at"];
+    protected $allowedFields=['name',"email","password","created_at","deleted_at"];
     // Fields to update/create to
     /**
     *   Método personalizado para encontrar un usuario por correo electrónico.
