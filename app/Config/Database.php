@@ -30,7 +30,7 @@ class Database extends Config
         'username'     => '',
         'password'     => '',
 
-        'database'     => 'infern_base', // CAMBIAR PARA INDICAR QUE BASE DE DATOS USAR
+        'database'     => 'infern_base', // CHANGE IF DATABASE CHANGE
 
         'DBDriver'     => 'MySQLi',
         'DBPrefix'     => '',

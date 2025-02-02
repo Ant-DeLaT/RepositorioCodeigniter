@@ -31,6 +31,8 @@
                     <th>Email</th>
                     <th>Password</th>
                     <th>Role</th>
+                    <th>Created_at</th>
+                    <th>Deleted_at</th>
                     <th>Acciones</th>
                 </tr>
             </thead>

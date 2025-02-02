@@ -18,7 +18,7 @@ class App extends BaseConfig
      */
 
     //  PAGINA WEB BASE
-     public string $baseURL = 'http://localhost:8080/TercerCodeigniter/public';
+     public string $baseURL = 'http://localhost:8080/RepositorioCodeigniter/public';
 
     /**
      * Allowed Hostnames in the Site URL other than the hostname in the baseURL.
@@ -95,7 +95,7 @@ class App extends BaseConfig
      * strings (like currency markers, numbers, etc), that your program
      * should run under for this request.
      */
-    public string $defaultLocale = 'en';
+    public string $defaultLocale = 'es';
 
     /**
      * --------------------------------------------------------------------------
@@ -122,7 +122,7 @@ class App extends BaseConfig
      *
      * @var list<string>
      */
-    public array $supportedLocales = ['en'];
+    public array $supportedLocales = ['en','es'];
 
     /**
      * --------------------------------------------------------------------------
