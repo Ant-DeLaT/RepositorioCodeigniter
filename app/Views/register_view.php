@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= isset($user) ? 'Editar Usuario' : 'Crear Usuario' ?></title>
+    <title> Create account </title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 </head>
 <body>
 <div class="container mt-5">
-    <h1 class="text-center"><?= isset($user) ? 'Editar Usuario' : 'Crear Usuario' ?></h1>
+    <h1 class="text-center">Register</h1>
 
     <!-- Mostrar errores de validación -->
     <?php if (isset($validation)): ?>
@@ -36,7 +36,7 @@
                     required>
         </div>
         <button type="submit" class="btn btn-success">Register</button>
-        <a href="<?= base_url('register') ?>" class="btn btn-link">¿Still not registered?</a>
+        <a href="<?= base_url('login') ?>" class="btn btn-link">¿Already registered?</a>
         <a href="<?= base_url('users') ?>" class="btn btn-link">"Dashboard view"</a>
     </form>
 </div>

@@ -1,4 +1,5 @@
 <?php
+namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\UserModel;
@@ -29,7 +30,7 @@ class AuthController extends BaseController{
 
         // Si la validación falla, volvemos a mostrar el formulario con los errores.
         if (!$this->validate($rules)) {
-            return view('register_view', [
+            return view('register_View', [
                 'validation' => $this->validator, // Pasamos los errores de validación a la vista.
             ]);
         }
@@ -57,7 +58,8 @@ class AuthController extends BaseController{
     /**
      * Procesa el inicio de sesión del usuario.
      */
-    public function processLogin()
+    // public function processLogin()
+    public function loginProcess()
     {
         helper(['form', 'url']); // Carga los helpers necesarios para trabajar con formularios y URLs.
         $session = session(); // Inicia una sesión para el usuario.
@@ -90,11 +92,12 @@ class AuthController extends BaseController{
             ]);
 
             // Redirigimos a la página de inicio con un mensaje de éxito.
-            return redirect()->to('/dashboard')->with('success', 'Inicio de sesión exitoso.');
+            return redirect()->to('/users')->with('success', 'Inicio de sesión exitoso.');
         }
 
         // Si las credenciales son incorrectas, mostramos un mensaje de error.
-        return redirect()->to('/login')->with('error', 'Correo o contraseña incorrectos.');
+        
+        return redirect()->to('/login')->with('error', 'Incorrect Email or Password.');
     }
 
     /**
