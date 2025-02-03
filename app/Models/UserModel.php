@@ -18,4 +18,16 @@ class UserModel extends Model{
     public function findByEmail(string $email){
         return $this->where('email',$email)->first();
     }
+    public function findByName(string $name){
+        return $this->where('name',$name)->first();
+    }
+    public function findByPassword(string $pasw){
+        return $this->where('password',$pasw)->first();
+    }
+    public function findByCreation(string $created){
+        return $this->where('creation_at',$created)->first();
+    }
+    public function findByDeletion(string $delete){
+        return $this->where('deleted_at',$delete)->first();
+    }
 }

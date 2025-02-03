@@ -23,7 +23,9 @@ $routes->get('/users/delete(:num)', 'UserController::delete/$1'); //Eliminar usu
 
 // PROCESAR LOGIN/REGISTER
 $routes->get('/login', 'AuthController::login'); //Página de login
+$routes->get('/logina', 'AuthController::logina'); //Second login; TEMP
 $routes->post('/login/process', 'AuthController::loginProcess'); //Procesar login
-$routes->get('/register', 'AuthController::register'); //Página de registro
+$routes->get('/register', 'AuthController::register');//Página de registro
+$routes->get('/registera', 'AuthController::registera'); //Second register; TEMP
 $routes->post('/register/process', 'AuthController::registerProcess'); //Procesar registro
 $routes->get('/logout', 'AuthController::logout'); //Cerrar sesión

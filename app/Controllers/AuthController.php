@@ -12,6 +12,11 @@ class AuthController extends BaseController{
     {
         return view('register_View'); // Carga y retorna la vista del formulario de registro.
     }
+    public function registera()
+    {
+        return view('register_View2'); // Carga y retorna la vista del formulario de registro.
+    }
+
 
     /**
      * Procesa el registro de un nuevo usuario.
@@ -54,7 +59,11 @@ class AuthController extends BaseController{
     {
         return view('login_View'); // Carga y retorna la vista del formulario de inicio de sesión.
     }
-
+    public function logina()
+    {
+        return view('login_View2'); // Carga y retorna la vista del formulario de inicio de sesión.
+    }
+    
     /**
      * Procesa el inicio de sesión del usuario.
      */

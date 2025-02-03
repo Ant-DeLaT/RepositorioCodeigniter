@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,15 +18,64 @@
             toastr.success('<?= session()->getFlashdata('success'); ?>');
         </script>
     <?php endif; ?>
+<div class="row">
+        <div class="col-xl-6">
+        <a href="<?= base_url('users/save') ?>" class="btn btn-primary mb-3">Create user</a>
+        </div>
+        <div class="col-xl-6">
+        <a href="<?= base_url('logout') ?>" class="btn btn-danger mb-3" style="left=90%">Close session</a>
+        </div>
+</div>
+    <br>
+    <input type="text" name="ask" id="whName" placeholder="Name">
+    <!-- <button class="btn btn-secondary" id="btnName">Search</button> -->
+    &nbsp;
+    <input type="text" name="ask" id="whEmail" placeholder="Email">
+    <!-- <button class="btn btn-secondary" id="btnEmail">Search</button> -->
+    &nbsp;
+    <input type="text" name="ask" id="whPassword" placeholder="Password">
+    <!-- <button class="btn btn-secondary" id="btnPassword">Search</button> -->
+    &nbsp;
+    <select  id="whRole">
+        <option value="admin">
+            Administrator
+        </option>
+        <option value="mod">
+            Moderator
+        </option>
+        <option value="user">
+            User
+        </option>
+        <option value="any" selected>
+            Any
+        </option>
+    </select>
+    <!-- <button class="btn btn-secondary" id="btnRole">Search</button> -->
 
-    <a href="<?= base_url('users/save') ?>" class="btn btn-primary mb-3">Create user</a>
-
-    <a href="<?= base_url('logout') ?>" class="btn btn-danger mb-3">Close session</a>
+    &nbsp;
+    <input type="date" name="ask" id="whCreated_at" placeholder="Created_at">
+    <!-- <button class="btn btn-secondary" id="btnCreated_at">Use Filter</button>
+    <button class="btn btn-danger" id="noCreated_at">Remove Filter</button> -->
+    &nbsp;
+    <select name="ask" id="whDeleted_at">
+        <option value="notDeleted">
+        Allowed
+        </option>
+        <option value="deleted">
+        Deleted
+        </option>
+        <option value="all" selected>
+        All
+        </option>
+    </select>
+    <!-- <button class="btn btn-secondary" id="btnDeleted_at">Search</button> -->
+    <a href="#" class="btn btn-secondary" id="btnUseFilter">Use Filter</a>
+    <a href="#" class="btn btn-danger" id="btnNotFilter">Remove Filter</a>
     <?php if (!empty($users) && is_array($users)): ?>
         <table class="table table-bordered">
             <thead>
                 <tr>
-                    <th>ID</th>
+                    <!-- <th>ID</th> -->
                     <th>Name</th>
                     <th>Email</th>
                     <th>Password</th>
@@ -39,7 +88,7 @@
             <tbody>
                 <?php foreach ($users as $user): ?>
                     <tr>
-                        <td><?= esc($user['id']) ?></td>
+                        <!-- <td>< ?= esc($user['id']) ?></td> -->
                         <td><?= esc($user['name']) ?></td>
                         <td><?= esc($user['email']) ?></td>
                         <td><?= esc($user['password']) ?></td>
