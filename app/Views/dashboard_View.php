@@ -27,7 +27,12 @@
         </div>
 </div>
     <br>
-    <input type="text" name="ask" id="whName" placeholder="Name">
+    <form method="GET" action="<?= base_url('users')?>" class="mb-3">
+    <div class="input group w auto">
+        <input type="text" name="ask" class="form-control" id="Name" placeholder="Name" value="<?= $name ?>">
+        <button type="submit">BUSCAR</button>
+    </div>
+    </form>
     <!-- <button class="btn btn-secondary" id="btnName">Search</button> -->
     &nbsp;
     <input type="text" name="ask" id="whEmail" placeholder="Email">
@@ -71,6 +76,7 @@
     <!-- <button class="btn btn-secondary" id="btnDeleted_at">Search</button> -->
     <a href="#" class="btn btn-secondary" id="btnUseFilter">Use Filter</a>
     <a href="#" class="btn btn-danger" id="btnNotFilter">Remove Filter</a>
+
     <?php if (!empty($users) && is_array($users)): ?>
         <table class="table table-bordered">
             <thead>
@@ -105,9 +111,13 @@
                 <?php endforeach; ?>
             </tbody>
         </table>
+        <div class="mt-4">
+            <?= $pager->links("default","custom_pagination"); ?>
+        </div>
     <?php else: ?>
         <p class="text-center">No hay usuarios registrados.</p>
     <?php endif; ?>
 </div>
+
 </body>
 </html>
