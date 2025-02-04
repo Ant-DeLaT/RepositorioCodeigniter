@@ -19,7 +19,7 @@ $routes->get('/users/save', 'UserController::saveUser'); //Mostrar formulario pa
 $routes->get('/users/save/(:num)', 'UserController::saveUser/$1'); //Mostrar formulario para editar usuario
 $routes->get('/users/save/', 'UserController::saveUser');// Crear usuario (POST)
 $routes->get('/users/save/(:num)', 'UserController::saveUser/$1'); //Editar usuario (POST)
-$routes->get('/users/delete(:num)', 'UserController::delete/$1'); //Eliminar usuario
+$routes->get('/users/delete/(:num)', 'UserController::delete/$1'); //Eliminar usuario
 
 // PROCESAR LOGIN/REGISTER
 $routes->get('/login', 'AuthController::login'); //Página de login

@@ -8,19 +8,23 @@ class AuthController extends BaseController{
   /**
      * Muestra el formulario de registro de usuario.
      */
+ 
+ 
     public function register()
     {
         return view('register_View'); // Carga y retorna la vista del formulario de registro.
     }
-    public function registera()
-    {
-        return view('register_View2'); // Carga y retorna la vista del formulario de registro.
-    }
+    // public function registera()
+    // {
+    //     return view('register_View2'); // Carga y retorna la vista del formulario de registro.
+    // }
 
 
     /**
      * Procesa el registro de un nuevo usuario.
      */
+
+
     public function processRegister()
     {
         helper(['form', 'url']); // Carga los helpers necesarios para trabajar con formularios y URLs.
@@ -55,14 +59,15 @@ class AuthController extends BaseController{
     /**
      * Muestra el formulario de inicio de sesión.
      */
+
     public function login()
     {
         return view('login_View'); // Carga y retorna la vista del formulario de inicio de sesión.
     }
-    public function logina()
-    {
-        return view('login_View2'); // Carga y retorna la vista del formulario de inicio de sesión.
-    }
+    // public function logina()
+    // {
+    //     return view('login_View2'); // Carga y retorna la vista del formulario de inicio de sesión.
+    // }
     
     /**
      * Procesa el inicio de sesión del usuario.
@@ -70,6 +75,8 @@ class AuthController extends BaseController{
     // public function processLogin()
     public function loginProcess()
     {
+        echo"<alert>('LOGIN')</alert>";
+
         helper(['form', 'url']); // Carga los helpers necesarios para trabajar con formularios y URLs.
         $session = session(); // Inicia una sesión para el usuario.
 
@@ -110,9 +117,10 @@ class AuthController extends BaseController{
     }
 
     /**
-     * Cierra la sesión del usuario.
+     * Closes user session
      */
-    public function logout()
+    
+       public function logout()
     {
         $session = session(); // Inicia o accede a la sesión.
         $session->destroy(); // Destruye todos los datos de la sesión.

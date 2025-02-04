@@ -1,0 +1,6 @@
+main>.container{
+    padding: 20px 30px 0;
+}
+input{
+    grid-row: auto;
+}
