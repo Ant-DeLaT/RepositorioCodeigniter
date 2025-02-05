@@ -37,7 +37,7 @@ class UserController extends BaseController{
         
         if($this->request->getMethod()=="POST"){
 
-            //Reglas de validación
+            //Validation rules
             $validation= \Config\Services::validation();
             $validation->setRules([
                 "name"=>'required|min_length[3]|max_length[50]',
@@ -85,5 +85,13 @@ class UserController extends BaseController{
         // $userModel->update($id,$userData["deleted_at"]);
         return redirect()->to('/users')->with('success','Usuario eliminado correctamente');
     }
-    
+    public function restore($id)  {
+        $userModel=new UserModel();
+        $userModel->where('id',$id)->update(["deleted_at"=>null]); //Eliminar usuario
+        // $userData=[
+        //     'deleted_at'=>$this->request->getPost("current_timestamp()")
+        // ];
+        // $userModel->update($id,$userData["deleted_at"]);
+        return redirect()->to('/users')->with('success','Usuario eliminado correctamente');
+    }
 }

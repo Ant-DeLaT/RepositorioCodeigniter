@@ -8,11 +8,11 @@ class UserModel extends Model{
     // Primary key 
     protected $useAutoIncrement = true;
     protected $useSoftDeletes=true;
-    protected $allowedFields=['name',"email","password","created_at","updated_at","deleted_at"];
+    protected $allowedFields=['name',"email","password","created_at","deleted_at"];
     protected bool $allowEmptyInserts = false;
     // protected bool $updateOnlyChanged = true;
     // We allow the use of time (date + currentTime)
-    protected $useTimestamps=true;
+    protected $useTimestamps=false;
     
     // Validation 
     protected $validationRules      = ['"name".length()>4','"email".length()>8','"email".contains(@)'];
@@ -26,9 +26,9 @@ class UserModel extends Model{
     *   @param string $email El correo que se desea buscar
     *   @param array|null Retorna un array con los datos del usuario si lo encuentra, o null si no existe.
      */
-    // public function showAll(){
-    //     return $this->withDeleted()->findAll();
-    // }
+    public function showAll(){
+        return $this->withDeleted()->findAll();
+    }
     public function findByEmail(string $email){
         return $this->where('email',$email)->first();
     }

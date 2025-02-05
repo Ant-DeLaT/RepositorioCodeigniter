@@ -92,7 +92,7 @@
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($users as $user): ?>
+                <?php foreach ($users as $user):?>
                     <tr>
                         <!-- <td>< ?= esc($user['id']) ?></td> -->
                         <td><?= esc($user['name']) ?></td>
@@ -102,13 +102,19 @@
                         <td><?= esc($user['created_at'])?></td>
                         <td><?= esc($user['deleted_at'])?></td>
                         <td>
-                            <a href="<?= base_url('users/save/' . $user['id']) ?>" class="btn btn-warning">Editar</a>
-                            <a href="<?=base_url('users/delete/') . esc($user['id']) ?>" 
-                               class="btn btn-danger btn-sm"
-                               onclick="return confirm('¿Estás seguro de eliminar este usuario?');">Eliminar</a>
+                            <a href="<?= base_url('users/save/' . $user['id']) ?>" class="btn btn-warning btn-sm">Edit</a>
+                            <?php if(esc($user['deleted_at'])==""): ?>
+                                        <a href="<?= base_url("users/delete/") . esc($user["id"]) ?>" 
+                                        class='btn btn-danger btn-sm'
+                                        onclick='return confirm("Are you sure you want to delete this user?")'>Erase</a>
+                                    <?php else:?>
+                                     <a href="<?=base_url("users/restore/") . esc($user["id"])?>"
+                                         class='btn btn-success btn-sm'
+                                         onclick='return confirm("Do you really want to restore this user?")'>Restore</a>
+                                 <?php endif?>
                         </td>
                     </tr>
-                <?php endforeach; ?>
+                <?php endforeach ?>
             </tbody>
         </table>
         <div class="mt-4">

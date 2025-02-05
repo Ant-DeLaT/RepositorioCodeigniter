@@ -38,22 +38,29 @@ class AuthController extends BaseController{
         ];
 
         // Si la validación falla, volvemos a mostrar el formulario con los errores.
-        if (!$this->validate($rules)) {
-            return view('register_View', [
-                'validation' => $this->validator, // Pasamos los errores de validación a la vista.
-            ]);
-        }
+            
+            // if (!$this->validate($rules)) {
+            // return view('register_View', [
+            //     'validation' => $this->validator, // Pasamos los errores de validación a la vista.
+            // ]);
 
+        if ($this->validate($rules)) {
         // Si la validación pasa, procedemos a guardar el usuario en la base de datos.
-        $userModel = new UserModel();
-        $userModel->save([
-            'name' => $this->request->getPost('name'), // Obtenemos el nombre del formulario.
-            'email' => $this->request->getPost('email'), // Obtenemos el correo del formulario.
-            'password' => password_hash($this->request->getPost('password'), PASSWORD_DEFAULT), // Encriptamos la contraseña antes de guardarla.
-        ]);
+        $userModel = new UserModel();    
+            // ->save
+            $data=([
+                'name' => $this->request->getPost('name'), // Obtenemos el nombre del formulario.
+                'email' => $this->request->getPost('email'), // Obtenemos el correo del formulario.
+                'password' => password_hash($this->request->getPost('password'), PASSWORD_DEFAULT), // Encriptamos la contraseña antes de guardarla.
+            ]);
+            $userModel->save($data);
 
-        // Redirigimos al formulario de inicio de sesión con un mensaje de éxito.
-        return redirect()->to('/login')->with('success', 'Usuario registrado correctamente.');
+            // Redirigimos al formulario de inicio de sesión con un mensaje de éxito.
+            return redirect()->to('/login')->with('success', 'The user has been properly signed-up.');
+        }else{
+            echo "<script>alert('DIDN'T REGISTER ')</script>";
+            return redirect()->to("/register")->with("error","NO USER DETECTED");
+    }
     }
 
     /**
@@ -72,11 +79,11 @@ class AuthController extends BaseController{
     /**
      * Procesa el inicio de sesión del usuario.
      */
-    // public function processLogin()
-    public function loginProcess()
+    /**
+     * @return \CodeIgniter\HTTP\RedirectResponse|string
+     */
+    public function loginProcess()    
     {
-        echo"<alert>('LOGIN')</alert>";
-
         helper(['form', 'url']); // Carga los helpers necesarios para trabajar con formularios y URLs.
         $session = session(); // Inicia una sesión para el usuario.
 
