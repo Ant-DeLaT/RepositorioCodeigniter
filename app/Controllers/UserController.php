@@ -1,5 +1,5 @@
 <?php
-
+// include "conn.php";
 namespace App\Controllers;
 use App\Models\UserModel;
 class UserController extends BaseController{
@@ -87,7 +87,13 @@ class UserController extends BaseController{
     }
     public function restore($id)  {
         $userModel=new UserModel();
-        $userModel->where('id',$id)->update(["deleted_at"=>null]); //Eliminar usuario
+        $userModel->where('id',$id)->update( ["deleted_at"=>null]); //Eliminar usuario
+        // $sql="UPDATE userbase SET deleted_at=null WHERE id=$id";
+        // if($conn->query($sql)===TRUE){
+        //     log_message("info","user restored");
+        // }else{
+        //     log_message("debug","user not restored");
+        // }
         // $userData=[
         //     'deleted_at'=>$this->request->getPost("current_timestamp()")
         // ];

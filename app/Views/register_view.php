@@ -22,17 +22,22 @@
         <?= csrf_field(); ?>
         <div class="mb-3">
             <label for="name" class="form-label">Nombre</label>
-            <input type="text" name="name" id="name" class="form-control" 
+            <input type="text" name="name" id="name" class="form-control" placeholder="Nombre"
                     required>
         </div>
         <div class="mb-3">
             <label for="email" class="form-label">Email</label>
-            <input type="email" name="email" id="email" class="form-control" 
+            <input type="email" name="email" id="email" class="form-control" placeholder="Email"
                    required>
         </div>
             <div class="mb-3">
             <label for="password" class="form-label">Password</label>
-            <input type="password" name="password" id="password" class="form-control" 
+            <input type="password" name="password" id="password" class="form-control" placeholder="Password"
+                    required>
+        </div>
+        <div class="mb-3">
+            <label for="password_confirm" class="form-label">Repeat password</label>
+            <input type="password" name="password_confirm" id="password_confirm" class="form-control" placeholder="Repeat password"  
                     required>
         </div>
         <button type="submit" class="btn btn-success">Register</button>

@@ -21,7 +21,9 @@ class Home extends BaseController
             $rules=[
                 // PUEDE QUE SEAN COMILLAS SIMPLES
                 "name"=>'required|min_length[3]|max_length[100]',
-                "email"=>'required|valid|is_unique[users.email]'
+                // userbase TABLE OF USERS, CHANGE IF NEEDED
+                "email"=>'required|valid|is_unique[userbase.email]'
+                
             ];
             $messages=[
                 "name"=>[
@@ -32,7 +34,8 @@ class Home extends BaseController
                 "email"=>[
                     'required'=>'El campo Correo Electrónico es obligatorio.',
                     'valid'=>'El correo electrónico no tiene un formato obligatorio',
-                    'is_unique[users.email]'=>'El correo electrónico ya está registrado'
+                    // userbase TABLE OF USERS, CHANGE IF NEEDED
+                    'is_unique[userbase.email]'=>'El correo electrónico ya está registrado'
                 ]
             ];
             if(!$this->validate($rules,$messages)){
@@ -57,6 +60,6 @@ class Home extends BaseController
         $userModel=new \App\Models\UserModel();
         // Usa el modelo para crear una variable que se pueda usar
         $users= $userModel->findAll(); //Obtiene todos los registros
-        return view('user_listView',['users'=> $users]); 
+        return view('user_listView',['userbase'=> $users]); 
     }
 }

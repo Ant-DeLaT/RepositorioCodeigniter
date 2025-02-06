@@ -25,14 +25,14 @@ class AuthController extends BaseController{
      */
 
 
-    public function processRegister()
+    public function registerProcess ()
     {
         helper(['form', 'url']); // Carga los helpers necesarios para trabajar con formularios y URLs.
 
         // Configuración de las reglas de validación del formulario.
         $rules = [
             'name' => 'required|min_length[3]|max_length[50]', // El nombre es obligatorio y debe tener entre 3 y 50 caracteres.
-            'email' => 'required|valid_email|is_unique[users.email]', // El correo debe ser válido y único en la tabla `users`.
+            'email' => 'required|valid_email|is_unique[userbase.email]', // El correo debe ser válido y único en la tabla `users`.
             'password' => 'required|min_length[6]', // La contraseña debe ser obligatoria y tener al menos 6 caracteres.
             'password_confirm' => 'required|matches[password]', // La confirmación de la contraseña debe coincidir con la contraseña.
         ];
@@ -58,7 +58,6 @@ class AuthController extends BaseController{
             // Redirigimos al formulario de inicio de sesión con un mensaje de éxito.
             return redirect()->to('/login')->with('success', 'The user has been properly signed-up.');
         }else{
-            echo "<script>alert('DIDN'T REGISTER ')</script>";
             return redirect()->to("/register")->with("error","NO USER DETECTED");
     }
     }
