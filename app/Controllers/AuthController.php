@@ -94,7 +94,7 @@ class AuthController extends BaseController{
         ];
 
         // Si la validación falla, volvemos a mostrar el formulario con los errores.
-        if (!$this->validate($rules)) {
+        if (!($this->validate($rules))) {
             return view('login_View', [
                 'validation' => $this->validator, // Pasamos los errores de validación a la vista.
             ]);
