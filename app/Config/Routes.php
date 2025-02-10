@@ -31,3 +31,7 @@ $routes->get('/register', 'AuthController::register');//Página de registro
 // $routes->get('/registera', 'AuthController::registera'); //Second register; TEMP
 $routes->post('/register/process', 'AuthController::registerProcess'); //Procesar registro
 $routes->get('/logout', 'AuthController::logout'); //Cerrar sesión
+
+
+$routes->get('/exportExcel', 'ExcelProcessor::export'); // Exports excel 
+$routes->get('/importExcel', 'ExcelProcessor::import'); // Imports information from excels

@@ -1,3 +1,25 @@
+<?php
+require "conn.php";
+if ($_SERVER["REQUEST_METHOD"] == "GET") {
+    $name=$_GET['whName']??"";
+    $email=$_GET['whEmail']??"";
+    $password=$_GET['whPassword']??"";
+    $role=$_GET['$whRole']??"";
+    $created_at=$_GET['whCreated_at']??"";
+    $isDeleted=$_GET['isDeleted']??"";
+//VARIABLES END
+
+
+
+
+
+
+
+  }
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -27,10 +49,11 @@
         </div>
 </div>
     <br>
+    <!-- FORM -> GET -->
     <form method="GET" action="<?= base_url('users')?>" class="mb-3">
     <div class="input group w auto">
-        <input type="text" name="ask" class="form-control" id="Name" placeholder="Name" value="<?= $name ?>">
-        <button type="submit">BUSCAR</button>
+        <input type="text" name="ask" class="form-control" id="whName" placeholder="Name" value="<?= $name ?>">
+        <!-- <button type="submit">SEARCH</button> -->
     </div>
     </form>
     <!-- <button class="btn btn-secondary" id="btnName">Search</button> -->
@@ -45,7 +68,7 @@
         <option value="admin">
             Administrator
         </option>
-        <option value="mod">
+        <option value="moderator">
             Moderator
         </option>
         <option value="user">
@@ -62,8 +85,8 @@
     <!-- <button class="btn btn-secondary" id="btnCreated_at">Use Filter</button>
     <button class="btn btn-danger" id="noCreated_at">Remove Filter</button> -->
     &nbsp;
-    <select name="ask" id="whDeleted_at">
-        <option value="notDeleted">
+    <select name="ask" id="isDeleted">
+        <option value="allowed">
         Allowed
         </option>
         <option value="deleted">
@@ -74,8 +97,8 @@
         </option>
     </select>
     <!-- <button class="btn btn-secondary" id="btnDeleted_at">Search</button> -->
-    <a href="#" class="btn btn-secondary" id="btnUseFilter">Use Filter</a>
-    <a href="#" class="btn btn-danger" id="btnNotFilter">Remove Filter</a>
+    <button type="submit" class="btn btn-secondary" id="btnUseFilter">Use Filter</button>
+    <a href="dashboard_View" class="btn btn-danger" id="btnNotFilter">Remove Filter</a>
 
     <?php if (!empty($users) && is_array($users)): ?>
         <table class="table table-bordered">
@@ -103,7 +126,8 @@
                         <td><?= esc($user['deleted_at'])?></td>
                         <td>
                             <a href="<?= base_url('users/save/' . $user['id']) ?>" class="btn btn-warning btn-sm">Edit</a>
-                            <?php if(esc($user['deleted_at'])==""): ?>
+                            <!-- Insert value to change -->
+                            <?php if(esc($user['deleted_at'])==$whDelete): ?>
                                         <a href="<?= base_url("users/delete/") . esc($user["id"]) ?>" 
                                         class='btn btn-danger btn-sm'
                                         onclick='return confirm("Are you sure you want to delete this user?")'>Erase</a>
