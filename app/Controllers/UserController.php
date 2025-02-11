@@ -29,7 +29,9 @@ class UserController extends BaseController{
      * @return [type]
      */
     public function saveUser($id=null){
-        $userModel=new UserModel();
+        $userModel=new UserModel(); //Creates a new instance of "UserModel"
+//  GO THROUGH USER MODEL, NEEDS TO BE REDONE, CHECK VALIDATIONS
+
         helper(['form',"url"]); // Adds a helper file into a directory; 
         // this one helps to manage both forms (get,post) and urls from different pages
         
@@ -41,12 +43,14 @@ class UserController extends BaseController{
             $validation= \Config\Services::validation();
             $validation->setRules([
                 "name"=>'required|min_length[3]|max_length[50]',
-                "email"=>'required|valid|is_unique[users.email]',
+                // BE CAREFUL, EMAIL REQUIRES TABLE 
+                "email"=>'required|valid|is_unique[userbase.email]',
                 "password"=>'required|min_length[3]|max_length[50]',
             ]);
+            // if Removed verifications, program works
             if (!$validation->withRequest($this->request)->run()) {
                 //Shows errors with the validation
-                $data['validation']=$validation;
+                $data['$validation']=$validation;
             }else{
                 $userData=[
                     'name'=>$this->request->getPost('name'),

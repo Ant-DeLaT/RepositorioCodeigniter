@@ -37,31 +37,34 @@
             toastr.success('<?= session()->getFlashdata('success'); ?>');
         </script>
     <?php endif; ?>
-<div class="row">
-        <div class="col-xl-6">
-        <a href="<?= base_url('users/save') ?>" class="btn btn-primary mb-3">Create user</a>
+    <div class="container">
+        <div class="row">
+                <div class="col-6">
+                <a href="<?= base_url('users/save') ?>" class="btn btn-primary mb-3">Create user</a>
+                </div>
+                <div class="col-6">
+                <a href="<?= base_url('logout') ?>" class="btn btn-danger mb-3 " >Close session</a>
+                </div>
         </div>
-        <div class="col-xl-6">
-        <a href="<?= base_url('logout') ?>" class="btn btn-danger mb-3" style="left=90%">Close session</a>
-        </div>
-</div>
+    </div>
     <br>
     <!-- FORM -> GET -->
     <form method="GET" action="<?= base_url('users')?>" class="mb-3">
+
+    <div class="container">
     <div class="input group w auto">
         <input type="text" name="ask" class="form-control" id="whName" placeholder="Name" value="<?= $name ?>">
         <!-- <button type="submit">SEARCH</button> -->
-    </div>
-    </form>
+    
     <!-- <button class="btn btn-secondary" id="btnName">Search</button> -->
     &nbsp;
-    <input type="text" name="ask" id="whEmail" placeholder="Email">
+    <input type="text" name="ask" class="form-control" id="whEmail" placeholder="Email">
     <!-- <button class="btn btn-secondary" id="btnEmail">Search</button> -->
     &nbsp;
-    <input type="text" name="ask" id="whPassword" placeholder="Password">
+    <input type="text" name="ask" class="form-control" id="whPassword" placeholder="Password">
     <!-- <button class="btn btn-secondary" id="btnPassword">Search</button> -->
     &nbsp;
-    <select  id="whRole">
+    <select class="form-control" id="whRole">
         <option value="admin">
             Administrator
         </option>
@@ -78,11 +81,13 @@
     <!-- <button class="btn btn-secondary" id="btnRole">Search</button> -->
 
     &nbsp;
-    <input type="date" name="ask" id="whCreated_at" placeholder="Created_at">
-    <!-- <button class="btn btn-secondary" id="btnCreated_at">Use Filter</button>
-    <button class="btn btn-danger" id="noCreated_at">Remove Filter</button> -->
-    &nbsp;
-    <select name="ask" id="isDeleted">
+    
+        <input type="date" name="ask" class="form-control" id="whCreated_at" placeholder="Created_at">
+        <!-- <button class="btn btn-secondary" id="btnCreated_at">Use Filter</button>
+        <button class="btn btn-danger" id="noCreated_at">Remove Filter</button> -->
+        &nbsp;
+        <select name="ask" class="form-control" id="isDeleted">
+   
         <option value="allowed">
         Allowed
         </option>
@@ -93,9 +98,16 @@
         All
         </option>
     </select>
+    </div>
     <!-- <button class="btn btn-secondary" id="btnDeleted_at">Search</button> -->
-    <button type="submit" class="btn btn-secondary" id="btnUseFilter">Use Filter</button>
-    <a href="dashboard_View" class="btn btn-danger" id="btnNotFilter">Remove Filter</a>
+    <div class="row">
+        <div class="col"><button type="submit" class="btn btn-secondary" id="btnUseFilter">Use Filter</button></div>
+        <div class="col"><a href="dashboard_View" class="btn btn-danger" id="btnNotFilter">Remove Filter</a></div>
+    </div>
+    </div>
+    <!-- END FORM  -->
+
+
 
     <?php if (!empty($users) && is_array($users)): ?>
         <table class="table table-bordered">
