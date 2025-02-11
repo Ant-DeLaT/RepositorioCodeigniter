@@ -1,22 +1,19 @@
 <?php
-require "conn.php";
-if ($_SERVER["REQUEST_METHOD"] == "GET") {
-    $name=$_GET['whName']??"";
-    $email=$_GET['whEmail']??"";
-    $password=$_GET['whPassword']??"";
-    $role=$_GET['$whRole']??"";
-    $created_at=$_GET['whCreated_at']??"";
-    $isDeleted=$_GET['isDeleted']??"";
+// require "conn.php";
+// if ($_SERVER["REQUEST_METHOD"] == "GET") {
+//     $name=$_GET['whName']??"";
+//     $email=$_GET['whEmail']??"";
+//     $password=$_GET['whPassword']??"";
+//     $role=$_GET['$whRole']??"";
+//     $created_at=$_GET['whCreated_at']??"";
+//     $isDeleted=$_GET['isDeleted']??"";
+// }
 //VARIABLES END
 
 
 
 
-
-
-
-  }
-
+  
 ?>
 
 
@@ -127,7 +124,8 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
                         <td>
                             <a href="<?= base_url('users/save/' . $user['id']) ?>" class="btn btn-warning btn-sm">Edit</a>
                             <!-- Insert value to change -->
-                            <?php if(esc($user['deleted_at'])==$whDelete): ?>
+                             
+                            <?php if(esc($user['deleted_at'])==null): ?>
                                         <a href="<?= base_url("users/delete/") . esc($user["id"]) ?>" 
                                         class='btn btn-danger btn-sm'
                                         onclick='return confirm("Are you sure you want to delete this user?")'>Erase</a>

@@ -54,10 +54,11 @@ class UserController extends BaseController{
                     'password'=>$this->request->getPost('password'),
                     'role'=>$this->request->getPost('role')
                 ];
-                if($id){
+                if(isset($id)){
                     // Actualizar usuario existente
                     // Update current user
                     $userModel->update($id,$userData);
+                    // $userModel->save($userData,$id);
                     $message='Usuario actualizado correctamente.';
                 }else{
                     // Create a new user
