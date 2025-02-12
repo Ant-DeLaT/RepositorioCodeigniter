@@ -3,24 +3,27 @@ use App\Controllers\BaseController;
 
 class ExcelProcessor extends BaseController 
 {
-    
     public function export(){
         $con=mysqli_connect("localhost","root","","userbase");
+        // "localhost","root","","userbase");
         $file_ext_name="csv";
         $select="SELECT * FROM users";
         $query=mysqli_query($con,$select);
 
         if (mysqli_num_rows($query)>0) {
-            
+            $whatNHowFile=fopen("ExportedExcel","W+");
+            fwrite($whatNHowFile,"",length:null);
         }else{
 
         }
+
+
     }
     public function import(){
         $con=mysqli_connect("localhost","root","","userbase");
         $fileName=$_FILES['import_file']['name'];
         $file_ext=pathinfo($fileName,PATHINFO_EXTENSION);
-        $allowed_extensions=["csv","xlsx","ods"];
+        $allowed_extensions=["csv","xls","xlsx","ods"];
         // file_get_contents()
         if(in_array($file_ext,$allowed_extensions)){
             $inputFileNamePath=$_FILES['import_file']['tmp_name'];

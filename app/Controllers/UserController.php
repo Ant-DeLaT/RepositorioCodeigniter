@@ -3,9 +3,10 @@
 namespace App\Controllers;
 use App\Models\UserModel;
 class UserController extends BaseController{
-    /**
-     * @return [type]
-     */
+
+// REMINDER, CHECK "Language/en" TO SWAP REGULAR WARNINGS!
+
+
     public function index() {
         $userModel=new UserModel();
         $name=$this->request->getVar('name');//Búsqueda desde formulario
@@ -23,11 +24,6 @@ class UserController extends BaseController{
         $data["name"]=$name; //Keeps the search term inside the view
         return view('dashboard_View',$data);
     }
-    /**
-     * @param mixed $id=null
-     * 
-     * @return [type]
-     */
     public function saveUser($id=null){
         $userModel=new UserModel(); //Creates a new instance of "UserModel"
 //  GO THROUGH USER MODEL, NEEDS TO BE REDONE, CHECK VALIDATIONS
