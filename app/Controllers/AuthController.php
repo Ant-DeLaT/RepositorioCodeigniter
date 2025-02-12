@@ -135,4 +135,7 @@ class AuthController extends BaseController{
         return redirect()->to('/login')->with('success', 'Has cerrado sesión correctamente.');
     }
 
+    
+
+
 }

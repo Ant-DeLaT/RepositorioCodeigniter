@@ -98,12 +98,12 @@
         All
         </option>
     </select>
-    </div>
+    </div><br>
     <!-- <button class="btn btn-secondary" id="btnDeleted_at">Search</button> -->
     <div class="row">
-        <div class="col"><button type="submit" class="btn btn-secondary" id="btnUseFilter">Use Filter</button></div>
+        <div class="col"><button type="submit" class="btn btn-success" id="btnUseFilter">Use Filter</button></div>
         <div class="col"><a href="dashboard_View" class="btn btn-danger" id="btnNotFilter">Remove Filter</a></div>
-    </div>
+    </div><br><br>
     </div>
     <!-- END FORM  -->
 

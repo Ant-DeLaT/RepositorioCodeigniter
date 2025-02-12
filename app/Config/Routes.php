@@ -1,5 +1,6 @@
 <?php
 
+use App\Controllers\AuthController;
 use CodeIgniter\Router\RouteCollection;
 
 /**
@@ -33,5 +34,7 @@ $routes->post('/register/process', 'AuthController::registerProcess'); //Procesa
 $routes->get('/logout', 'AuthController::logout'); //Cerrar sesión
 
 
+$routes->get("/metronic", "metController::show");
+$routes->get("/metReg", "metController::reg");
 $routes->get('/exportExcel', 'ExcelProcessor::export'); // Exports excel 
 $routes->get('/importExcel', 'ExcelProcessor::import'); // Imports information from excels
