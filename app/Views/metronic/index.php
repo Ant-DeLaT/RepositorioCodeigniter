@@ -62,6 +62,7 @@ Author: Ant-DeLaT
 					<!--begin::Menu-->
 					<div class="menu menu-column menu-title-gray-800 menu-state-title-primary menu-state-icon-primary menu-state-bullet-primary menu-arrow-gray-500" id="#kt_aside_menu" data-kt-menu="true">
 						<div class="menu-item">
+							<!-- Upper -->
 							<div class="menu-content pt-8 pb-2">
 								<span class="menu-section text-muted text-uppercase fs-8 ls-1">Apps</span>
 							</div>
@@ -78,8 +79,21 @@ Author: Ant-DeLaT
 									</span>
 									<!--end::Svg Icon-->
 								</span>
-								<span class="menu-title">Aside</span>
+
+<!-- This is where most tables will be  -->
+								<span class="menu-title">Tables</span>
 								<span class="menu-arrow"></span>
+								<div class="menu-sub menu-sub-accordion menu-active-bg">
+									<!-- LINK TO FIRST TABLE -->
+									<div class="menu-item">
+										<a class="menu-link" href="#">
+											<span class="menu-bullet">
+												<span class="bullet bullet-dot"></span>
+											</span>
+											<span class="menu-title">My Projects</span>
+										</a>
+									</div>
+								</div>
 							</span>
 						</div>
 						<div class="menu-item">
@@ -122,10 +136,23 @@ Author: Ant-DeLaT
 			<!--begin::Footer-->
 			<div class="aside-footer flex-column-auto pt-5 pb-7 px-5" id="kt_aside_footer">
 				<a href="../../demo1/dist/documentation/getting-started.html" class="btn btn-custom btn-primary w-100" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss-="click" title="">
-					<span class="btn-label">Bienvenido Visitante</span>
-<!-- <?= ?> -->
+					<span class="btn-label">Bienvenido
+						 <?
+					//  if(isset($session($user["id"]))){  
+					// 	if ($id==1) {
+							// echo "Lucifer";
+					// 	}elseif($id==id where mod.id==id){
+							// echo "Príncipe";
+					// 	}else{
+					// 		echo "Condenado";
+					// }
+					// }else{  
+					echo "Visitante";
+					// } 
+					?>
+					</span>
 
-
+<!-- php echo cambio  -->
 					<!--begin::Svg Icon | path: icons/duotune/general/gen005.svg-->
 					<span class="svg-icon btn-icon svg-icon-2">
 						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -138,6 +165,7 @@ Author: Ant-DeLaT
 			</div>
 			<!--end::Footer-->
 		</div>
+	</div>
 		<!--end::Aside-->
 		<!--begin::Wrapper-->
 		<div class="wrapper d-flex flex-column flex-row-fluid" id="kt_wrapper">
@@ -1667,29 +1695,29 @@ Author: Ant-DeLaT
 					</div>
 					<!--end::Content-->
 
-<!-- FOOTER  -->&nbsp;	
+<!-- FOOTER  --> &nbsp;	
 					<!--begin::Footer-->
 					<div class="footer py-4 d-flex flex-lg-column" id="kt_footer">
 						<!--begin::Container-->
 						<div class="container-fluid d-flex flex-column flex-md-row align-items-center justify-content-between">
-
 							<!--begin::Copyright-->
 							<div class="text-dark order-2 order-md-1">
 								<span class="text-muted fw-bold me-1"> &Omega; times &copy;</span>
-								<a href="" class="text-gray-800 text-hover-primary">Ant-DeLaT </a>
+								<a href="#" class="text-gray-800 text-hover-primary">Ant-DeLaT </a>
 							</div>
 							<!--end::Copyright-->
 
 							<!--begin::Menu-->
 							<ul class="menu menu-gray-600 menu-hover-primary fw-bold order-1">
 								<li class="menu-item">
-									<a href="DESCRIPTION" target="_blank" class="menu-link px-2">About</a>
+									<a href="<?= baseurl('/About') ?>" target="_blank" class="menu-link px-2">About</a>
 								</li>
 								<li class="menu-item">
-									<a href="/support" target="_blank" class="menu-link px-2">Support</a>
+									<a href="<?= baseurl('/Support') ?>" target="_blank" class="menu-link px-2">Support</a>
 								</li>
 								<li class="menu-item">
-									<p class="menu-link px-2">MIGHT USE THESE</p></li>
+									<a href="<?= baseurl('/About') ?>" target="_blank" class="menu-link px-2">FAQ</a>
+								</li>
 							</ul>
 							<!--end::Menu-->
 						</div>
