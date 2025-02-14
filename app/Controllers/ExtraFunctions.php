@@ -1,7 +1,7 @@
 <?php
 use App\Controllers\BaseController;
 
-class ExcelProcessor extends BaseController 
+class ExtraFunctions extends BaseController 
 {
     public function export(){
         $con=mysqli_connect("localhost","root","","userbase");
@@ -61,6 +61,12 @@ class ExcelProcessor extends BaseController
             exit(0);
         }
 
+    }
+    public function About() {
+        return view("About");
+    }
+    public function FAQ()  {
+        return view("FAQ");
     }
 }
 

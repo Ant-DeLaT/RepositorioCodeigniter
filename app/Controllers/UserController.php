@@ -101,4 +101,8 @@ class UserController extends BaseController{
         // $userModel->update($id,$userData["deleted_at"]);
         return redirect()->to('/users')->with('success','Usuario eliminado correctamente');
     }
+
+    public function metronic(){
+        return view("/index.php");
+    }
 }

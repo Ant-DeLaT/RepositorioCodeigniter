@@ -24,6 +24,9 @@ $routes->post('/users/save/(:num)', 'UserController::saveUser/$1'); //Editar usu
 $routes->get('/users/delete/(:num)', 'UserController::delete/$1'); //Eliminar usuario
 $routes->get('/users/restore/(:num)','UserController::restore/$1'); //deletes "deleted_at"; MUST BE FIXED
 
+$routes->get('/metronic', 'UserController::metronic');
+
+
 // PROCESAR LOGIN/REGISTER
 $routes->get('/login', 'AuthController::login'); //Login page
 // $routes->get('/logina', 'AuthController::logina'); //Second login; TEMP
@@ -31,10 +34,14 @@ $routes->post('/login/process', 'AuthController::loginProcess'); //Process login
 $routes->get('/register', 'AuthController::register');//Página de registro
 // $routes->get('/registera', 'AuthController::registera'); //Second register; TEMP
 $routes->post('/register/process', 'AuthController::registerProcess'); //Procesar registro
-$routes->get('/logout', 'AuthController::logout'); //Cerrar sesión
+$routes->get('/logout', 'AuthController::logout'); //Close the session
 
 
 $routes->get("/metronic", "metController::show");
 $routes->get("/metReg", "metController::reg");
-$routes->get('/exportExcel', 'ExcelProcessor::export'); // Exports excel 
-$routes->get('/importExcel', 'ExcelProcessor::import'); // Imports information from excels
+
+$routes->get("/About","ExtraFunctions::About");
+$routes->get("/FAQ","ExtraFunctions::FAQ");
+
+$routes->get('/exportExcel', 'ExtraFunctions::export'); // Exports excel 
+$routes->get('/importExcel', 'ExtraFunctions::import'); // Imports information from excels
