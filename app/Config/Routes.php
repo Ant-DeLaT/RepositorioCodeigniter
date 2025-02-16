@@ -15,7 +15,7 @@ $routes->get('home/create','Home::create');
 $routes->post('home/create','Home::create');
 
 
-// RUTAS USERS
+// USERS ROUTES
 $routes->get('/users', 'UserController::index');//Listar usuarios
 $routes->get('/users/save', 'UserController::saveUser'); //Mostrar formulario para crear usuario
 $routes->get('/users/save/(:num)', 'UserController::saveUser/$1'); //Mostrar formulario para editar usuario
@@ -23,6 +23,18 @@ $routes->post('/users/save/', 'UserController::saveUser');// Crear usuario (POST
 $routes->post('/users/save/(:num)', 'UserController::saveUser/$1'); //Editar usuario (POST)
 $routes->get('/users/delete/(:num)', 'UserController::delete/$1'); //Eliminar usuario
 $routes->get('/users/restore/(:num)','UserController::restore/$1'); //deletes "deleted_at"; MUST BE FIXED
+
+// ACTIVITY, SECONDARY TABLE
+
+$routes->get(from: '/act', to: 'ActivityController::index');
+$routes->get(from: '/act/save', to: 'ActivityController::index');
+$routes->get('/act/save/(:num)', 'ActivityController::saveUser/$1'); //Mostrar formulario para editar usuario
+$routes->post('/act/save/', 'ActivityController::saveUser');// Crear usuario (POST)
+$routes->post('/act/save/(:num)', 'ActivityController::saveUser/$1'); //Editar usuario (POST)
+$routes->get('/act/delete/(:num)', 'ActivityController::delete/$1'); //Eliminar usuario
+$routes->get('/act/restore/(:num)','ActivityController::restore/$1');
+
+
 
 $routes->get('/metronic', 'UserController::metronic');
 

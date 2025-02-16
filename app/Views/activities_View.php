@@ -1,4 +1,4 @@
-<button?php
+<?php
 // require "conn.php";
 // if ($_SERVER["REQUEST_METHOD"] == "GET") {
 //     $name=$_GET['whName']??"";
@@ -31,16 +31,10 @@
 <body>
 <div class="container mt-5">
     <h1 class="text-center">User List</h1>
-
-    <?php if (session()->getFlashdata('success')): ?>
-        <script>
-            toastr.success('<?= session()->getFlashdata('success'); ?>');
-        </script>
-    <?php endif; ?>
     <div class="container">
         <div class="row">
                 <div class="col-6">
-                <a href="<?= base_url('users/save') ?>" class="btn btn-primary mb-3">Create user</a>
+                <a href="<?= base_url('act/save') ?>" class="btn btn-primary mb-3">Create activity</a>
                 </div>
                 <div class="col-6">
                 <a href="<?= base_url('logout') ?>" class="btn btn-danger mb-3 " >Close session</a>
@@ -49,7 +43,7 @@
     </div>
     <br>
     <!-- FORM -> GET -->
-    <form method="GET" action="<?= base_url('users')?>" class="mb-3">
+    <form method="GET" action="<?= base_url('act')?>" class="mb-3">
 
     <div class="container">
     <div class="input group w auto">
@@ -87,6 +81,7 @@
         <button class="btn btn-danger" id="noCreated_at">Remove Filter</button> -->
         &nbsp;
         <select name="ask" class="form-control" id="isDeleted">
+   
         <option value="allowed">
         Allowed
         </option>
@@ -101,7 +96,7 @@
     <!-- <button class="btn btn-secondary" id="btnDeleted_at">Search</button> -->
     <div class="row">
         <div class="col"><button type="submit" class="btn btn-success" id="btnUseFilter">Use Filter</button></div>
-        <div class="col"><button type="reset" class="btn btn-danger" id="btnRstFilter">Remove Filter</button</div>
+        <div class="col"><a href="dashboard_View" class="btn btn-danger" id="btnNotFilter">Remove Filter</a></div>
     </div><br><br>
     </div>
     <!-- END FORM  -->

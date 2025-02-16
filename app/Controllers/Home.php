@@ -62,4 +62,5 @@ class Home extends BaseController
         $users= $userModel->findAll(); //Obtiene todos los registros
         return view('user_listView',['userbase'=> $users]); 
     }
+    
 }
