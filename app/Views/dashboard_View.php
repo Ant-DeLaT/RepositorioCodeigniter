@@ -1,4 +1,4 @@
-<button?php
+<?php
 // require "conn.php";
 // if ($_SERVER["REQUEST_METHOD"] == "GET") {
 //     $name=$_GET['whName']??"";
@@ -8,12 +8,7 @@
 //     $created_at=$_GET['whCreated_at']??"";
 //     $isDeleted=$_GET['isDeleted']??"";
 // }
-//VARIABLES END
-
-
-
-
-  
+//VARIABLES END  
 ?>
 
 

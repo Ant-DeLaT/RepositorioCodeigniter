@@ -17,16 +17,19 @@ class UserController extends BaseController{
         }else{
             $query=$userModel->like("name");
         }
-        if($email){
-            $query2=$userModel->like('email',$email);
-        }else{
-            $query2=$userModel->like("email");
-        }
-            $recover=[$query->get(),$query2->get()];
+        // if($email){
+        //     $query2=$userModel->like('email',$email);
+        // }else{
+        //     $query2=$userModel->like("email");
+        // }
+            // $recover=[$query->get(),$query2->get()];
+            // $result=$query->get();
+
         // $perPage=10;
         $perPage=3; //New perPage number: 3 elements for page
         // $data['users']=$userModel->findAll(); //Finds all users
-        $data['users']=[$query->get()->getResult(),$query2->get(),$query->paginate($perPage)];
+        // ,$query2->get(),$query->paginate($perPage)
+        $data['users']=$query->paginate($perPage);
         $data['pager']=$userModel->pager;//Adds paginate (pager) to the view
         $data["name"]=$name; //Keeps the search term inside the view
         return view('dashboard_View',$data);

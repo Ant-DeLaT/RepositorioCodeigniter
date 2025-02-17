@@ -8,6 +8,7 @@
 </head>
 <body>
 <div class="container mt-5">
+<?php echo validation_errors();?>
     <h1 class="text-center">Register</h1>
 
     <!-- Mostrar errores de validación -->

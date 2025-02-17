@@ -32,12 +32,13 @@ class ExtraFunctions extends BaseController
             $count=0;
             foreach($data as $row){
                 if ($count>0) {
-                    $fullname=$row['0'];
-                    $email=$row['1'];
-                    $phone=$row['2'];
-                    $course=$row['3'];
+                    $name=$row['1'];
+                    $pasword=$row['2'];
+                    $email=$row['3'];
+                    $role=$row['4'];
 
-                    $studentQuery="INSERT INTO students (' 'fullname','email','phone','course' ' ) VALUES ('$fullname','$email','$phone','$course')";
+                    $studentQuery="INSERT INTO students (' 'name','password','email','role' ' )
+                     VALUES ('$name','$pasword','$email','$role')";
                     $result=mysqli_query($con, $studentQuery);
                 }else{
                     $count="1";
