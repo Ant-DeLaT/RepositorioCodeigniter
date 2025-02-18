@@ -140,13 +140,14 @@ Author: Ant-DeLaT
                         <a href="../../demo1/dist/documentation/getting-started.html" class="btn btn-custom btn-primary w-100" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss-="click" title="">
                             <span class="btn-label">Bienvenido
                                 <?
+                                $session=session();
                             //  if(isset($session($user["id"]))){  
                             // 	if ($id==1) {
                                     // echo "Lucifer";
-                            // 	}elseif($id==id where mod.id==id){
+                            	// }elseif($id==2){
                                     // echo "Príncipe";
-                            // 	}else{
-                            // 		echo "Condenado";
+                            	// }else{
+                            		// echo "Condenado";
                             // }
                             // }else{  
                             echo "Visitante";

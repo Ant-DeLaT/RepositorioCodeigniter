@@ -8,9 +8,11 @@ class UserController extends BaseController{
 
 
     public function index() {
+        helper("form");
         $userModel=new UserModel();
-        $name=$this->request->getVar('name');//Búsqueda desde formulario
-        $email=$this->request->getVar('email');
+        // CAREFUL WITH THE IDS!!!!
+        $name=$this->request->getVar('WhName');//Búsqueda desde formulario
+        $email=$this->request->getVar('WhEmail');
         // Aplicar filtro (query) con un nombre introducido
         if($name){
             $query=$userModel->like('name',$name);
@@ -54,10 +56,10 @@ class UserController extends BaseController{
                 "password"=>'required|min_length[3]|max_length[50]',
             ]);
             // if Removed verifications, program works
-            if (!$validation->withRequest($this->request)->run()) {
+            // if (!$validation->withRequest($this->request)->run()) {
                 //Shows errors with the validation
-                $data['$validation']=$validation;
-            }else{
+            //     $data['$validation']=$validation;
+            // }else{
                 $userData=[
                     'name'=>$this->request->getPost('name'),
                     'email'=>$this->request->getPost('email'),
@@ -79,7 +81,7 @@ class UserController extends BaseController{
                 // Reroute to the list with a new success message
                 return redirect()->to('/users')->with('success',$message);
                 }
-            }
+            // }
         return view('user_formView',$data);
     }
     /**

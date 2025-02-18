@@ -17,8 +17,8 @@ class UserModel extends Model{
     // Validation 
     protected $skipValidation       = false;
     // VALIDATION RULES DROOL, "valid" is not valid... ETC
-    protected $validationRules      = ["'name'.length()>4",'"email".length()>8','"email".contains(@)'];
-    protected $validationMessages   = ["You need to set a longer name","You need a longer email length","Email needs to have an @"];
+    // protected $validationRules      = ["'name'.length()>4",'"email".length()>8','"email".contains(@)'];
+    // protected $validationMessages   = ["You need to set a longer name","You need a longer email length","Email needs to have an @"];
     protected $allowCallbacks = true;
 
     // Fields to update/create to

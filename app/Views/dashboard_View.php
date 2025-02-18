@@ -20,10 +20,11 @@
     <title>Listed Users</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.2.2/css/dataTables.dataTables.css">
 </head>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+
 <body>
+
 <div class="container mt-5">
     <h1 class="text-center">User List</h1>
 
@@ -48,7 +49,7 @@
 
     <div class="container">
     <div class="input group w auto">
-        <input type="text" name="ask" class="form-control" id="whName" placeholder="Name" value="<?= $name ?>">
+        <input type="text" name="ask" class="form-control" id="whName" placeholder="Name" value="<?= esc($name) ?>">
         <!-- <button type="submit">SEARCH</button> -->
     
     <!-- <button class="btn btn-secondary" id="btnName">Search</button> -->
@@ -96,7 +97,7 @@
     <!-- <button class="btn btn-secondary" id="btnDeleted_at">Search</button> -->
     <div class="row">
         <div class="col"><button type="submit" class="btn btn-success" id="btnUseFilter">Use Filter</button></div>
-        <div class="col"><button type="reset" class="btn btn-danger" id="btnRstFilter">Remove Filter</button</div>
+        <div class="col"><a href= "<?= base_url("/users") ?>" class="btn btn-danger" id="btnRstFilter">Remove Filters</a></div>
     </div><br><br>
     </div>
     <!-- END FORM  -->
@@ -104,7 +105,7 @@
 
 
     <?php if (!empty($users) && is_array($users)): ?>
-        <table class="table table-bordered">
+        <table class="table table-bordered" id="dashboardTable">
             <thead>
                 <tr>
                     <!-- <th>ID</th> -->
@@ -128,16 +129,16 @@
                         <td><?= esc($user['created_at'])?></td>
                         <td><?= esc($user['deleted_at'])?></td>
                         <td>
-                            <a href="<?= base_url('users/save/' . $user['id']) ?>" class="btn btn-warning btn-sm">Edit</a>
+                            <a href="<?= base_url('users/save/' . $user['id']) ?>" class="btn btn-warning ">Edit</a>
                             <!-- Insert value to change -->
                              
                             <?php if(esc($user['deleted_at'])==null): ?>
                                         <a href="<?= base_url("users/delete/") . esc($user["id"]) ?>" 
-                                        class='btn btn-danger btn-sm'
+                                        class='btn btn-danger  fa fa-trash'
                                         onclick='return confirm("Are you sure you want to delete this user?")'>Erase</a>
                                     <?php else:?>
                                      <a href="<?=base_url("users/restore/") . esc($user["id"])?>"
-                                         class='btn btn-success btn-sm'
+                                         class='btn btn-success'
                                          onclick='return confirm("Do you really want to restore this user?")'>Restore</a>
                                  <?php endif?>
                         </td>
@@ -154,4 +155,18 @@
 </div>
 
 </body>
+
+
+<script>
+    $().ready(){ ()=>{
+        $("dashboardTable").DataTable();
+    }
+
+    };
+</script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+<script src="https://cdn.datatables.net/2.2.2/js/dataTables.js"></script>
+
+
 </html>
