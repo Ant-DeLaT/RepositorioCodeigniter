@@ -14,7 +14,9 @@ Website: http://www.keenthemes.com
 		<!--begin::Global Stylesheets Bundle(used by all pages)-->
 		<link href="assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
 		<link href="assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 		<!--end::Global Stylesheets Bundle-->
+		
 	</head>            
 	<!--end::Head-->
 	<!--begin::Body-->
@@ -41,7 +43,7 @@ Website: http://www.keenthemes.com
 								<!--end::Title-->
 								<!--begin::Link-->
 								<div class="text-gray-400 fw-bold fs-4">Already have an account?
-								<a href="../../demo1/dist/authentication/flows/basic/sign-in.html" class="link-primary fw-bolder">Sign in here</a></div>
+								<a href="<?=base_url("metLog")?>" class="link-primary fw-bolder">Sign in here</a></div>
 								<!--end::Link-->
 							</div>
 							<!--end::Heading-->
@@ -75,7 +77,7 @@ Website: http://www.keenthemes.com
 							<!--begin::Input group-->
 							<div class="fv-row mb-7">
 								<label class="form-label fw-bolder text-dark fs-6">Email</label>
-								<input class="form-control form-control-lg form-control-solid" type="email" placeholder="email" name="email" autocomplete="off" />
+								<input class="form-control form-control-lg form-control-solid" type="email" placeholder="test@validEmail.com" name="email" autocomplete="off" />
 							</div>
 							<!--end::Input group-->
 							<!--begin::Input group-->
@@ -112,7 +114,7 @@ Website: http://www.keenthemes.com
 							<!--begin::Input group-->
 							<div class="fv-row mb-5">
 								<label class="form-label fw-bolder text-dark fs-6">Confirm Password</label>
-								<input class="form-control form-control-lg form-control-solid" type="password" placeholder="" name="confirm-password" autocomplete="off" />
+								<input class="form-control form-control-lg form-control-solid" type="password" placeholder="Repeat Password" name="confirm-password" autocomplete="off" />
 							</div>
 							<!--end::Input group-->
 							<!--begin::Input group-->

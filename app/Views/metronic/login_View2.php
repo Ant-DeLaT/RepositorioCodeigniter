@@ -12,7 +12,7 @@ License: For each use you must have a valid license purchased only from above li
 -->
 <html lang="es">
 	<!--begin::Head-->
-	<head><base href="../../../">
+	<head><base href="../">
 		<title>Metronic LOGIN</title>
 		<link rel="canonical" href="https://preview.keenthemes.com/metronic8" />
 		<link rel="shortcut icon" href="assets/media/logos/favicon.ico" />
@@ -23,6 +23,7 @@ License: For each use you must have a valid license purchased only from above li
 		<!--begin::Global Stylesheets Bundle(used by all pages)-->
 		<link href="assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
 		<link href="assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 		<!--end::Global Stylesheets Bundle-->
 	</head>
 	<!--end::Head-->
@@ -35,10 +36,17 @@ License: For each use you must have a valid license purchased only from above li
 				<!--begin::Content-->
 				<div class="d-flex flex-center flex-column flex-column-fluid p-10 pb-lg-20">
 					<!--begin::Logo-->
-					<a href="../../demo1/dist/index.html" class="mb-12">
-						<img alt="Logo" src="assets/media/logos/logo-1.svg" class="h-40px" />
+					<a href="#" class="mb-12">
+						<img alt="Logo" src="<?php echo base_url('assets/media/logos/logo-1.svg');?>" class="h-40px" />
+						
 					</a>
 					<!--end::Logo-->
+
+		<?php if (isset($validation)): ?>
+            <div class="alert alert-danger">
+                <?= $validation->listErrors() ?>
+            </div>
+        <?php endif; ?>
 					<!--begin::Wrapper-->
 					<div class="w-lg-500px bg-body rounded shadow-sm p-10 p-lg-15 mx-auto">
 						<!--begin::Form-->
@@ -49,8 +57,10 @@ License: For each use you must have a valid license purchased only from above li
 								<h1 class="text-dark mb-3">Sign In </h1>
 								<!--end::Title-->
 								<!--begin::Link-->
+					<!-- REGISTER NEW USER -->		
+					
 								<div class="text-gray-400 fw-bold fs-4">New Here?
-								<a href="../../demo1/dist/authentication/flows/basic/sign-up.html" class="link-primary fw-bolder">Create an Account</a></div>
+								<a href="<?=base_url("metReg")?>" class="link-primary fw-bolder">Create an Account</a></div>
 								<!--end::Link-->
 							</div>
 							<!--begin::Heading-->
@@ -72,7 +82,8 @@ License: For each use you must have a valid license purchased only from above li
 									<label class="form-label fw-bolder text-dark fs-6 mb-0">Password</label>
 									<!--end::Label-->
 									<!--begin::Link-->
-									<a href="../../demo1/dist/authentication/flows/basic/password-reset.html" class="link-primary fs-6 fw-bolder">Forgot Password ?</a>
+					<!-- RESET PASSWORD, IMPOSSIBLE TO IMPLEMENT -->
+									<!-- <a href="#" class="link-primary fs-6 fw-bolder">Forgot Password ?</a> -->
 									<!--end::Link-->
 								</div>
 								<!--end::Wrapper-->
@@ -117,9 +128,9 @@ License: For each use you must have a valid license purchased only from above li
 				<div class="d-flex flex-center flex-column-auto p-10">
 					<!--begin::Links-->
 					<div class="d-flex align-items-center fw-bold fs-6">
-						<a href="https://keenthemes.com" class="text-muted text-hover-primary px-2">About</a>
-						<a href="mailto:support@keenthemes.com" class="text-muted text-hover-primary px-2">Contact</a>
-						<a href="https://1.envato.market/EA4JP" class="text-muted text-hover-primary px-2">Contact Us</a>
+						<a href="#" class="text-muted text-hover-primary px-2">About</a>
+						<a href="mailto:#" class="text-muted text-hover-primary px-2">Contact</a>
+						<a href="#" class="text-muted text-hover-primary px-2">Contact Us</a>
 					</div>
 					<!--end::Links-->
 				</div>
@@ -131,11 +142,11 @@ License: For each use you must have a valid license purchased only from above li
 		<script>var hostUrl = "assets/";</script>
 		<!--begin::Javascript-->
 		<!--begin::Global Javascript Bundle(used by all pages)-->
-		<script src="assets/plugins/global/plugins.bundle.js"></script>
-		<script src="assets/js/scripts.bundle.js"></script>
+		<script src= "<?php echo ('public/assets/plugins/global/plugins.bundle.js');?>"></script>
+		<script src="<?=('public/assets/js/scripts.bundle.js') ?>"></script>
 		<!--end::Global Javascript Bundle-->
 		<!--begin::Page Custom Javascript(used by this page)-->
-		<script src="assets/js/custom/authentication/sign-in/general.js"></script>
+		<script src="<?=('assets/js/custom/authentication/sign-in/general.js') ?>"></script>
 		<!--end::Page Custom Javascript-->
 		<!--end::Javascript-->
 	</body>

@@ -1710,13 +1710,13 @@ Author: Ant-DeLaT
 							<!--begin::Menu-->
 							<ul class="menu menu-gray-600 menu-hover-primary fw-bold order-1">
 								<li class="menu-item">
-									<a href="<?= baseurl('/About') ?>" target="_blank" class="menu-link px-2">About</a>
+									<a href="<?= base_url('/About') ?>" target="_blank" class="menu-link px-2">About</a>
 								</li>
 								<li class="menu-item">
-									<a href="<?= baseurl('/Support') ?>" target="_blank" class="menu-link px-2">Support</a>
+									<a href="<?= base_url('/Support') ?>" target="_blank" class="menu-link px-2">Support</a>
 								</li>
 								<li class="menu-item">
-									<a href="<?= baseurl('/About') ?>" target="_blank" class="menu-link px-2">FAQ</a>
+									<a href="<?= base_url('/About') ?>" target="_blank" class="menu-link px-2">FAQ</a>
 								</li>
 							</ul>
 							<!--end::Menu-->
