@@ -54,6 +54,7 @@ $routes->get("/metReg", "metController::register");
 $routes->get("/metLog", "metController::login");
 $routes->get("/About","metController::About");
 $routes->get("/FAQ","metController::FAQ");
+$routes->get("/metaside","metController::asdf");
 
 $routes->get('/exportExcel', 'ExtraFunctions::export'); // Exports excel 
 $routes->get('/importExcel', 'ExtraFunctions::import'); // Imports information from excels

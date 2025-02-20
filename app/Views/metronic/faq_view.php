@@ -8,8 +8,7 @@ Author: Ant-DeLaT
 <html lang="en">
 	<!--begin::Head-->
 	<head>
-        <base href="../">
-		<title>Metronic </title>
+		<title>Metronic</title>
 		<link rel="canonical" href="https://preview.keenthemes.com/metronic8" />
 		<link rel="shortcut icon" href="assets/media/logos/favicon.ico" />
 		<!--begin::Fonts-->
@@ -175,7 +174,6 @@ Author: Ant-DeLaT
                     </div>
                     <!--end::Footer-->
                 </div>
-            </div>
                 <!--end::Aside-->
                 <!--begin::Wrapper-->
                 <div class="wrapper d-flex flex-column flex-row-fluid" id="kt_wrapper">
@@ -220,5 +218,11 @@ Author: Ant-DeLaT
                     </div>
             <!-- END Sidebar -->
                 </div>
-        
+            </div>
+        </div>    
+    </div>
+
+    
+    </body>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

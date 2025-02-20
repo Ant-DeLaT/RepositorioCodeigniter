@@ -29,4 +29,8 @@ class metController extends BaseController
         // View isn't created yet
         return view("metronic/faq_View");
     }
+    // DELETE WHEN DONE
+    function asdf()  {
+        return view("metronic/Aside_template");
+    }
 }
