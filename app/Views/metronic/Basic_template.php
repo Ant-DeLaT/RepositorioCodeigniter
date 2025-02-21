@@ -220,5 +220,23 @@ Author: Ant-DeLaT
                     </div>
             <!-- END Sidebar -->
                 </div>
-        
+            </div>
+        </div>    
+    <!-- FOOTER -->
+       <!--begin::Footer-->
+            <div class="d-flex flex-center flex-column-auto p-10">
+                <!--begin::Links-->
+                <div class="d-flex align-items-center fw-bold fs-6">
+                    <a href="#" class="text-muted text-hover-primary px-2">About</a>
+                    <a href="mailto:#" class="text-muted text-hover-primary px-2">Contact</a>
+                    <a href="#" class="text-muted text-hover-primary px-2">Contact Us</a>
+                </div>
+                <!--end::Links-->
+            </div>
+        <!--end::Footer-->
+
+    </body>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+</html>
