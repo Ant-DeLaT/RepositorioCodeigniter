@@ -134,7 +134,7 @@
                                     </a>
                                 <!-- </div> -->
                                 <div class="menu-item">
-                                    <a class="menu-link" href="../../demo1/dist/apps/calendar.html">
+                                    <a class="menu-link" href="">
                                         <span class="menu-icon">
                                             <!--begin::Svg Icon | path: icons/duotune/general/gen014.svg-->
                                             <span class="svg-icon svg-icon-2">
@@ -351,17 +351,20 @@
                         <td><?= esc($user['created_at'])?></td>
                         <td><?= esc($user['deleted_at'])?></td>
                         <td>
-                            <a href="<?= base_url('users/save/' . $user['id']) ?>" class="btn btn-warning ">Edit</a>
-                            <!-- Insert value to change -->
+                            <a href="<?= base_url('users/save/' . $user['id']) ?>" class="btn btn-warning ">&#9998;</a>
+                            <!-- Edit -->
                              
                             <?php if(esc($user['deleted_at'])==null): ?>
                                         <a href="<?= base_url("users/delete/") . esc($user["id"]) ?>" 
-                                        class='btn btn-danger  fa fa-trash'
-                                        onclick='return confirm("Are you sure you want to delete this user?")'>Erase</a>
+                                        class='btn btn-danger '
+                                        onclick='return confirm("Are you sure you want to delete this user?")'><b>&#128465;</b> </a>
+                                        <!-- -->
+                                        <!-- Erase -->
                                     <?php else:?>
                                      <a href="<?=base_url("users/restore/") . esc($user["id"])?>"
                                          class='btn btn-success'
-                                         onclick='return confirm("Do you really want to restore this user?")'>Restore</a>
+                                         onclick='return confirm("Do you really want to restore this user?")'><b>&plus;</b></a>
+                                         <!-- Restore -->
                                  <?php endif?>
                         </td>
                     </tr>

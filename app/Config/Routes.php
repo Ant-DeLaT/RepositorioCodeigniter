@@ -8,12 +8,12 @@ use CodeIgniter\Router\RouteCollection;
  */
 // RUTAS DEL INDEX; NO BORRAR, DESCOMENTAR SI SE QUIEREN USAR
 $routes->get('/', 'Home::index');
-$routes->get('home', 'Home::index');
+    // $routes->get('home', 'Home::index');
 // RECUERDA USAR RUTAS "RELATIVAS" EN EL NAVEGADOR
-$routes->get('home/getUsers','Home::getUsers');
-$routes->get('home/create','Home::create');
-$routes->post('home/create','Home::create');
-
+    // $routes->get('home/getUsers','Home::getUsers');
+    // $routes->get('home/create','Home::create');
+    // $routes->post('home/create','Home::create');
+$routes->get('/papapa', 'quicCont::getret');
 
 // USERS ROUTES
 $routes->get('/users', 'UserController::index');//Listar usuarios

@@ -12,18 +12,17 @@ License: For each use you must have a valid license purchased only from above li
 -->
 <html lang="es">
 	<!--begin::Head-->
-	<head><base href="../">
+	<head>
 		<title>Metronic LOGIN</title>
 		<link rel="canonical" href="https://preview.keenthemes.com/metronic8" />
 		<link rel="shortcut icon" href="assets/media/logos/favicon.ico" />
-		<!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" /> -->
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
 		<!--begin::Fonts-->
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
 		<!--end::Fonts-->
 		<!--begin::Global Stylesheets Bundle(used by all pages)-->
 		<link href="assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
 		<link href="assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 		<!--end::Global Stylesheets Bundle-->
 	</head>
 	<!--end::Head-->
@@ -57,12 +56,11 @@ License: For each use you must have a valid license purchased only from above li
 								<h1 class="text-dark mb-3">Sign In </h1>
 								<!--end::Title-->
 								<!--begin::Link-->
-					<!-- REGISTER NEW USER -->		
-					
 								<div class="text-gray-400 fw-bold fs-4">New Here?
-								<a href="<?=base_url("metReg")?>" class="link-primary fw-bolder">Create an Account</a></div>
+								<a href="<?=base_url("register")?>" class="link-primary fw-bolder">Create an Account</a></div>
 								<!--end::Link-->
 							</div>
+						<form action="<?=base_url("login/process")?>" method="post">
 							<!--begin::Heading-->
 							<!--begin::Input group-->
 							<div class="fv-row mb-10">
@@ -104,6 +102,7 @@ License: For each use you must have a valid license purchased only from above li
 								<!--begin::Separator-->
 								<div class="text-center text-muted text-uppercase fw-bolder mb-5">or</div>
 								<!--end::Separator-->
+<!-- INSERT LINKS TO OUTER LOGINS  -->
 								<!--begin::Google link-->
 								<a href="#" class="btn btn-flex flex-center btn-light btn-lg w-100 mb-5">
 								<img alt="Logo" src="assets/media/svg/brand-logos/google-icon.svg" class="h-20px me-3" />Continue with Google</a>

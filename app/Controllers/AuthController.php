@@ -56,9 +56,9 @@ class AuthController extends BaseController{
             $userModel->save($data);
 
             // Redirigimos al formulario de inicio de sesión con un mensaje de éxito.
-            return redirect()->to('/login')->with('success', 'The user has been properly signed-up.');
+            return redirect()->to('login_View')->with('success', 'The user has been properly signed-up.');
         }else{
-            return redirect()->to("/register")->with("error","NO USER DETECTED");
+            return redirect()->to("register_View")->with("error","NO USER DETECTED");
     }
     }
 
@@ -70,13 +70,8 @@ class AuthController extends BaseController{
     {
         return view('login_View'); // Carga y retorna la vista del formulario de inicio de sesión.
     }
-    // public function logina()
-    // {
-    //     return view('login_View2'); // Carga y retorna la vista del formulario de inicio de sesión.
-    // }
-    
     /**
-     * Procesa el inicio de sesión del usuario.
+     * Procesess the user login.
      */
     /**
      * @return \CodeIgniter\HTTP\RedirectResponse|string
@@ -88,7 +83,7 @@ class AuthController extends BaseController{
 
         // Configuración de las reglas de validación del formulario.
         $rules = [
-            'email' => 'required', // El correo es obligatorio y debe ser válido.
+            'email' => 'required', // Mail must be mandatory and valid.
             'password' => 'required', // La contraseña es obligatoria.
         ];
 
@@ -101,9 +96,9 @@ class AuthController extends BaseController{
 
        
 
-        // Si la validación pasa, verificamos las credenciales.
+        // Should the validation pass,we verify the credentials.
         $userModel = new UserModel();
-        $user = $userModel->findByEmail($this->request->getPost('email')); // Buscamos al usuario por su correo.
+        $user = $userModel->findByEmail($this->request->getPost('email')); // The user is searched by his credentials.
 
 
 
@@ -120,13 +115,12 @@ class AuthController extends BaseController{
 
             // Redirigimos a la página de inicio con un mensaje de éxito.
             return redirect()->to('/users')->with('success', 'Inicio de sesión exitoso.');
-        }
-
+        }else{
         // Si las credenciales son incorrectas, mostramos un mensaje de error.
         
         return redirect()->to('/login')->with('error', 'Incorrect Email or Password.');
+        }
     }
-
     /**
      * Closes user session
      */

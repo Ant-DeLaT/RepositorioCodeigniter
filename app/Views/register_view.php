@@ -4,7 +4,7 @@ Website: http://www.keenthemes.com
 -->
 <html lang="es">
 	<!--begin::Head-->
-	<head><base href="../../../">
+	<head><base href="">
 		<title>Metronic Registrer</title>
 		<link rel="canonical" href="https://preview.keenthemes.com/metronic8" />
 		<link rel="shortcut icon" href="assets/media/logos/favicon.ico" />
@@ -28,7 +28,7 @@ Website: http://www.keenthemes.com
 				<!--begin::Content-->
 				<div class="d-flex flex-center flex-column flex-column-fluid p-10 pb-lg-20">
 					<!--begin::Logo-->
-					<a href="../../demo1/dist/index.html" class="mb-12">
+					<a href="#" class="mb-12">
 						<img alt="Logo" src="assets/media/logos/logo-1.svg" class="h-40px" />
 					</a>
 					<!--end::Logo-->
@@ -43,21 +43,23 @@ Website: http://www.keenthemes.com
 								<!--end::Title-->
 								<!--begin::Link-->
 								<div class="text-gray-400 fw-bold fs-4">Already have an account?
-								<a href="<?=base_url("metLog")?>" class="link-primary fw-bolder">Sign in here</a></div>
+								<a href="<?=base_url("login")?>" class="link-primary fw-bolder">Sign in here</a></div>
 								<!--end::Link-->
 							</div>
 							<!--end::Heading-->
-							<!--begin::Action-->
-								<!-- <button type="button" class="btn btn-light-primary fw-bolder w-100 mb-10">
-								<img alt="Logo" src="assets/media/svg/brand-logos/google-icon.svg" class="h-20px me-3" />Sign in with Google</button> -->
-							<!--end::Action-->
+							<!-- begin::Action-->
+								<button type="button" class="btn btn-light-primary fw-bolder w-100 mb-10">
+								<img alt="Logo" src="assets/media/svg/brand-logos/google-icon.svg" class="h-20px me-3" />Sign in with Google</button>
+								<!-- SIGN WITH GOOGLE, IMPLEMENT PLUGIN -->
+							<!--end::Action -->
 							<!--begin::Separator-->
-							<!-- <div class="d-flex align-items-center mb-10">
+							<div class="d-flex align-items-center mb-10">
 								<div class="border-bottom border-gray-300 mw-50 w-100"></div>
 								<span class="fw-bold text-gray-400 fs-7 mx-2">OR</span>
 								<div class="border-bottom border-gray-300 mw-50 w-100"></div>
-							</div> -->
+							</div>
 							<!--end::Separator-->
+							<form action="<?=base_url("register/process")?>" method="post">
 							<!--begin::Input group-->
 							<div class="row fv-row mb-7">
 								<!--begin::Col-->
@@ -65,12 +67,14 @@ Website: http://www.keenthemes.com
 									<label class="form-label fw-bolder text-dark fs-6">First Name</label>
 									<input class="form-control form-control-lg form-control-solid" type="text" placeholder="F. Name" name="first-name" autocomplete="off" />
 								</div>
+							</div>
 								<!--end::Col-->
 								<!--begin::Col-->
-									<!-- <div class="col-xl-6">
-										<label class="form-label fw-bolder text-dark fs-6">Last Name</label>
-										<input class="form-control form-control-lg form-control-solid" type="text" placeholder="" name="last-name" autocomplete="off" />
-									</div> -->
+							<div class="row fv-row mb-7">
+								<div class="col-xl-6">
+									<label class="form-label fw-bolder text-dark fs-6">Last Name</label>
+									<input class="form-control form-control-lg form-control-solid" type="text" placeholder="L.Name" name="last-name" autocomplete="off" />
+								</div>
 								<!--end::Col-->
 							</div>
 							<!--end::Input group-->
@@ -121,19 +125,21 @@ Website: http://www.keenthemes.com
 							<div class="fv-row mb-10">
 								<label class="form-check form-check-custom form-check-solid form-check-inline">
 									<input class="form-check-input" type="checkbox" name="toc" value="1" />
-									<span class="form-check-label fw-bold text-gray-700 fs-6">I Agree
-									<a href="#" class="ms-1 link-primary">Terms and conditions</a>.</span>
+									<span class="form-check-label fw-bold text-gray-700 fs-6">I Agree with the
+									<a target="blank" href="" class="ms-1 link-primary">Terms and conditions</a>.</span>
+<!-- ADD LINK TO TERMS AND CONDITIONS -->
 								</label>
 							</div>
 							<!--end::Input group-->
 							<!--begin::Actions-->
 							<div class="text-center">
-								<button type="button" id="kt_sign_up_submit" class="btn btn-lg btn-primary">
+								<button type="button" id="kt_sign_up_submit" class="btn btn-lg btn-primary" type="submit">
 									<span class="indicator-label">Submit</span>
 									<span class="indicator-progress">Please wait...
 									<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
 								</button>
 							</div>
+						
 							<!--end::Actions-->
 						</form>
 						<!--end::Form-->
@@ -158,7 +164,7 @@ Website: http://www.keenthemes.com
 		<script src="/assets/js/scripts.bundle.js"></script>
 		<!--end::Global Javascript Bundle-->
 		<!--begin::Page Custom Javascript(used by this page)-->
-		<script src="''/assets/js/custom/authentication/sign-up/general.js"></script>
+		<script src="/assets/js/custom/authentication/sign-up/general.js"></script>
 		<!--end::Page Custom Javascript-->
 		<!--end::Javascript-->
 	</body>

@@ -1,7 +1,7 @@
 <?php
 namespace App\Models;
 use CodeIgniter\Model;
-class ActivityModel extends Model{
+class RolesModel extends Model{
     protected $table='activities';
     // TABLE NAME, CHANGE IF TABLE CHANGED
     protected $primaryKey='id';
