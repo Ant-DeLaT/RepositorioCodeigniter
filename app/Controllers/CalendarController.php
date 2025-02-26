@@ -16,7 +16,7 @@ class CalendarController extends ResourceController
                 $this->request->getGet('end')
             );
         }
-        return $this->respond($data);
+        return [$this->respond($data),view("calendarView")];
     }
     
     public function create() {
@@ -28,7 +28,8 @@ class CalendarController extends ResourceController
         return $this->respond($this->event->find($this->request->getPost('id')));
     }
     function delete($id=null) {
-        return parent::delete($id);
+      $this->event->delete($id);
+      return $this->respond($this->request->getPost('id'));
     }
 
 }

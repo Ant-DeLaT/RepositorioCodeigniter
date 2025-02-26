@@ -1,6 +1,5 @@
 <?php
 
-use App\Controllers\AuthController;
 use CodeIgniter\Router\RouteCollection;
 
 /**

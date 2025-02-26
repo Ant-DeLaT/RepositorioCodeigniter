@@ -12,15 +12,17 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js"></script>
 
-<div class="container">
-    <h2 class="mb-4"><span class="text-danger">FullCalendar</span> en Codeigniter 4.0.4 <span class="text-success"></span>
-    </h2>
-    <div id='ci_calendar'></div>
+<div>
+    <!-- INSERT  -->
+    <div class="container">
+        <h2 class="mb-4"><span class="text-danger">FullCalendar</span> en Codeigniter 4.0.4</h2>
+        <div id='ci_calendar'></div>
+    </div>
 </div>
 
 <script>
     $().ready(()=> {
-        let BASE_URL="<?=base_url()?>";
+        const BASE_URL="<?=base_url()?>";
         // POSSIBLE USE OF "const"
         let calendar= $('#ci_calendar').fullCalendar({
             header:{
@@ -60,9 +62,8 @@
                             calendar.fullCalendar('unselect');
                         }
                     });
-                }
-            },
-            eventDrop: (event,delta)=>{
+                }},
+                eventDrop: (event,delta)=>{
                 let start=$.fullCalendar.formatDate(event.start,'Y-MM-DD');
                 let start=$.fullCalendar.formatDate(event.start,'Y-MM-DD');
 
@@ -78,9 +79,29 @@
                     success:(data)=>{
                         toastrMessage("Event updated successfully")
                     }
-                })
+                });
+                },
+                eventClick: (event)=>{
+                let questionDelete=confirm('¿Desea eliminar el evento?');
+
+                if(questionDelete){
+                    $.ajax({
+                        url:BASE_URL+'calendarController/delete'+event.id,
+                        data:{
+                            id:event.id;
+                        },
+                        type:'POST',
+                        success:(data)=>{
+            
+                            calendar.fullCalendar('removeEvent',event.id)
+                           
+                            calendar.fullCalendar('unselect');
+                            toastrMessage('Event removed successfully');
+                        }
+                    });
+                }
             }
-        });
+        });  
     });
     function toastrMessage(params) {
         toastr.success(params,'Event');

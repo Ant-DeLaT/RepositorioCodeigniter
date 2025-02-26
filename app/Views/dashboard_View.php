@@ -52,7 +52,7 @@
                 <!--begin::Aside-->
                 <div id="kt_aside" class="aside aside-dark aside-hoverable drawer drawer-start drawer-on" data-kt-drawer="true" data-kt-drawer-name="aside" data-kt-drawer-activate="{default: true, lg: false}" data-kt-drawer-overlay="true" data-kt-drawer-width="{default:'200px', '300px': '250px'}" data-kt-drawer-direction="start" data-kt-drawer-toggle="#kt_aside_mobile_toggle">
                     <!--begin::Brand-->
-                    <div class="aside-logo flex-column-auto" id="kt_aside_logo">
+                    <div class="flex-column-auto" id="kt_aside_logo" style="margin: 10px;margin-left: 15%">
 						<!--begin::Logo-->
 						<a href="#">
 							<img alt="Logo" src="assets/media/logos/logo-1-dark.svg" class="h-25px logo" />
@@ -110,7 +110,9 @@
                                             <div class="menu-item">
                                                 <a class="menu-link" href="#">
                                                     <span class="menu-bullet">
-                                                        <span class="bullet bullet-dot"></span>
+                                                        <span class="bullet bullet-dot">
+                                                            Projects
+                                                        </span>
                                                     </span>
                                                     <span class="menu-title">My Projects</span>
                                                 </a>
