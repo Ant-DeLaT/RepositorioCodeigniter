@@ -49,12 +49,10 @@ $routes->post('/register/process', 'AuthController::registerProcess'); //Procesa
 $routes->get('/logout', 'AuthController::logout'); //Close the session
 
 
-$routes->get("/metMetronic", "metController::index");
-$routes->get("/metReg", "metController::register");
-$routes->get("/metLog", "metController::login");
-$routes->get("/About","metController::About");
-$routes->get("/FAQ","metController::FAQ");
-$routes->get("/metaside","metController::asdf");
+$routes->resource("CalendarController",['only'=>['calendar','create','update','delete']]);
+$routes->get("/About","ExtraFunctions::About");
+$routes->get("/FAQ","ExtraFunctions::FAQ");
+
 
 $routes->get('/exportExcel', 'ExtraFunctions::export'); // Exports excel 
 $routes->get('/importExcel', 'ExtraFunctions::import'); // Imports information from excels

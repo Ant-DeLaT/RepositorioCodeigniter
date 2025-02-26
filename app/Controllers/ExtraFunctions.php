@@ -30,8 +30,10 @@ class ExtraFunctions extends BaseController
             $spreadsheet=\PhpOffice\PhPSpreadsheet\IOFactory::load($inputFileNamePath);
             $data=$spreadsheet->getActiveSheet().toArray();
             $count=0;
-            foreach($data as $row){
-                if ($count>0) {
+            foreach($data as $row)
+            {
+                if ($count>0) 
+                {
                     $name=$row['1'];
                     $pasword=$row['2'];
                     $email=$row['3'];
@@ -44,18 +46,21 @@ class ExtraFunctions extends BaseController
                     $count="1";
                 }
             }
-            if (isset($msg)){
+            if (isset($msg))
+            {
                 $_SESSION['message']='Successfully imported';
                 header('Location: ');
                 // INSERT LOCATION
-            }else{
+            }else
+            {
                 $_SESSION['message']='Not Imported';
                 header('Location:');
                 // INSERT LOCATION
                 exit(0);
             }
         }
-        else{
+        else
+        {
             $_SESSION['message']='Invalid file';
             header('Location:');
             // INSERT LOCATION
@@ -63,11 +68,18 @@ class ExtraFunctions extends BaseController
         }
 
     }
-    public function About() {
-        return view("About");
+    public function About() 
+    {
+        return view("AboutView");
     }
-    public function FAQ()  {
-        return view("FAQ");
+    public function FAQ()  
+    {
+        return view("FAQView");
     }
+  
+
+
+
+
 }
 
