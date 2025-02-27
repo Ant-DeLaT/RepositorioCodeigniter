@@ -11,24 +11,22 @@ class UserController extends BaseController{
         helper("form");
         $userModel=new UserModel();
         // CAREFUL WITH THE IDS!!!!
-        $name=$this->request->getVar('WhName');//Búsqueda desde formulario
-        $email=$this->request->getVar('WhEmail');
+        $name = $this->request->getVar('whName'); //Búsqueda desde formulario
+        $email = $this->request->getVar('whEmail');
         // Aplicar filtro (query) con un nombre introducido
-        if($name){
-            $query=$userModel->like('name',$name);
-        }else{
-            $query=$userModel->like("name");
+
+        $query = $userModel;
+        if (!empty($name)) {
+            $query = $query->like('name', $name);  // Add a LIKE condition for the name
         }
-        // if($email){
-        //     $query2=$userModel->like('email',$email);
-        // }else{
-        //     $query2=$userModel->like("email");
-        // }
-            // $recover=[$query->get(),$query2->get()];
-            // $result=$query->get();
+        if (!empty($email)) {
+            $query = $query->like('email', $email); // Add a LIKE condition for the email
+        }
+        // $recover = [$query->get()];
+        // $result = $query->get();
 
         // $perPage=10;
-        $perPage=3; //New perPage number: 3 elements for page
+        $perPage = 5; //New perPage number: 3 elements for page
         // $data['users']=$userModel->findAll(); //Finds all users
         // ,$query2->get(),$query->paginate($perPage)
         $data['users']=$query->paginate($perPage);
@@ -114,7 +112,8 @@ class UserController extends BaseController{
         return redirect()->to('/users')->with('success','Usuario eliminado correctamente');
     }
 
-    public function metronic(){
+    public function metronic()
+    {
         return view("/index.php");
     }
 }

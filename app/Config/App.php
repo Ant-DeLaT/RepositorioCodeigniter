@@ -18,7 +18,7 @@ class App extends BaseConfig
      */
 
     //  PAGINA WEB BASE
-     public string $baseURL = 'http://localhost:8080/RepositorioCodeigniter/public';
+    public string $baseURL = 'http://localhost/';
 
     /**
      * Allowed Hostnames in the Site URL other than the hostname in the baseURL.

@@ -9,8 +9,9 @@ class Home extends BaseController
     public function index(): string
     {
         // return CheckPhpIni::run(false);
-        return view('welcome_message');
+        // return view('welcome_message');
         // Llamada a la vista 
+        return view('indexView');
         // return view('homeView');
         // return view(getUsers());
     }

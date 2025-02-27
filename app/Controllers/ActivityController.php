@@ -2,7 +2,8 @@
 // include "conn.php";
 namespace App\Controllers;
 use App\Models\UserModel;
-class UserController extends BaseController{
+class ActivityController extends BaseController
+{
 
 // REMINDER, CHECK "Language/en" TO SWAP REGULAR WARNINGS!
 

@@ -53,13 +53,17 @@
             "CodeIgniter\\": "system/"
         },
         "exclude-from-classmap": [
-            "**/Database/Migrations/**"
+            "**/Database/Migrations/**",
+            "system/ThirdParty/**"
         ]
     },
     "config": {
         "optimize-autoloader": true,
         "preferred-install": "dist",
-        "sort-packages": true
+        "sort-packages": true,
+        "allow-plugins": {
+            "phpdocumentor/shim": true
+        }
     },
     "scripts": {
         "test": "phpunit"

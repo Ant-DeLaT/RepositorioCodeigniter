@@ -382,6 +382,7 @@ class SiteURI extends URI
 
         $config            = clone config(App::class);
         $config->indexPage = '';
+        // $config->baseURL = 'http://localhost/';
 
         $host = $this->getHost();
 

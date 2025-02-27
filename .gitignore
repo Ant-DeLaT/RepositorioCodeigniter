@@ -1,3 +1,7 @@
 .vscode
 writable/
 public/audio/
+vendor/
+.DS_Store
+.windsurfrules
+Notas.md
