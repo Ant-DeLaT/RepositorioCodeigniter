@@ -9,16 +9,23 @@ class UserController extends BaseController{
 
     public function index() {
         helper("form");
-        $userModel=new UserModel();
-        // CAREFUL WITH THE IDS!!!!
-        $name=$this->request->getVar('WhName');//Búsqueda desde formulario
-        $email=$this->request->getVar('WhEmail');
+        $query=new UserModel();$userModel=new UserModel();
+        // The request getVar uses "name" not "id"
+        $name=$this->request->getVar('whName');//Búsqueda desde formulario
+        $email=$this->request->getVar('whEmail');
+        $password=$this->request->getVar('whPassword');
+        $email=$this->request->getVar('whEmail');
         // Aplicar filtro (query) con un nombre introducido
-        if($name){
-            $query=$userModel->like('name',$name);
-        }else{
-            $query=$userModel->like("name");
+        if(!empty($name)){
+            $query=$query->like('name',$name);
         }
+        if(!empty($email)){
+            $query=$query->like("email",$email);
+        }
+        if(!empty($password)){
+            $query=$query->like("password",$password);
+        }
+       
         // if($email){
         //     $query2=$userModel->like('email',$email);
         // }else{
@@ -32,8 +39,9 @@ class UserController extends BaseController{
         // $data['users']=$userModel->findAll(); //Finds all users
         // ,$query2->get(),$query->paginate($perPage)
         $data['users']=$query->paginate($perPage);
-        $data['pager']=$userModel->pager;//Adds paginate (pager) to the view
+        $data['pager']=$query->pager;//Adds paginate (pager) to the view
         $data["name"]=$name; //Keeps the search term inside the view
+        $data["email"]=$email;
         return view('dashboard_View',$data);
     }
     public function saveUser($id=null){
@@ -114,7 +122,4 @@ class UserController extends BaseController{
         return redirect()->to('/users')->with('success','Usuario eliminado correctamente');
     }
 
-    public function metronic(){
-        return view("/index.php");
-    }
 }

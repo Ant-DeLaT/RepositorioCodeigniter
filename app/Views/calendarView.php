@@ -35,7 +35,7 @@
             events:BASE_URL+"/home/index?start=&end=",
             displayEventTime:false,
             selectable:true,
-            selectHelper:true
+            selectHelper:true,
             select: function(start,end,allDay){
                 let title=prompt("Event Title");
                 if (title) {
@@ -64,7 +64,7 @@
                     });
                 }},
                 eventDrop: (event,delta)=>{
-                let start=$.fullCalendar.formatDate(event.start,'Y-MM-DD');
+                // let start=$.fullCalendar.formatDate(event.start,'Y-MM-DD');
                 let start=$.fullCalendar.formatDate(event.start,'Y-MM-DD');
 
                 $.ajax({
@@ -74,7 +74,7 @@
                         start:start,
                         end:end,
                         id:event.id
-                    }
+                    },
                     type:'POST',
                     success:(data)=>{
                         toastrMessage("Event updated successfully")
@@ -88,7 +88,7 @@
                     $.ajax({
                         url:BASE_URL+'calendarController/delete'+event.id,
                         data:{
-                            id:event.id;
+                            id:event.id
                         },
                         type:'POST',
                         success:(data)=>{

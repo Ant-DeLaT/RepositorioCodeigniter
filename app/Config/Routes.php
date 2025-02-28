@@ -8,7 +8,6 @@ use CodeIgniter\Router\RouteCollection;
 // RUTAS DEL INDEX; NO BORRAR, DESCOMENTAR SI SE QUIEREN USAR
 $routes->get('/', 'Home::index');
     // $routes->get('home', 'Home::index');
-// RECUERDA USAR RUTAS "RELATIVAS" EN EL NAVEGADOR
     // $routes->get('home/getUsers','Home::getUsers');
     // $routes->get('home/create','Home::create');
     // $routes->post('home/create','Home::create');
@@ -24,9 +23,9 @@ $routes->get('/users/delete/(:num)', 'UserController::delete/$1'); //Eliminar us
 $routes->get('/users/restore/(:num)','UserController::restore/$1'); //deletes "deleted_at"; MUST BE FIXED
 
 // ACTIVITY, SECONDARY TABLE
+// $routes->get(from: '/act/save', to: 'ActivityController::index');
 
 $routes->get(from: '/act', to: 'ActivityController::index');
-$routes->get(from: '/act/save', to: 'ActivityController::index');
 $routes->get('/act/save/(:num)', 'ActivityController::saveUser/$1'); //Mostrar formulario para editar usuario
 $routes->post('/act/save/', 'ActivityController::saveUser');// Crear usuario (POST)
 $routes->post('/act/save/(:num)', 'ActivityController::saveUser/$1'); //Editar usuario (POST)

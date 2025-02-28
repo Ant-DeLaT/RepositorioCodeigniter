@@ -22,18 +22,10 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.datatables.net/2.2.2/css/dataTables.dataTables.css">
 
-<!-- DATATABLES -->
-<link href="https://cdn.datatables.net/v/bs5/jq-3.7.0/moment-2.29.4/jszip-3.10.1/dt-2.2.2/af-2.7.0/b-3.2.2/b-html5-3.2.2/cr-2.0.4/date-1.5.5/kt-2.12.1/r-3.0.4/rg-1.5.1/sb-1.8.2/sp-2.3.3/sl-3.0.0/sr-1.4.1/datatables.min.css" rel="stylesheet" integrity="sha384-8YO63l+I4O/yBIeI+DbNGWMxIpc9/nZSvGIr7bWFtrwvMK8ImIiH9JIccFdzj6C5" crossorigin="anonymous">
  
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
 		<!--end::Fonts-->
-		<!--begin::Page Vendor Stylesheets(used by this page)-->
-		<link href="assets/plugins/custom/fullcalendar/fullcalendar.bundle.css" rel="stylesheet" type="text/css" />
-		<!--end::Page Vendor Stylesheets-->
-		<!--begin::Global Stylesheets Bundle(used by all pages)-->
-		<link href="assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
-		<link href="assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
-		<!--end::Global Stylesheets Bundle-->
+
 
 </head>
 
@@ -273,15 +265,15 @@
 
     <div class="container">
     <div class="input group w auto">
-        <input type="text" name="ask" class="form-control" id="whName" placeholder="Name" value="<?= esc($name) ?>">
+        <input type="text" name="whName" class="form-control" id="whName" placeholder="Name" value="<?= esc($name) ?>">
         <!-- <button type="submit">SEARCH</button> -->
     
     <!-- <button class="btn btn-secondary" id="btnName">Search</button> -->
     &nbsp;
-    <input type="text" name="ask" class="form-control" id="whEmail" placeholder="Email">
+    <input type="text" name="whEmail" class="form-control" id="whEmail" placeholder="Email" value="<?= esc( $email) ?>">
     <!-- <button class="btn btn-secondary" id="btnEmail">Search</button> -->
     &nbsp;
-    <input type="text" name="ask" class="form-control" id="whPassword" placeholder="Password">
+    <input type="text" name="whPassword" class="form-control" id="whPassword" placeholder="Password">
     <!-- <button class="btn btn-secondary" id="btnPassword">Search</button> -->
     &nbsp;
     <select class="form-control" id="whRole">
@@ -302,11 +294,11 @@
 
     &nbsp;
     
-        <input type="date" name="ask" class="form-control" id="whCreated_at" placeholder="Created_at">
+        <input type="date" name="whCreated_at" class="form-control" id="whCreated_at" placeholder="Created_at">
         <!-- <button class="btn btn-secondary" id="btnCreated_at">Use Filter</button>
         <button class="btn btn-danger" id="noCreated_at">Remove Filter</button> -->
         &nbsp;
-        <select name="ask" class="form-control" id="isDeleted">
+        <select name="isDeleted" class="form-control" id="isDeleted">
         <option value="allowed">
         Allowed
         </option>
@@ -385,14 +377,22 @@
 
 
 <script>
-    $().ready(){ ()=>{
+    $().ready(()=>{
         $("dashboardTable").DataTable();
-    }};
+    });
 </script>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 <script src="https://cdn.datatables.net/2.2.2/js/dataTables.js"></script>
-
+<!-- DATATABLES -->
+<link href="https://cdn.datatables.net/v/bs5/jq-3.7.0/moment-2.29.4/jszip-3.10.1/dt-2.2.2/af-2.7.0/b-3.2.2/b-html5-3.2.2/cr-2.0.4/date-1.5.5/kt-2.12.1/r-3.0.4/rg-1.5.1/sb-1.8.2/sp-2.3.3/sl-3.0.0/sr-1.4.1/datatables.min.css" rel="stylesheet" integrity="sha384-8YO63l+I4O/yBIeI+DbNGWMxIpc9/nZSvGIr7bWFtrwvMK8ImIiH9JIccFdzj6C5" crossorigin="anonymous">
+		<!--begin::Page Vendor Stylesheets(used by this page)-->
+		<link href="assets/plugins/custom/fullcalendar/fullcalendar.bundle.css" rel="stylesheet" type="text/css" />
+		<!--end::Page Vendor Stylesheets-->
+		<!--begin::Global Stylesheets Bundle(used by all pages)-->
+		<link href="assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
+		<link href="assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
+		<!--end::Global Stylesheets Bundle-->
 
 </html>

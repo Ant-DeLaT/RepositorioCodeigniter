@@ -102,7 +102,5 @@ class UserController extends BaseController{
         return redirect()->to('/users')->with('success','Usuario eliminado correctamente');
     }
 
-    public function metronic(){
-        return view("/index.php");
-    }
+   
 }
