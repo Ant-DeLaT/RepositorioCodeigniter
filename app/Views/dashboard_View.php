@@ -27,12 +27,18 @@
     <link rel="stylesheet"
         href="https://cdn.datatables.net/2.2.2/css/dataTables.dataTables.css">
 
+<<<<<<< Updated upstream
     <!-- DATATABLES -->
     <link
         href="https://cdn.datatables.net/v/bs5/jq-3.7.0/moment-2.29.4/jszip-3.10.1/dt-2.2.2/af-2.7.0/b-3.2.2/b-html5-3.2.2/cr-2.0.4/date-1.5.5/kt-2.12.1/r-3.0.4/rg-1.5.1/sb-1.8.2/sp-2.3.3/sl-3.0.0/sr-1.4.1/datatables.min.css"
         rel="stylesheet"
         integrity="sha384-8YO63l+I4O/yBIeI+DbNGWMxIpc9/nZSvGIr7bWFtrwvMK8ImIiH9JIccFdzj6C5"
         crossorigin="anonymous">
+=======
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
+    <!--end::Fonts-->
+>>>>>>> Stashed changes
 
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
@@ -64,11 +70,17 @@
 
 
 
+<<<<<<< Updated upstream
 <body id="kt_body"
     class="header-fixed header-tablet-and-mobile-fixed toolbar-enabled toolbar-fixed aside-enabled aside-fixed"
     style="--kt-toolbar-height:55px;--kt-toolbar-height-tablet-and-mobile:55px">
     <!-- Sidebar -->
     < class="d-flex flex-column flex-root">
+=======
+<body id="kt_body" class="header-fixed header-tablet-and-mobile-fixed toolbar-enabled toolbar-fixed aside-enabled aside-fixed" style="--kt-toolbar-height:55px;--kt-toolbar-height-tablet-and-mobile:55px">
+    <!-- Sidebar -->
+    <div class="d-flex flex-column flex-root">
+>>>>>>> Stashed changes
         <div>
             <!--begin::Page-->
             <div class="page d-flex flex-row flex-column-fluid">
@@ -81,6 +93,7 @@
                     data-kt-drawer-direction="start"
                     data-kt-drawer-toggle="#kt_aside_mobile_toggle">
                     <!--begin::Brand-->
+<<<<<<< Updated upstream
                     <div class="flex-column-auto" id="kt_aside_logo"
                         style="margin: 10px;margin-left: 15%">
                         <!--begin::Logo-->
@@ -107,6 +120,21 @@
                                     <path
                                         d="M8.2657 11.4343L12.45 7.25C12.8642 6.83579 12.8642 6.16421 12.45 5.75C12.0358 5.33579 11.3642 5.33579 10.95 5.75L5.40712 11.2929C5.01659 11.6834 5.01659 12.3166 5.40712 12.7071L10.95 18.25C11.3642 18.6642 12.0358 18.6642 12.45 18.25C12.8642 17.8358 12.8642 17.1642 12.45 16.75L8.2657 12.5657C7.95328 12.2533 7.95328 11.7467 8.2657 11.4343Z"
                                         fill="black" />
+=======
+                    <div class="flex-column-auto" id="kt_aside_logo" style="margin: 10px;margin-left: 15%">
+                        <!--begin::Logo-->
+                        <a href="#">
+                            <img alt="Logo" src="assets/media/logos/logo-1-dark.svg" class="h-25px logo" />
+                        </a>
+                        <!--end::Logo-->
+                        <!--begin::Aside toggler-->
+                        <div id="kt_aside_toggle" class="btn btn-icon w-auto px-0 btn-active-color-primary aside-toggle" data-kt-toggle="true" data-kt-toggle-state="active" data-kt-toggle-target="body" data-kt-toggle-name="aside-minimize">
+                            <!--begin::Svg Icon | path: icons/duotune/arrows/arr079.svg-->
+                            <span class="svg-icon svg-icon-1 rotate-180">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path opacity="0.5" d="M14.2657 11.4343L18.45 7.25C18.8642 6.83579 18.8642 6.16421 18.45 5.75C18.0358 5.33579 17.3642 5.33579 16.95 5.75L11.4071 11.2929C11.0166 11.6834 11.0166 12.3166 11.4071 12.7071L16.95 18.25C17.3642 18.6642 18.0358 18.6642 18.45 18.25C18.8642 17.8358 18.8642 17.1642 18.45 16.75L14.2657 12.5657C13.9533 12.2533 13.9533 11.7467 14.2657 11.4343Z" fill="black" />
+                                    <path d="M8.2657 11.4343L12.45 7.25C12.8642 6.83579 12.8642 6.16421 12.45 5.75C12.0358 5.33579 11.3642 5.33579 10.95 5.75L5.40712 11.2929C5.01659 11.6834 5.01659 12.3166 5.40712 12.7071L10.95 18.25C11.3642 18.6642 12.0358 18.6642 12.45 18.25C12.8642 17.8358 12.8642 17.1642 12.45 16.75L8.2657 12.5657C7.95328 12.2533 7.95328 11.7467 8.2657 11.4343Z" fill="black" />
+>>>>>>> Stashed changes
                                 </svg>
                             </span>
                             <!--end::Svg Icon-->
@@ -119,6 +147,7 @@
                     <div class="aside-menu flex-column-fluid">
 
                         <!--begin::Aside Menu-->
+<<<<<<< Updated upstream
                         <div class="hover-scroll-overlay-y my-5 my-lg-5"
                             id="kt_aside_menu_wrapper" data-kt-scroll="true"
                             data-kt-scroll-activate="{default: false, lg: true}"
@@ -130,13 +159,23 @@
                             <!--begin::Menu-->
                             <div class="menu menu-column menu-title-gray-800 menu-state-title-primary menu-state-icon-primary menu-state-bullet-primary menu-arrow-gray-500"
                                 id="#kt_aside_menu" data-kt-menu="true">
+=======
+                        <div class="hover-scroll-overlay-y my-5 my-lg-5" id="kt_aside_menu_wrapper" data-kt-scroll="true" data-kt-scroll-activate="{default: false, lg: true}" data-kt-scroll-height="auto" data-kt-scroll-dependencies="#kt_aside_logo, #kt_aside_footer" data-kt-scroll-wrappers="#kt_aside_menu" data-kt-scroll-offset="0">
+
+                            <!--begin::Menu-->
+                            <div class="menu menu-column menu-title-gray-800 menu-state-title-primary menu-state-icon-primary menu-state-bullet-primary menu-arrow-gray-500" id="#kt_aside_menu" data-kt-menu="true">
+>>>>>>> Stashed changes
 
                                 <div class="menu-item">
 
                                     <!-- Upper -->
                                     <div class="menu-content pt-8 pb-2">
+<<<<<<< Updated upstream
                                         <span
                                             class="menu-section text-muted text-uppercase fs-8 ls-1">Apps</span>
+=======
+                                        <span class="menu-section text-muted text-uppercase fs-8 ls-1">My App</span>
+>>>>>>> Stashed changes
                                     </div>
                                 </div>
                                 <div data-kt-menu-trigger="click"
@@ -213,6 +252,7 @@
                                         <a class="menu-link" href="">
                                             <span class="menu-icon">
                                                 <!--begin::Svg Icon | path: icons/duotune/general/gen014.svg-->
+<<<<<<< Updated upstream
                                                 <span
                                                     class="svg-icon svg-icon-2">
                                                     <svg xmlns="http://www.w3.org/2000/svg"
@@ -228,12 +268,23 @@
                                                         <path
                                                             d="M8.8 13.1C9.2 13.1 9.5 13 9.7 12.8C9.9 12.6 10.1 12.3 10.1 11.9C10.1 11.6 10 11.3 9.8 11.1C9.6 10.9 9.3 10.8 9 10.8C8.8 10.8 8.59999 10.8 8.39999 10.9C8.19999 11 8.1 11.1 8 11.2C7.9 11.3 7.8 11.4 7.7 11.6C7.6 11.8 7.5 11.9 7.5 12.1C7.5 12.2 7.4 12.2 7.3 12.3C7.2 12.4 7.09999 12.4 6.89999 12.4C6.69999 12.4 6.6 12.3 6.5 12.2C6.4 12.1 6.3 11.9 6.3 11.7C6.3 11.5 6.4 11.3 6.5 11.1C6.6 10.9 6.8 10.7 7 10.5C7.2 10.3 7.49999 10.1 7.89999 10C8.29999 9.90003 8.60001 9.80003 9.10001 9.80003C9.50001 9.80003 9.80001 9.90003 10.1 10C10.4 10.1 10.7 10.3 10.9 10.4C11.1 10.5 11.3 10.8 11.4 11.1C11.5 11.4 11.6 11.6 11.6 11.9C11.6 12.3 11.5 12.6 11.3 12.9C11.1 13.2 10.9 13.5 10.6 13.7C10.9 13.9 11.2 14.1 11.4 14.3C11.6 14.5 11.8 14.7 11.9 15C12 15.3 12.1 15.5 12.1 15.8C12.1 16.2 12 16.5 11.9 16.8C11.8 17.1 11.5 17.4 11.3 17.7C11.1 18 10.7 18.2 10.3 18.3C9.9 18.4 9.5 18.5 9 18.5C8.5 18.5 8.1 18.4 7.7 18.2C7.3 18 7 17.8 6.8 17.6C6.6 17.4 6.4 17.1 6.3 16.8C6.2 16.5 6.10001 16.3 6.10001 16.1C6.10001 15.9 6.2 15.7 6.3 15.6C6.4 15.5 6.6 15.4 6.8 15.4C6.9 15.4 7.00001 15.4 7.10001 15.5C7.20001 15.6 7.3 15.6 7.3 15.7C7.5 16.2 7.7 16.6 8 16.9C8.3 17.2 8.6 17.3 9 17.3C9.2 17.3 9.5 17.2 9.7 17.1C9.9 17 10.1 16.8 10.3 16.6C10.5 16.4 10.5 16.1 10.5 15.8C10.5 15.3 10.4 15 10.1 14.7C9.80001 14.4 9.50001 14.3 9.10001 14.3C9.00001 14.3 8.9 14.3 8.7 14.3C8.5 14.3 8.39999 14.3 8.39999 14.3C8.19999 14.3 7.99999 14.2 7.89999 14.1C7.79999 14 7.7 13.8 7.7 13.7C7.7 13.5 7.79999 13.4 7.89999 13.2C7.99999 13 8.2 13 8.5 13H8.8V13.1ZM15.3 17.5V12.2C14.3 13 13.6 13.3 13.3 13.3C13.1 13.3 13 13.2 12.9 13.1C12.8 13 12.7 12.8 12.7 12.6C12.7 12.4 12.8 12.3 12.9 12.2C13 12.1 13.2 12 13.6 11.8C14.1 11.6 14.5 11.3 14.7 11.1C14.9 10.9 15.2 10.6 15.5 10.3C15.8 10 15.9 9.80003 15.9 9.70003C15.9 9.60003 16.1 9.60004 16.3 9.60004C16.5 9.60004 16.7 9.70003 16.8 9.80003C16.9 9.90003 17 10.2 17 10.5V17.2C17 18 16.7 18.4 16.2 18.4C16 18.4 15.8 18.3 15.6 18.2C15.4 18.1 15.3 17.8 15.3 17.5Z"
                                                             fill="black" />
+=======
+                                                <span class="svg-icon svg-icon-2">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                        <path opacity="0.3" d="M21 22H3C2.4 22 2 21.6 2 21V5C2 4.4 2.4 4 3 4H21C21.6 4 22 4.4 22 5V21C22 21.6 21.6 22 21 22Z" fill="black" />
+                                                        <path d="M6 6C5.4 6 5 5.6 5 5V3C5 2.4 5.4 2 6 2C6.6 2 7 2.4 7 3V5C7 5.6 6.6 6 6 6ZM11 5V3C11 2.4 10.6 2 10 2C9.4 2 9 2.4 9 3V5C9 5.6 9.4 6 10 6C10.6 6 11 5.6 11 5ZM15 5V3C15 2.4 14.6 2 14 2C13.4 2 13 2.4 13 3V5C13 5.6 13.4 6 14 6C14.6 6 15 5.6 15 5ZM19 5V3C19 2.4 18.6 2 18 2C17.4 2 17 2.4 17 3V5C17 5.6 17.4 6 18 6C18.6 6 19 5.6 19 5Z" fill="black" />
+                                                        <path d="M8.8 13.1C9.2 13.1 9.5 13 9.7 12.8C9.9 12.6 10.1 12.3 10.1 11.9C10.1 11.6 10 11.3 9.8 11.1C9.6 10.9 9.3 10.8 9 10.8C8.8 10.8 8.59999 10.8 8.39999 10.9C8.19999 11 8.1 11.1 8 11.2C7.9 11.3 7.8 11.4 7.7 11.6C7.6 11.8 7.5 11.9 7.5 12.1C7.5 12.2 7.4 12.2 7.3 12.3C7.2 12.4 7.09999 12.4 6.89999 12.4C6.69999 12.4 6.6 12.3 6.5 12.2C6.4 12.1 6.3 11.9 6.3 11.7C6.3 11.5 6.4 11.3 6.5 11.1C6.6 10.9 6.8 10.7 7 10.5C7.2 10.3 7.49999 10.1 7.89999 10C8.29999 9.90003 8.60001 9.80003 9.10001 9.80003C9.50001 9.80003 9.80001 9.90003 10.1 10C10.4 10.1 10.7 10.3 10.9 10.4C11.1 10.5 11.3 10.8 11.4 11.1C11.5 11.4 11.6 11.6 11.6 11.9C11.6 12.3 11.5 12.6 11.3 12.9C11.1 13.2 10.9 13.5 10.6 13.7C10.9 13.9 11.2 14.1 11.4 14.3C11.6 14.5 11.8 14.7 11.9 15C12 15.3 12.1 15.5 12.1 15.8C12.1 16.2 12 16.5 11.9 16.8C11.8 17.1 11.5 17.4 11.3 17.7C11.1 18 10.7 18.2 10.3 18.3C9.9 18.4 9.5 18.5 9 18.5C8.5 18.5 8.1 18.4 7.7 18.2C7.3 18 7 17.8 6.8 17.6C6.6 17.4 6.4 17.1 6.3 16.8C6.2 16.5 6.10001 16.3 6.10001 16.1C6.10001 15.9 6.2 15.7 6.3 15.6C6.4 15.5 6.6 15.4 6.8 15.4C6.9 15.4 7.00001 15.4 7.10001 15.5C7.20001 15.6 7.3 15.6 7.3 15.7C7.5 16.2 7.7 16.6 8 16.9C8.3 17.2 8.6 17.3 9 17.3C9.2 17.3 9.5 17.2 9.7 17.1C9.9 17 10.1 16.8 10.3 16.6C10.5 16.4 10.5 16.1 10.5 15.8C10.5 15.3 10.4 15 10.1 14.7C9.80001 14.4 9.50001 14.3 9.10001 14.3C9.00001 14.3 8.9 14.3 8.7 14.3C8.5 14.3 8.39999 14.3 8.39999 14.3C8.19999 14.3 7.99999 14.2 7.89999 14.1C7.79999 14 7.7 13.8 7.7 13.7C7.7 13.5 7.79999 13.4 7.89999 13.2C7.99999 13 8.2 13 8.5 13H8.8V13.1ZM15.3 17.5V12.2C14.3 13 13.6 13.3 13.3 13.3C13.1 13.3 13 13.2 12.9 13.1C12.8 13 12.7 12.8 12.7 12.6C12.7 12.4 12.8 12.3 12.9 12.2C13 12.1 13.2 12 13.6 11.8C14.1 11.6 14.5 11.3 14.7 11.1C14.9 10.9 15.2 10.6 15.5 10.3C15.8 10 15.9 9.80003 15.9 9.70003C15.9 9.60003 16.1 9.60004 16.3 9.60004C16.5 9.60004 16.7 9.70003 16.8 9.80003C16.9 9.90003 17 10.2 17 10.5V17.2C17 18 16.7 18.4 16.2 18.4C16 18.4 15.8 18.3 15.6 18.2C15.4 18.1 15.3 17.8 15.3 17.5Z" fill="black" />
+>>>>>>> Stashed changes
                                                     </svg>
                                                 </span>
                                                 <!--end::Svg Icon-->
                                             </span>
+<<<<<<< Updated upstream
                                             <span
                                                 class="menu-title">Calendar</span>
+=======
+                                            <span class="menu-title">Calendar</span>
+>>>>>>> Stashed changes
                                         </a>
                                     </div>
                                 </div>
@@ -243,6 +294,7 @@
                         </div>
                         <!--end::Aside menu-->
                         <!--begin::Footer-->
+<<<<<<< Updated upstream
                         <div class="aside-footer flex-column-auto pt-5 pb-7 px-5"
                             id="kt_aside_footer">
                             <a class="btn btn-custom btn-primary w-100" href="#"
@@ -262,6 +314,23 @@
                                     // }
                                     // }else{  
                                     echo "Visitante";
+=======
+                        <div class="aside-footer flex-column-auto pt-5 pb-7 px-5" id="kt_aside_footer">
+                            <a class="btn btn-custom btn-primary w-100" href="#" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss-="click" title='Click here to access your user data!'>
+                                <span class="btn-label">Bienvenido
+                                    <?php
+                $session = session();
+                //  if(isset($session($user["id"]))){  
+                // 	if ($id==1) {
+                // echo "Lucifer";
+                // }elseif($id==2){
+                // echo "Príncipe";
+                // }else{
+                // echo "Condenado";
+                // }
+                // }else{  
+                echo "Visitante";
+>>>>>>> Stashed changes
                                     // } 
                                     ?>
                                 </span>
@@ -271,6 +340,7 @@
                                 <!-- php echo cambio  -->
                                 <!--begin::Svg Icon | path: icons/duotune/general/gen005.svg-->
                                 <span class="svg-icon btn-icon svg-icon-2">
+<<<<<<< Updated upstream
                                     <svg xmlns="http://www.w3.org/2000/svg"
                                         width="24" height="24"
                                         viewBox="0 0 24 24" fill="none">
@@ -280,6 +350,11 @@
                                         <path
                                             d="M15 8H20L14 2V7C14 7.6 14.4 8 15 8Z"
                                             fill="black" />
+=======
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                        <path opacity="0.3" d="M19 22H5C4.4 22 4 21.6 4 21V3C4 2.4 4.4 2 5 2H14L20 8V21C20 21.6 19.6 22 19 22ZM15 17C15 16.4 14.6 16 14 16H8C7.4 16 7 16.4 7 17C7 17.6 7.4 18 8 18H14C14.6 18 15 17.6 15 17ZM17 12C17 11.4 16.6 11 16 11H8C7.4 11 7 11.4 7 12C7 12.6 7.4 13 8 13H16C16.6 13 17 12.6 17 12ZM17 7C17 6.4 16.6 6 16 6H8C7.4 6 7 6.4 7 7C7 7.6 7.4 8 8 8H16C16.6 8 17 7.6 17 7Z" fill="black" />
+                                        <path d="M15 8H20L14 2V7C14 7.6 14.4 8 15 8Z" fill="black" />
+>>>>>>> Stashed changes
                                     </svg>
                                 </span>
                                 <!--end::Svg Icon-->
@@ -337,6 +412,7 @@
                                 <div class="d-flex align-items-stretch"
                                     id="kt_header_nav">
                                     <!--begin::Menu wrapper-->
+<<<<<<< Updated upstream
                                     <div class="header-menu align-items-stretch"
                                         data-kt-drawer="true"
                                         data-kt-drawer-name="header-menu"
@@ -348,6 +424,9 @@
                                         data-kt-swapper="true"
                                         data-kt-swapper-mode="prepend"
                                         data-kt-swapper-parent="{default: '#kt_body', lg: '#kt_header_nav'}">
+=======
+                                    <div class="header-menu align-items-stretch" data-kt-drawer="true" data-kt-drawer-name="header-menu" data-kt-drawer-activate="{default: true, lg: false}" data-kt-drawer-overlay="true" data-kt-drawer-width="{default:'200px', '300px': '250px'}" data-kt-drawer-direction="end" data-kt-drawer-toggle="#kt_header_menu_mobile_toggle" data-kt-swapper="true" data-kt-swapper-mode="prepend" data-kt-swapper-parent="{default: '#kt_body', lg: '#kt_header_nav'}">
+>>>>>>> Stashed changes
 
                                     </div>
                                     <!--end::Menu wrapper-->
@@ -365,9 +444,17 @@
 
 
         <!-- DATATABLES -->
+<<<<<<< Updated upstream
 
 
         <div class="container mt-5 yago">
+=======
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js" integrity="sha384-VFQrHzqBh5qiJIU0uGU5CIW3+OWpdGGJM9LBnGbuIH2mkICcFZ7lPd/AAtI7SNf7" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js" integrity="sha384-/RlQG9uf0M2vcTw3CX7fbqgbj/h8wKxw7C3zu9/GxcBPRKOEcESxaxufwRXqzq6n" crossorigin="anonymous"></script>
+        <script src="https://cdn.datatables.net/v/bs5/jq-3.7.0/moment-2.29.4/jszip-3.10.1/dt-2.2.2/af-2.7.0/b-3.2.2/b-html5-3.2.2/cr-2.0.4/date-1.5.5/kt-2.12.1/r-3.0.4/rg-1.5.1/sb-1.8.2/sp-2.3.3/sl-3.0.0/sr-1.4.1/datatables.min.js" integrity="sha384-lOStfB9w51cCYrPxeiPDDu13j3XyuozGjSybjRQ11umFeuaLhi+QFjYfTR4e2VOw" crossorigin="anonymous"></script>
+
+        <div class="container mt-5 " style="position: relative; left: 11rem;">
+>>>>>>> Stashed changes
             <h1 class="text-center">User List</h1>
 
             <?php if (session()->getFlashdata('success')): ?>
@@ -378,12 +465,19 @@
             <div class="container">
                 <div class="row">
                     <div class="col-6">
+<<<<<<< Updated upstream
                         <a href="<?= base_url('users/save') ?>" class="btn btn-primary mb-3">Create
                             user</a>
                     </div>
                     <div class="col-6">
                         <a href="<?= base_url('logout') ?>" class="btn btn-danger mb-3 ">Close
                             session</a>
+=======
+                        <a href="<?= base_url('users/save') ?>" class="btn btn-primary mb-3">Create user</a>
+                    </div>
+                    <div class="col-6">
+                        <a href="<?= base_url('logout') ?>" class="btn btn-danger mb-3 ">Close session</a>
+>>>>>>> Stashed changes
                     </div>
                 </div>
             </div>
@@ -393,19 +487,30 @@
 
                 <div class="container">
                     <div class="input group w auto">
+<<<<<<< Updated upstream
                         <input type="text" name="whName" class="form-control"
                             id="whName" placeholder="Name"
                             value="<?= esc($name) ?>">
+=======
+                        <input type="text" name="whName" class="form-control" id="whName" placeholder="Name" value="<?= esc($name) ?>">
+>>>>>>> Stashed changes
                         <!-- <button type="submit">SEARCH</button> -->
 
                         <!-- <button class="btn btn-secondary" id="btnName">Search</button> -->
                         &nbsp;
+<<<<<<< Updated upstream
                         <input type="text" name="whEmail" class="form-control"
                             id="whEmail" placeholder="Email">
                         <!-- <button class="btn btn-secondary" id="btnEmail">Search</button> -->
                         &nbsp;
                         <input type="text" name="whPassword" class="form-control"
                             id="whPassword" placeholder="Password">
+=======
+                        <input type="text" name="whEmail" class="form-control" id="whEmail" placeholder="Email" value="<?= esc($email) ?>">
+                        <!-- <button class="btn btn-secondary" id="btnEmail">Search</button> -->
+                        &nbsp;
+                        <input type="text" name="whPassword" class="form-control" id="whPassword" placeholder="Password">
+>>>>>>> Stashed changes
                         <!-- <button class="btn btn-secondary" id="btnPassword">Search</button> -->
                         &nbsp;
                         <select class="form-control" id="whRole">
@@ -426,12 +531,20 @@
 
                         &nbsp;
 
+<<<<<<< Updated upstream
                         <input type="date" name="ask" class="form-control"
                             id="whCreated_at" placeholder="Created_at">
                         <!-- <button class="btn btn-secondary" id="btnCreated_at">Use Filter</button>
         <button class="btn btn-danger" id="noCreated_at">Remove Filter</button> -->
                         &nbsp;
                         <select name="ask" class="form-control" id="isDeleted">
+=======
+                        <input type="date" name="whCreated_at" class="form-control" id="whCreated_at" placeholder="Created_at">
+                        <!-- <button class="btn btn-secondary" id="btnCreated_at">Use Filter</button>
+        <button class="btn btn-danger" id="noCreated_at">Remove Filter</button> -->
+                        &nbsp;
+                        <select name="isDeleted" class="form-control" id="isDeleted">
+>>>>>>> Stashed changes
                             <option value="allowed">
                                 Allowed
                             </option>
@@ -445,12 +558,17 @@
                     </div><br>
                     <!-- <button class="btn btn-secondary" id="btnDeleted_at">Search</button> -->
                     <div class="row">
+<<<<<<< Updated upstream
                         <div class="col"><button type="submit"
                                 class="btn btn-success" id="btnUseFilter">Use
                                 Filter</button></div>
                         <div class="col"><a href="<?= base_url('/users') ?>" class="btn btn-danger"
                                 id="btnRstFilter">Remove
                                 Filters</a></div>
+=======
+                        <div class="col"><button type="submit" class="btn btn-success" id="btnUseFilter">Use Filter</button></div>
+                        <div class="col"><a href="<?= base_url("/users") ?>" class="btn btn-danger" id="btnRstFilter">Remove Filters</a></div>
+>>>>>>> Stashed changes
                     </div><br><br>
                 </div>
                 <!-- END FORM  -->
@@ -482,15 +600,23 @@
                                     <td><?= esc($user['created_at']) ?></td>
                                     <td><?= esc($user['deleted_at']) ?></td>
                                     <td>
+<<<<<<< Updated upstream
                                         <a href="<?= base_url('users/save/' . $user['id']) ?>"
                                             class="btn btn-warning ">&#9998;</a>
+=======
+                                        <a href="<?= base_url('users/save/' . $user['id']) ?>" class="btn btn-warning ">&#9998;</a>
+>>>>>>> Stashed changes
                                         <!-- Edit -->
 
                                         <?php if (esc($user['deleted_at']) == null): ?>
                                             <a href="<?= base_url("users/delete/") . esc($user["id"]) ?>"
                                                 class='btn btn-danger '
+<<<<<<< Updated upstream
                                                 onclick='return confirm("Are you sure you want to delete this user?")'><b>&#128465;</b>
                                             </a>
+=======
+                                                onclick='return confirm("Are you sure you want to delete this user?")'><b>&#128465;</b> </a>
+>>>>>>> Stashed changes
                                             <!-- -->
                                             <!-- Erase -->
                                         <?php else: ?>
@@ -511,14 +637,21 @@
                     <p class="text-center">No hay usuarios registrados.</p>
                 <?php endif; ?>
         </div>
+<<<<<<< Updated upstream
     </>
+=======
+>>>>>>> Stashed changes
 
 </body>
 
 
 <script>
     $().ready(() => {
+<<<<<<< Updated upstream
         $("#dashboardTable").DataTable();
+=======
+        $("dashboardTable").DataTable();
+>>>>>>> Stashed changes
     });
 </script>
 
@@ -537,6 +670,18 @@
 <script
     src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 <script src="https://cdn.datatables.net/2.2.2/js/dataTables.js"></script>
+<<<<<<< Updated upstream
 
+=======
+<!-- DATATABLES -->
+<link href="https://cdn.datatables.net/v/bs5/jq-3.7.0/moment-2.29.4/jszip-3.10.1/dt-2.2.2/af-2.7.0/b-3.2.2/b-html5-3.2.2/cr-2.0.4/date-1.5.5/kt-2.12.1/r-3.0.4/rg-1.5.1/sb-1.8.2/sp-2.3.3/sl-3.0.0/sr-1.4.1/datatables.min.css" rel="stylesheet" integrity="sha384-8YO63l+I4O/yBIeI+DbNGWMxIpc9/nZSvGIr7bWFtrwvMK8ImIiH9JIccFdzj6C5" crossorigin="anonymous">
+<!--begin::Page Vendor Stylesheets(used by this page)-->
+<link href="assets/plugins/custom/fullcalendar/fullcalendar.bundle.css" rel="stylesheet" type="text/css" />
+<!--end::Page Vendor Stylesheets-->
+<!--begin::Global Stylesheets Bundle(used by all pages)-->
+<link href="assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
+<link href="assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
+<!--end::Global Stylesheets Bundle-->
+>>>>>>> Stashed changes
 
 </html>

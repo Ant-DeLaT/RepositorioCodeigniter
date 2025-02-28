@@ -1,15 +1,18 @@
 <?php
+
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\UserModel;
-class AuthController extends BaseController{
-    
-  /**
+
+class AuthController extends BaseController
+{
+
+    /**
      * Muestra el formulario de registro de usuario.
      */
- 
- 
+
+
     public function register()
     {
         return view('register_View'); // Carga y retorna la vista del formulario de registro.
@@ -25,7 +28,7 @@ class AuthController extends BaseController{
      */
 
 
-    public function registerProcess ()
+    public function registerProcess()
     {
         helper(['form', 'url']); // Carga los helpers necesarios para trabajar con formularios y URLs.
 
@@ -38,28 +41,29 @@ class AuthController extends BaseController{
         ];
 
         // Si la validación falla, volvemos a mostrar el formulario con los errores.
-            
-            // if (!$this->validate($rules)) {
-            // return view('register_View', [
-            //     'validation' => $this->validator, // Pasamos los errores de validación a la vista.
-            // ]);
+
+        // if (!$this->validate($rules)) {
+        // return view('register_View', [
+        //     'validation' => $this->validator, // Pasamos los errores de validación a la vista.
+        // ]);
 
         if ($this->validate($rules)) {
-        // Si la validación pasa, procedemos a guardar el usuario en la base de datos.
-        $userModel = new UserModel();    
+            // Si la validación pasa, procedemos a guardar el usuario en la base de datos.
+            $userModel = new UserModel();
             // ->save
-            $data=([
+            $data = ([
                 'name' => $this->request->getPost('name'), // Obtenemos el nombre del formulario.
                 'email' => $this->request->getPost('email'), // Obtenemos el correo del formulario.
                 'password' => password_hash($this->request->getPost('password'), PASSWORD_DEFAULT), // Encriptamos la contraseña antes de guardarla.
             ]);
+            dd($data);
             $userModel->save($data);
 
             // Redirigimos al formulario de inicio de sesión con un mensaje de éxito.
             return redirect()->to('login_View')->with('success', 'The user has been properly signed-up.');
-        }else{
-            return redirect()->to("register_View")->with("error","NO USER DETECTED");
-    }
+        } else {
+            return redirect()->to("register_View")->with("error", "NO USER DETECTED");
+        }
     }
 
     /**
@@ -76,7 +80,7 @@ class AuthController extends BaseController{
     /**
      * @return \CodeIgniter\HTTP\RedirectResponse|string
      */
-    public function loginProcess()    
+    public function loginProcess()
     {
         helper(['form', 'url']); // Carga los helpers necesarios para trabajar con formularios y URLs.
         $session = session(); // Inicia una sesión para el usuario.
@@ -94,7 +98,7 @@ class AuthController extends BaseController{
             ]);
         }
 
-       
+
 
         // Should the validation pass,we verify the credentials.
         $userModel = new UserModel();
@@ -111,21 +115,21 @@ class AuthController extends BaseController{
                 'isLoggedIn' => true,          // Bandera para indicar que está logueado.
                 'created_at' => $user['created_at'], // Fecha de registro del usuario.
             ]);
-        
+
 
             // Redirigimos a la página de inicio con un mensaje de éxito.
             return redirect()->to('/users')->with('success', 'Inicio de sesión exitoso.');
-        }else{
-        // Si las credenciales son incorrectas, mostramos un mensaje de error.
-        
-        return redirect()->to('/login')->with('error', 'Incorrect Email or Password.');
+        } else {
+            // Si las credenciales son incorrectas, mostramos un mensaje de error.
+
+            return redirect()->to('/login')->with('error', 'Incorrect Email or Password.');
         }
     }
     /**
      * Closes user session
      */
-    
-       public function logout()
+
+    public function logout()
     {
         $session = session(); // Inicia o accede a la sesión.
         $session->destroy(); // Destruye todos los datos de la sesión.
@@ -133,8 +137,4 @@ class AuthController extends BaseController{
         // Redirige al formulario de inicio de sesión con un mensaje de éxito.
         return redirect()->to('/login')->with('success', 'Has cerrado sesión correctamente.');
     }
-
-    
-
-
 }

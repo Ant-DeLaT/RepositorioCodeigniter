@@ -274,6 +274,7 @@ trait TimeTrait
         return $time->setTimezone($timezone);
     }
 
+
     /**
      * Takes an instance of DateTimeInterface and returns an instance of Time with it's same values.
      *

@@ -10,6 +10,11 @@ class Home extends BaseController
     {
         // return CheckPhpIni::run(false);
         // return view('welcome_message');
+<<<<<<< Updated upstream
+=======
+        // return view('calendarView');
+        return view('login_view');
+>>>>>>> Stashed changes
         // Llamada a la vista 
         return view('indexView');
         // return view('homeView');

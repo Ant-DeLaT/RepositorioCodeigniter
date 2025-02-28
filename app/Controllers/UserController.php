@@ -9,10 +9,20 @@ class UserController extends BaseController{
 
     public function index() {
         helper("form");
+<<<<<<< Updated upstream
         $userModel=new UserModel();
         // CAREFUL WITH THE IDS!!!!
         $name = $this->request->getVar('whName'); //Búsqueda desde formulario
         $email = $this->request->getVar('whEmail');
+=======
+        $userModel = new UserModel();
+        $query = new UserModel();
+        // The request getVar uses "name" not "id"
+        $name=$this->request->getVar('whName');//Búsqueda desde formulario
+        $email=$this->request->getVar('whEmail');
+        $password=$this->request->getVar('whPassword');
+        $email=$this->request->getVar('whEmail');
+>>>>>>> Stashed changes
         // Aplicar filtro (query) con un nombre introducido
 
         $query = $userModel;

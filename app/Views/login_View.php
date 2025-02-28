@@ -12,6 +12,7 @@ License: For each use you must have a valid license purchased only from above li
 -->
 <html lang="es">
 <!--begin::Head-->
+<<<<<<< Updated upstream
 
 <head>
 	<title>Metronic LOGIN</title>
@@ -50,6 +51,39 @@ License: For each use you must have a valid license purchased only from above li
 					</a>
 					<!--end::Logo-->
 
+=======
+
+<head>
+	<title>Metronic LOGIN</title>
+	<link rel="canonical" href="https://preview.keenthemes.com/metronic8" />
+	<link rel="shortcut icon" href="assets/media/logos/favicon.ico" />
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
+	<!--begin::Fonts-->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
+	<!--end::Fonts-->
+	<!--begin::Global Stylesheets Bundle(used by all pages)-->
+	<link href="assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
+	<link href="assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
+	<!--end::Global Stylesheets Bundle-->
+</head>
+<!--end::Head-->
+<!--begin::Body-->
+
+<body id="kt_body" class="bg-body">
+	<!--begin::Main-->
+	<div class="d-flex flex-column flex-root">
+		<!--begin::Authentication - Sign-in -->
+		<div class="d-flex flex-column flex-column-fluid bgi-position-y-bottom position-x-center bgi-no-repeat bgi-size-contain bgi-attachment-fixed" style="background-image: url('assets/media/illustrations/sketchy-1/14.png')">
+			<!--begin::Content-->
+			<div class="d-flex flex-center flex-column flex-column-fluid p-10 pb-lg-20">
+				<!--begin::Logo-->
+				<a href="#" class="mb-12">
+					<img alt="Logo" src="<?php echo base_url('assets/media/logos/logo-1.svg'); ?>" class="h-40px" />
+
+				</a>
+				<!--end::Logo-->
+
+>>>>>>> Stashed changes
 				<?php if (isset($validation)): ?>
 					<div class="alert alert-danger">
 						<?= $validation->listErrors() ?>
@@ -58,8 +92,12 @@ License: For each use you must have a valid license purchased only from above li
 				<!--begin::Wrapper-->
 				<div class="w-lg-500px bg-body rounded shadow-sm p-10 p-lg-15 mx-auto">
 					<!--begin::Form-->
+<<<<<<< Updated upstream
 					<form class="form w-100" novalidate="novalidate" id="kt_sign_in_form"
 						action="#">
+=======
+					<form class="form w-100" novalidate="novalidate" id="kt_sign_in_form" action="#">
+>>>>>>> Stashed changes
 						<!--begin::Heading-->
 						<div class="text-center mb-10">
 							<!--begin::Title-->
@@ -67,6 +105,7 @@ License: For each use you must have a valid license purchased only from above li
 							<!--end::Title-->
 							<!--begin::Link-->
 							<div class="text-gray-400 fw-bold fs-4">New Here?
+<<<<<<< Updated upstream
 								<a href="<?= base_url("register") ?>" class="link-primary fw-bolder">Create an
 									Account</a>
 								</div>
@@ -75,6 +114,12 @@ License: For each use you must have a valid license purchased only from above li
 						</form>
 						<!--end::Form-->
 						<!--begin::LoginForm-->
+=======
+								<a href="<?= base_url("register") ?>" class="link-primary fw-bolder">Create an Account</a>
+							</div>
+							<!--end::Link-->
+						</div>
+>>>>>>> Stashed changes
 						<form action="<?= base_url("login/process") ?>" method="post">
 							<!--begin::Heading-->
 							<!--begin::Input group-->
@@ -115,8 +160,12 @@ License: For each use you must have a valid license purchased only from above li
 									class="btn btn-lg btn-primary w-100 mb-5">
 									<span class="indicator-label">Continue</span>
 									<span class="indicator-progress">Please wait...
+<<<<<<< Updated upstream
 										<span
 											class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
+=======
+										<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
+>>>>>>> Stashed changes
 								</button>
 								<!--end::Submit button-->
 								<!--begin::Separator-->
@@ -126,6 +175,7 @@ License: For each use you must have a valid license purchased only from above li
 								<!--end::Separator-->
 								<!-- INSERT LINKS TO OUTER LOGINS  -->
 								<!--begin::Google link-->
+<<<<<<< Updated upstream
 								<a href="#"
 									class="btn btn-flex flex-center btn-light btn-lg w-100 mb-5">
 									<img alt="Logo"
@@ -145,11 +195,27 @@ License: For each use you must have a valid license purchased only from above li
 									<img alt="Logo"
 										src="assets/media/svg/brand-logos/apple-black.svg"
 										class="h-20px me-3" />Continue with Apple</a>
+=======
+								<a href="#" class="btn btn-flex flex-center btn-light btn-lg w-100 mb-5">
+									<img alt="Logo" src="assets/media/svg/brand-logos/google-icon.svg" class="h-20px me-3" />Continue with Google</a>
+								<!--end::Google link-->
+								<!--begin::Google link-->
+								<a href="#" class="btn btn-flex flex-center btn-light btn-lg w-100 mb-5">
+									<img alt="Logo" src="assets/media/svg/brand-logos/facebook-4.svg" class="h-20px me-3" />Continue with Facebook</a>
+								<!--end::Google link-->
+								<!--begin::Google link-->
+								<a href="#" class="btn btn-flex flex-center btn-light btn-lg w-100">
+									<img alt="Logo" src="assets/media/svg/brand-logos/apple-black.svg" class="h-20px me-3" />Continue with Apple</a>
+>>>>>>> Stashed changes
 								<!--end::Google link-->
 							</div>
 							<!--end::Actions-->
 						</form>
+<<<<<<< Updated upstream
 						<!--end::LoginForm-->
+=======
+						<!--end::Form-->
+>>>>>>> Stashed changes
 				</div>
 				<!--end::Wrapper-->
 			</div>
@@ -159,8 +225,12 @@ License: For each use you must have a valid license purchased only from above li
 				<!--begin::Links-->
 				<div class="d-flex align-items-center fw-bold fs-6">
 					<a href="#" class="text-muted text-hover-primary px-2">About</a>
+<<<<<<< Updated upstream
 					<a href="mailto:#"
 						class="text-muted text-hover-primary px-2">Contact</a>
+=======
+					<a href="mailto:#" class="text-muted text-hover-primary px-2">Contact</a>
+>>>>>>> Stashed changes
 					<a href="#" class="text-muted text-hover-primary px-2">Contact Us</a>
 				</div>
 				<!--end::Links-->
@@ -170,6 +240,7 @@ License: For each use you must have a valid license purchased only from above li
 		<!--end::Authentication - Sign-in-->
 	</div>
 	<!--end::Main-->
+<<<<<<< Updated upstream
 	<script>var hostUrl = "assets/";</script>
 	<!--begin::Javascript-->
 	<!--begin::Global Javascript Bundle(used by all pages)-->
@@ -184,5 +255,21 @@ License: For each use you must have a valid license purchased only from above li
 	<!--end::Javascript-->
 	</body>
 	<!--end::Body-->
+=======
+	<script>
+		var hostUrl = "assets/";
+	</script>
+	<!--begin::Javascript-->
+	<!--begin::Global Javascript Bundle(used by all pages)-->
+	<script src="<?php echo ('public/assets/plugins/global/plugins.bundle.js'); ?>"></script>
+	<script src="<?= ('public/assets/js/scripts.bundle.js') ?>"></script>
+	<!--end::Global Javascript Bundle-->
+	<!--begin::Page Custom Javascript(used by this page)-->
+	<script src="<?= ('assets/js/custom/authentication/sign-in/general.js') ?>"></script>
+	<!--end::Page Custom Javascript-->
+	<!--end::Javascript-->
+</body>
+<!--end::Body-->
+>>>>>>> Stashed changes
 
 </html>
