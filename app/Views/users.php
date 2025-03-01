@@ -2,9 +2,8 @@
 Author: Ant-DeLaT
 -->
 <?= view('includes/head.php'); ?>
-<!-- Add required DataTables CSS -->
-<link href="<?= base_url('assets/plugins/custom/datatables/datatables.bundle.css'); ?>" rel="stylesheet" type="text/css" />
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+<!-- DataTables CSS -->
+<link href="https://cdn.datatables.net/v/bs5/jq-3.7.0/moment-2.29.4/jszip-3.10.1/dt-2.2.2/af-2.7.0/b-3.2.2/b-html5-3.2.2/cr-2.0.4/date-1.5.5/kt-2.12.1/r-3.0.4/rg-1.5.1/sb-1.8.2/sp-2.3.3/sl-3.0.0/sr-1.4.1/datatables.min.css" rel="stylesheet">
 <title>Gestión de Usuarios</title>
 </head>
 <!--end::Head-->
@@ -75,7 +74,7 @@ Author: Ant-DeLaT
 
                                 <!-- Begin::Users Table -->
                                 <div class="table-responsive">
-                                    <table id="users-table" class="table table-row-bordered gy-5">
+                                    <table id="users-table" class="table table-row-bordered table-row-dashed gy-5 gs-7">
                                         <thead>
                                             <tr class="fw-bold fs-6 text-gray-800">
                                                 <th>Nombre</th>
@@ -126,80 +125,99 @@ Author: Ant-DeLaT
     <!--end::Root-->
     <!--end::Main-->
 
-    <!--begin::Javascript-->
+    <!-- First common scripts (includes jQuery from Metronic) -->
     <?= view('includes/common-scripts.php'); ?>
 
-    <!--begin::Page Vendors Javascript(used by this page)-->
-    <script src="<?= base_url('assets/plugins/custom/datatables/datatables.bundle.js'); ?>"></script>
-    <!--end::Page Vendors Javascript-->
+    <!-- Then DataTables and its dependencies -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js" integrity="sha384-VFQrHzqBh5qiJIU0uGU5CIW3+OWpdGGJM9LBnGbuIH2mkICcFZ7lPd/AAtI7SNf7" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js" integrity="sha384-/RlQG9uf0M2vcTw3CX7fbqgbj/h8wKxw7C3zu9/GxcBPRKOEcESxaxufwRXqzq6n" crossorigin="anonymous"></script>
+    <script src="https://cdn.datatables.net/v/bs5/jq-3.7.0/moment-2.29.4/jszip-3.10.1/dt-2.2.2/af-2.7.0/b-3.2.2/b-html5-3.2.2/cr-2.0.4/date-1.5.5/kt-2.12.1/r-3.0.4/rg-1.5.1/sb-1.8.2/sp-2.3.3/sl-3.0.0/sr-1.4.1/datatables.min.js" integrity="sha384-lOStfB9w51cCYrPxeiPDDu13j3XyuozGjSybjRQ11umFeuaLhi+QFjYfTR4e2VOw" crossorigin="anonymous"></script>
 
-    <!-- DataTables Initialization -->
     <script>
+        // Debug function
+        function logDebug(message, data) {
+            console.log('DEBUG:', message, data || '');
+        }
+
+        // Log when script starts executing
+        logDebug('Script execution started');
+
+        // Check if jQuery is loaded
+        if (typeof jQuery === 'undefined') {
+            console.error('jQuery is not loaded!');
+        } else {
+            logDebug('jQuery version:', jQuery.fn.jquery);
+        }
+
+        // Check if DataTables is loaded
+        if (typeof jQuery.fn.DataTable === 'undefined') {
+            console.error('DataTables is not loaded!');
+        } else {
+            logDebug('DataTables version:', jQuery.fn.DataTable.version);
+        }
+
+        // Log DOM ready state
+        logDebug('Document ready state:', document.readyState);
+
         $(document).ready(function() {
-            console.log('DataTables initialization starting...');
+            logDebug('Document ready event fired');
 
-            // Destroy existing DataTable if it exists
-            if ($.fn.DataTable.isDataTable('#users-table')) {
-                $('#users-table').DataTable().destroy();
+            // Check if table element exists
+            const tableElement = $('#users-table');
+            if (tableElement.length === 0) {
+                console.error('Table element #users-table not found in DOM!');
+                return;
             }
-
-            // Clear any existing wrappers
-            $('#users-table').closest('.dataTables_wrapper').replaceWith($('#users-table'));
+            logDebug('Table element found', {
+                rows: tableElement.find('tr').length,
+                columns: tableElement.find('th').length
+            });
 
             try {
-                console.log('Users data:', <?= json_encode($users ?? []); ?>);
-
-                const table = $('#users-table').DataTable({
-                    retrieve: true,
-                    processing: true,
-                    language: {
-                        url: 'https://cdn.datatables.net/plug-ins/1.13.7/i18n/es-ES.json'
-                    },
+                logDebug('Attempting to initialize DataTable');
+                const dt = $('#users-table').DataTable({
+                    responsive: true,
+                    dom: 'Bfrtip',
+                    buttons: [
+                        'copy', 'csv', 'excel', 'pdf', 'print'
+                    ],
                     order: [
                         [2, 'desc']
-                    ],
-                    pageLength: 10,
-                    dom: 'Blfrtip',
-                    buttons: ['copy', 'csv', 'excel', 'pdf'],
-                    initComplete: function(settings, json) {
-                        console.log('DataTable initComplete called');
-                        console.log('Table rows:', this.api().rows().count());
-                        // Force redraw
-                        this.api().draw(false);
+                    ], // Order by created_at by default
+                    language: {
+                        url: 'https://cdn.datatables.net/plug-ins/1.13.7/i18n/es-ES.json'
                     }
                 });
 
-                console.log('DataTable initialized successfully');
-
-                // Filter handlers
+                // Handle filter changes
                 $('#filter-name').on('keyup', function() {
-                    table.column(0).search(this.value).draw();
+                    dt.column(0).search(this.value).draw();
                 });
 
                 $('#filter-status').on('change', function() {
                     const value = this.value;
-                    if (value === 'all') {
-                        table.column(3).search('').draw();
-                    } else if (value === 'deleted') {
-                        table.column(3).search('Eliminado').draw();
-                    } else {
-                        table.column(3).search('Activo').draw();
-                    }
+                    dt.column(3).search(value === 'all' ? '' :
+                        value === 'deleted' ? 'Eliminado' : 'Activo'
+                    ).draw();
                 });
 
                 // Reset filters
                 $('#kt_filter_reset').on('click', function() {
-                    $('#user-filters')[0].reset();
-                    table.search('').columns().search('').draw();
+                    $('#filter-name').val('');
+                    $('#filter-status').val('allowed');
+                    dt.search('').columns().search('').draw();
                 });
+
+                logDebug('DataTable initialization complete');
             } catch (error) {
                 console.error('Error initializing DataTable:', error);
             }
         });
+
+        // Log when script finishes executing
+        logDebug('Script execution completed');
     </script>
-    <!--end::Javascript-->
 </body>
-<!--end::Body-->
 
 </html> timeOut: 5000
 });

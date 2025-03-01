@@ -126,11 +126,8 @@ class AuthController extends BaseController
             return redirect()->to('/login')->with('error', 'Email o contraseña incorrectos.');
         }
 
-        // Store user data directly in session
-        $this->session->set('user_id', $user['id']);
-        $this->session->set('user_name', $user['name']);
-        $this->session->set('user_email', $user['email']);
-        $this->session->set('user_created_at', $user['created_at']);
+        // Store complete user object in session
+        $this->session->set('user', $user);
         $this->session->set('isLoggedIn', true);
 
         // Redirigimos a la página de inicio con un mensaje de éxito.

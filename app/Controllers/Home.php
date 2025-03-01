@@ -2,18 +2,29 @@
 
 namespace App\Controllers;
 
-// use CodeIgniter\Security\CheckPhpIni;
+use CodeIgniter\HTTP\RedirectResponse;
 
 class Home extends BaseController
 {
-    public function index(): string
+    public function index(): string|RedirectResponse
     {
         $session = session();
+
+        // Check if user is logged in
+        if (!$session->get('isLoggedIn')) {
+            return redirect()->to('/login')->with('error', 'Please login first');
+        }
+
+        // Get user data from session
         $data = [
             'title' => 'Home',
-            'session' => $session,
-            'user' => $session->get('user')
+            'user' => [
+                'name' => $session->get('user_name'),
+                'email' => $session->get('user_email'),
+                'created_at' => $session->get('user_created_at')
+            ]
         ];
+
         return view('index', $data);
     }
 
