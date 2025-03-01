@@ -2,7 +2,7 @@
 namespace App\Models;
 use CodeIgniter\Model;
 class UserModel extends Model{
-    protected $table='userbase';
+    protected $table = 'users';
     // TABLE NAME, CHANGE IF TABLE CHANGED
     protected $primaryKey='id';
     // Primary key 

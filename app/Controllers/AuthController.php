@@ -49,7 +49,7 @@ class AuthController extends BaseController
         // Configuración de las reglas de validación del formulario.
         $rules = [
             'name' => 'required|min_length[3]|max_length[50]', // El nombre es obligatorio y debe tener entre 3 y 50 caracteres.
-            'email' => 'required|valid_email|is_unique[userbase.email]', // El correo debe ser válido y único en la tabla `users`.
+            'email' => 'required|valid_email|is_unique[users.email]', // El correo debe ser válido y único en la tabla `users`.
             'password' => 'required|min_length[6]', // La contraseña debe ser obligatoria y tener al menos 6 caracteres.
             'password_confirm' => 'required|matches[password]', // La confirmación de la contraseña debe coincidir con la contraseña.
         ];
@@ -74,9 +74,11 @@ class AuthController extends BaseController
             $userModel->save($data);
 
             // Redirigimos al formulario de inicio de sesión con un mensaje de éxito.
-            return redirect()->to('login_View')->with('success', 'The user has been properly signed-up.');
+            return redirect()->to('login')->with('success', 'Registration successful. Please login.');
         } else {
-            return redirect()->to("register_View")->with("error", "NO USER DETECTED");
+            return view('register', [
+                'validation' => $this->validator
+            ]);
         }
     }
 
@@ -86,7 +88,10 @@ class AuthController extends BaseController
 
     public function login()
     {
-        return view('login_View'); // Carga y retorna la vista del formulario de inicio de sesión.
+        $data = [
+            'title' => 'Iniciar sesión'
+        ];
+        return view('login', $data); // Carga y retorna la vista del formulario de inicio de sesión.
     }
     /**
      * Procesess the user login.
@@ -107,7 +112,7 @@ class AuthController extends BaseController
 
         // Si la validación falla, volvemos a mostrar el formulario con los errores.
         if (!($this->validate($rules))) {
-            return view('login_View', [
+            return view('login', [
                 'validation' => $this->validator, // Pasamos los errores de validación a la vista.
             ]);
         }

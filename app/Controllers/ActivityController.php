@@ -41,7 +41,7 @@ class ActivityController extends BaseController
             $validation->setRules([
                 "name"=>'required|min_length[3]|max_length[50]',
                 // BE CAREFUL, EMAIL REQUIRES TABLE 
-                "email"=>'required|valid|is_unique[userbase.email]',
+                "email" => 'required|valid|is_unique[users.email]',
                 "password"=>'required|min_length[3]|max_length[50]',
             ]);
             // if Removed verifications, program works
@@ -90,7 +90,7 @@ class ActivityController extends BaseController
     public function restore($id)  {
         $userModel=new UserModel();
         $userModel->where('id',$id)->update( ["deleted_at"=>null]); //Eliminar usuario
-        // $sql="UPDATE userbase SET deleted_at=null WHERE id=$id";
+        // $sql="UPDATE users SET deleted_at=null WHERE id=$id";
         // if($conn->query($sql)===TRUE){
         //     log_message("info","user restored");
         // }else{

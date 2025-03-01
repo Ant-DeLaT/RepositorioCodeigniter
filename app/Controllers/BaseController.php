@@ -54,9 +54,8 @@ abstract class BaseController extends Controller
         // Check authentication for all controllers except AuthController
         if (get_class($this) !== 'App\Controllers\AuthController') {
             if (!$this->session->get('user')) {
-                $response->redirect('/login');
-                $session = session();
-                $session->setFlashdata('error', 'Haz login primero');
+                $this->session->setFlashdata('error', 'Haz login primero');
+                header('Location: ' . site_url('login'));
                 exit();
             }
         }

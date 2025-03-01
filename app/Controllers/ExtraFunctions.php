@@ -4,8 +4,8 @@ use App\Controllers\BaseController;
 class ExtraFunctions extends BaseController 
 {
     public function export(){
-        $con=mysqli_connect("localhost","root","","userbase");
-        // "localhost","root","","userbase");
+        $con = mysqli_connect("localhost", "root", "", "users");
+        // "localhost","root","","users");
         $file_ext_name="csv";
         $select="SELECT * FROM users";
         $query=mysqli_query($con,$select);
@@ -20,7 +20,7 @@ class ExtraFunctions extends BaseController
 
     }
     public function import(){
-        $con=mysqli_connect("localhost","root","","userbase");
+        $con = mysqli_connect("localhost", "root", "", "users");
         $fileName=$_FILES['import_file']['name'];
         $file_ext=pathinfo($fileName,PATHINFO_EXTENSION);
         $allowed_extensions=["csv","xls","xlsx","ods"];
