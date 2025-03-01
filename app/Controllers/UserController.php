@@ -9,34 +9,35 @@ class UserController extends BaseController{
 
     public function index() {
         helper("form");
-        $userModel=new UserModel();
-        // CAREFUL WITH THE IDS!!!!
-        $name = $this->request->getVar('whName'); //Búsqueda desde formulario
+        $userModel = new UserModel();
+
+        // Get filter parameters
+        $name = $this->request->getVar('whName');
         $email = $this->request->getVar('whEmail');
-        $name=$this->request->getVar('whName');//Búsqueda desde formulario
-        $email=$this->request->getVar('whEmail');
-        $password=$this->request->getVar('whPassword');
-        $email=$this->request->getVar('whEmail');
 
-        // Aplicar filtro (query) con un nombre introducido
-
+        // Apply filters
         $query = $userModel;
         if (!empty($name)) {
-            $query = $query->like('name', $name);  // Add a LIKE condition for the name
+            $query = $query->like('name', $name);
         }
         if (!empty($email)) {
-            $query = $query->like('email', $email); // Add a LIKE condition for the email
+            $query = $query->like('email', $email);
         }
-        // $recover = [$query->get()];
-        // $result = $query->get();
 
-        // $perPage=10;
-        $perPage = 5; //New perPage number: 3 elements for page
-        // $data['users']=$userModel->findAll(); //Finds all users
-        // ,$query2->get(),$query->paginate($perPage)
-        $data['users']=$query->paginate($perPage);
-        $data['pager']=$userModel->pager;//Adds paginate (pager) to the view
-        $data["name"]=$name; //Keeps the search term inside the view
+        // Get all users including deleted ones
+        $users = $query->findAll();
+
+        // Debug output
+        log_message('debug', 'Users retrieved: ' . print_r($users, true));
+
+        // Prepare data for view
+        $data = [
+            'title' => 'Gestión de Usuarios',
+            'users' => $users,
+            'name' => $name,
+            'email' => $email
+        ];
+
         return view('users', $data);
     }
     public function saveUser($id=null){
