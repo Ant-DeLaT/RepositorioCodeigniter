@@ -11,6 +11,7 @@ class Home extends BaseController
         $session = session();
         $data = [
             'title' => 'Home',
+            'session' => $session,
             'user' => $session->get('user')
         ];
         return view('index', $data);

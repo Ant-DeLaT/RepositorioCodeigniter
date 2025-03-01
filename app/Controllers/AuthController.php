@@ -16,7 +16,7 @@ class AuthController extends BaseController
 
     public function checkAuth()
     {
-        if (!$this->session->get('user')) {
+        if (!$this->session->get('user_id')) {
             return redirect()->to('/login')->with('error', 'Haz login primero');
         }
         return true;
@@ -102,7 +102,6 @@ class AuthController extends BaseController
     public function loginProcess()
     {
         helper(['form', 'url']); // Carga los helpers necesarios para trabajar con formularios y URLs.
-        $session = session(); // Inicia una sesión para el usuario.
 
         // Configuración de las reglas de validación del formulario.
         $rules = [
@@ -117,32 +116,25 @@ class AuthController extends BaseController
             ]);
         }
 
-
-
         // Should the validation pass,we verify the credentials.
         $userModel = new UserModel();
         $user = $userModel->findByEmail($this->request->getPost('email')); // The user is searched by his credentials.
 
 
 
-        if ($user && password_verify($this->request->getPost('password'), $user['password'])) {
-            // Si las credenciales son correctas, guardamos datos del usuario en la sesión.
-            $session->set('user', [
-                'id' => $user['id'],           // ID del usuario.
-                'name' => $user['name'],       // Nombre del usuario.
-                'email' => $user['email'],     // Correo del usuario.
-                'isLoggedIn' => true,          // Bandera para indicar que está logueado.
-                'created_at' => $user['created_at'], // Fecha de registro del usuario.
-            ]);
-
-
-            // Redirigimos a la página de inicio con un mensaje de éxito.
-            return redirect()->to('/')->with('success', 'Se ha iniciado la sesión.');
-        } else {
-            // Si las credenciales son incorrectas, mostramos un mensaje de error.
-
-            return redirect()->to('/login')->with('error', 'Incorrect Email or Password.');
+        if (!$user || !password_verify($this->request->getPost('password'), $user['password'])) {
+            return redirect()->to('/login')->with('error', 'Email o contraseña incorrectos.');
         }
+
+        // Store user data directly in session
+        $this->session->set('user_id', $user['id']);
+        $this->session->set('user_name', $user['name']);
+        $this->session->set('user_email', $user['email']);
+        $this->session->set('user_created_at', $user['created_at']);
+        $this->session->set('isLoggedIn', true);
+
+        // Redirigimos a la página de inicio con un mensaje de éxito.
+        return redirect()->to('/')->with('success', 'Se ha iniciado la sesión.');
     }
     /**
      * Closes user session
@@ -150,8 +142,7 @@ class AuthController extends BaseController
 
     public function logout()
     {
-        $session = session(); // Inicia o accede a la sesión.
-        $session->destroy(); // Destruye todos los datos de la sesión.
+        $this->session->destroy(); // Destruye todos los datos de la sesión.
 
         // Redirige al formulario de inicio de sesión con un mensaje de éxito.
         return redirect()->to('/login')->with('success', 'Has cerrado sesión correctamente.');

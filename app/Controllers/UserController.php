@@ -37,7 +37,7 @@ class UserController extends BaseController{
         $data['users']=$query->paginate($perPage);
         $data['pager']=$userModel->pager;//Adds paginate (pager) to the view
         $data["name"]=$name; //Keeps the search term inside the view
-        return view('dashboard_View',$data);
+        return view('users', $data);
     }
     public function saveUser($id=null){
         $userModel=new UserModel(); //Creates a new instance of "UserModel"
