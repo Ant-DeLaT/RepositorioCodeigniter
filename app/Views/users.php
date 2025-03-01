@@ -15,104 +15,133 @@ Author: Ant-DeLaT
     <div class="d-flex flex-column flex-root">
         <!--begin::Page-->
         <div class="page d-flex flex-row flex-column-fluid">
-            <!-- begin::sidebar -->
+            <!--begin::Aside-->
             <?= view('includes/sidebar.php'); ?>
-            <!-- end::sidebar -->
+            <!--end::Aside-->
 
             <!--begin::Wrapper-->
             <div class="wrapper d-flex flex-column flex-row-fluid" id="kt_wrapper">
                 <!--begin::Content-->
-                <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
+                <div class="content d-flex flex-column-fluid" id="kt_content">
                     <!--begin::Container-->
-                    <div id="kt_content_container" class="container-xxl">
-                        <?php if (session()->getFlashdata('success')) : ?>
-                            <div class="alert alert-success">
-                                <?= session()->getFlashdata('success'); ?>
-                            </div>
-                        <?php endif; ?>
-
-                        <!-- Debug output -->
-                        <?php if (ENVIRONMENT === 'development') : ?>
-                            <div class="alert alert-info">
-                                <h4>Debug Info:</h4>
-                                <pre><?php print_r($users ?? []); ?></pre>
-                            </div>
-                        <?php endif; ?>
-
-                        <div class="card">
-                            <div class="card-header">
-                                <h3 class="card-title">Usuarios</h3>
+                    <div id="kt_content_container" class="container-fluid h-100 px-3">
+                        <!-- Begin::Filter Form -->
+                        <div class="card mb-3">
+                            <div class="card-header border-0 pt-5">
+                                <h3 class="card-title align-items-start flex-column">
+                                    <span class="card-label fw-bold fs-3 mb-1">User Management</span>
+                                </h3>
                                 <div class="card-toolbar">
-                                    <a href="<?= base_url('users/save'); ?>" class="btn btn-sm btn-primary">
-                                        Crear usuarios
-                                    </a>
-                                    <a href="<?= base_url('logout'); ?>" class="btn btn-sm btn-danger ms-2">
-                                        Cerrar sesión
-                                    </a>
+                                    <a href="<?= base_url('users/save') ?>" class="btn btn-sm btn-primary">Create
+                                        User</a>
+                                    <a href="<?= base_url('logout') ?>" class="btn btn-sm btn-danger ms-2">Close
+                                        Session</a>
                                 </div>
                             </div>
                             <div class="card-body">
-                                <!-- Begin::Filters -->
-                                <form id="user-filters" class="mb-7">
-                                    <div class="row g-3 align-items-center">
-                                        <div class="col-auto">
-                                            <input type="text" name="name" id="filter-name" class="form-control form-control-solid" placeholder="Filtrar por nombre">
+                                <form method="GET" action="<?= base_url('users') ?>" class="mb-3">
+                                    <div class="row g-3">
+                                        <div class="col-md-2">
+                                            <input type="text" name="whName" class="form-control" id="whName"
+                                                   placeholder="Name" value="<?= esc($name) ?>">
                                         </div>
-                                        <div class="col-auto">
-                                            <select name="status" id="filter-status" class="form-select form-select-solid">
-                                                <option value="allowed">Usuarios Activos</option>
-                                                <option value="deleted">Usuarios Eliminados</option>
-                                                <option value="all">Todos los Usuarios</option>
+                                        <div class="col-md-2">
+                                            <input type="text" name="whEmail" class="form-control" id="whEmail" placeholder="Email" value="<?= esc($email) ?>">
+                                        </div>
+                                        <div class="col-md-2">
+                                            <input type="text" name="whPassword" class="form-control" id="whPassword"
+                                                   placeholder="Password">
+                                        </div>
+                                        <div class="col-md-2">
+                                            <select class="form-control" id="whRole">
+                                                <option value="admin">Administrator</option>
+                                                <option value="moderator">Moderator</option>
+                                                <option value="user">User</option>
+                                                <option value="any" selected>Any</option>
                                             </select>
                                         </div>
-                                        <div class="col-auto">
-                                            <button type="button" id="kt_filter_reset" class="btn btn-light btn-active-light-primary">Resetear</button>
+                                        <div class="col-md-2">
+                                            <input type="date" name="whCreated_at" class="form-control" id="whCreated_at" placeholder="Created_at">
+                                        </div>
+                                        <div class="col-md-2">
+                                            <select name="isDeleted" class="form-control" id="isDeleted">
+                                                <option value="allowed">Allowed</option>
+                                                <option value="deleted">Deleted</option>
+                                                <option value="all" selected>All</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-3">
+                                        <div class="col-12 text-end">
+                                            <button type="submit" class="btn btn-success" id="btnUseFilter">Use Filter</button>
+                                            <a href="<?= base_url("/users") ?>" class="btn btn-danger"
+                                                   id="btnRstFilter">Remove Filters</a>
                                         </div>
                                     </div>
                                 </form>
-                                <!-- End::Filters -->
-
-                                <!-- Begin::Users Table -->
-                                <div class="table-responsive">
-                                    <table id="users-table" class="table table-row-bordered table-row-dashed gy-5 gs-7">
-                                        <thead>
-                                            <tr class="fw-bold fs-6 text-gray-800">
-                                                <th>Nombre</th>
-                                                <th>Email</th>
-                                                <th>Fecha Creación</th>
-                                                <th>Estado</th>
-                                                <th>Acciones</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <?php if (!empty($users) && is_array($users)) : ?>
-                                                <?php foreach ($users as $user) : ?>
-                                                    <tr>
-                                                        <td><?= esc($user['name']); ?></td>
-                                                        <td><?= esc($user['email']); ?></td>
-                                                        <td><?= esc($user['created_at']); ?></td>
-                                                        <td>
-                                                            <span class="badge badge-light-<?= isset($user['deleted_at']) && $user['deleted_at'] ? 'danger' : 'success'; ?>">
-                                                                <?= isset($user['deleted_at']) && $user['deleted_at'] ? 'Eliminado' : 'Activo'; ?>
-                                                            </span>
-                                                        </td>
-                                                        <td>
-                                                            <a href="<?= base_url('users/edit/' . $user['id']); ?>" class="btn btn-icon btn-light-warning btn-sm me-1">
-                                                                <i class="fas fa-edit"></i>
-                                                            </a>
-                                                            <a href="<?= base_url('users/delete/' . $user['id']); ?>" class="btn btn-icon btn-light-danger btn-sm" onclick="return confirm('¿Estás seguro de que quieres eliminar este usuario?');">
-                                                                <i class="fas fa-trash"></i>
-                                                            </a>
-                                                        </td>
-                                                    </tr>
-                                                <?php endforeach; ?>
-                                            <?php endif; ?>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <!-- End::Users Table -->
                             </div>
                         </div>
+                        <!-- End::Filter Form -->
+
+                        <!-- Begin::Users Table -->
+                        <?php if (!empty($users) && is_array($users)): ?>
+                        <div class="card h-100">
+                            <div class="card-body p-0">
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered table-striped w-100" id="dashboardTable">
+                                            <thead>
+                                                <tr>
+                                                    <th>Name</th>
+                                                    <th>Email</th>
+                                                    <th>Password</th>
+                                                    <th>Role</th>
+                                                    <th>Created_at</th>
+                                                    <th>Deleted_at</th>
+                                                    <th>Actions</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php foreach ($users as $user): ?>
+                                                    <tr>
+                                                        <td><?= esc($user['name']) ?></td>
+                                                        <td><?= esc($user['email']) ?></td>
+                                                        <td><?= esc($user['password']) ?></td>
+                                                        <td><?= esc($user['role']) ?></td>
+                                                        <td><?= esc($user['created_at']) ?></td>
+                                                        <td><?= esc($user['deleted_at']) ?></td>
+                                                        <td>
+                                                            <a href="<?= base_url('users/save/' . $user['id']) ?>"
+                                                               class="btn btn-sm btn-warning">&#9998;</a>
+                                                            <?php if (esc($user['deleted_at']) == null): ?>
+                                                                <a href="<?= base_url("users/delete/") . esc($user["id"]) ?>"
+                                                               class="btn btn-sm btn-danger"
+                                                               onclick="return confirm('Are you sure you want to delete this user?')">
+                                                                <b>&#128465;</b>
+                                                            </a>
+                                                            <?php else: ?>
+                                                                <a href="<?= base_url("users/restore/") . esc($user["id"]) ?>"
+                                                               class="btn btn-sm btn-success"
+                                                               onclick="return confirm('Do you really want to restore this user?')">
+                                                                <b>&plus;</b>
+                                                            </a>
+                                                            <?php endif ?>
+                                                        </td>
+                                                    </tr>
+                                                <?php endforeach ?>
+                                                </tbody>
+                                                </table>
+                                        <div class="mt-4">
+                                            <?= $pager->links("default", "custom_pagination"); ?>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php else: ?>
+                                <div class="alert alert-info">
+                                    <p class="text-center mb-0">No hay usuarios registrados.</p>
+                                </div>
+                            <?php endif; ?>
+                            <!-- End::Users Table -->
                     </div>
                     <!--end::Container-->
                 </div>
@@ -120,6 +149,7 @@ Author: Ant-DeLaT
             </div>
             <!--end::Wrapper-->
         </div>
+
         <!--end::Page-->
     </div>
     <!--end::Root-->
@@ -134,97 +164,19 @@ Author: Ant-DeLaT
     <script src="https://cdn.datatables.net/v/bs5/jq-3.7.0/moment-2.29.4/jszip-3.10.1/dt-2.2.2/af-2.7.0/b-3.2.2/b-html5-3.2.2/cr-2.0.4/date-1.5.5/kt-2.12.1/r-3.0.4/rg-1.5.1/sb-1.8.2/sp-2.3.3/sl-3.0.0/sr-1.4.1/datatables.min.js" integrity="sha384-lOStfB9w51cCYrPxeiPDDu13j3XyuozGjSybjRQ11umFeuaLhi+QFjYfTR4e2VOw" crossorigin="anonymous"></script>
 
     <script>
-        // Debug function
-        function logDebug(message, data) {
-            console.log('DEBUG:', message, data || '');
-        }
-
-        // Log when script starts executing
-        logDebug('Script execution started');
-
-        // Check if jQuery is loaded
-        if (typeof jQuery === 'undefined') {
-            console.error('jQuery is not loaded!');
-        } else {
-            logDebug('jQuery version:', jQuery.fn.jquery);
-        }
-
-        // Check if DataTables is loaded
-        if (typeof jQuery.fn.DataTable === 'undefined') {
-            console.error('DataTables is not loaded!');
-        } else {
-            logDebug('DataTables version:', jQuery.fn.DataTable.version);
-        }
-
-        // Log DOM ready state
-        logDebug('Document ready state:', document.readyState);
-
         $(document).ready(function() {
-            logDebug('Document ready event fired');
-
-            // Check if table element exists
-            const tableElement = $('#users-table');
-            if (tableElement.length === 0) {
-                console.error('Table element #users-table not found in DOM!');
-                return;
-            }
-            logDebug('Table element found', {
-                rows: tableElement.find('tr').length,
-                columns: tableElement.find('th').length
+            $('#dashboardTable').DataTable({
+                pageLength: 10,
+                order: [
+                    [0, 'asc']
+                ]
             });
-
-            try {
-                logDebug('Attempting to initialize DataTable');
-                const dt = $('#users-table').DataTable({
-                    responsive: true,
-                    dom: 'Bfrtip',
-                    buttons: [
-                        'copy', 'csv', 'excel', 'pdf', 'print'
-                    ],
-                    order: [
-                        [2, 'desc']
-                    ], // Order by created_at by default
-                    language: {
-                        url: 'https://cdn.datatables.net/plug-ins/1.13.7/i18n/es-ES.json'
-                    }
-                });
-
-                // Handle filter changes
-                $('#filter-name').on('keyup', function() {
-                    dt.column(0).search(this.value).draw();
-                });
-
-                $('#filter-status').on('change', function() {
-                    const value = this.value;
-                    dt.column(3).search(value === 'all' ? '' :
-                        value === 'deleted' ? 'Eliminado' : 'Activo'
-                    ).draw();
-                });
-
-                // Reset filters
-                $('#kt_filter_reset').on('click', function() {
-                    $('#filter-name').val('');
-                    $('#filter-status').val('allowed');
-                    dt.search('').columns().search('').draw();
-                });
-
-                logDebug('DataTable initialization complete');
-            } catch (error) {
-                console.error('Error initializing DataTable:', error);
-            }
         });
-
-        // Log when script finishes executing
-        logDebug('Script execution completed');
     </script>
-</body>
-
-</html> timeOut: 5000
-});
-});
-</script>
-<!--end::Javascript-->
+    <!--end::Javascript-->
 </body>
 <!--end::Body-->
+</script>
+</body>
 
 </html>

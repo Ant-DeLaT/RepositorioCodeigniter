@@ -1,16 +1,15 @@
 <?php
 // require "conn.php";
 // if ($_SERVER["REQUEST_METHOD"] == "GET") {
-//     $name=$_GET['whName']??"";
-//     $email=$_GET['whEmail']??"";
-//     $password=$_GET['whPassword']??"";
-//     $role=$_GET['$whRole']??"";
-//     $created_at=$_GET['whCreated_at']??"";
-//     $isDeleted=$_GET['isDeleted']??"";
+//     $name = $_GET['whName'] ?? "";
+//     $email = $_GET['whEmail'] ?? "";
+//     $password = $_GET['whPassword'] ?? "";
+//     $role = $_GET['$whRole'] ?? "";
+//     $created_at = $_GET['whCreated_at'] ?? "";
+//     $isDeleted = $_GET['isDeleted'] ?? "";
 // }
 //VARIABLES END  
 ?>
-
 
 <!DOCTYPE html>
 <html lang="es">
@@ -22,19 +21,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.datatables.net/2.2.2/css/dataTables.dataTables.css">
-
-
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
-    <!--end::Fonts-->
-
-
 </head>
-
-
-
-
-
-
 
 <body id="kt_body" class="header-fixed header-tablet-and-mobile-fixed toolbar-enabled toolbar-fixed aside-enabled aside-fixed" style="--kt-toolbar-height:55px;--kt-toolbar-height-tablet-and-mobile:55px">
     <!-- Sidebar -->
@@ -152,7 +140,7 @@
                         <!--end::Aside menu-->
                         <!--begin::Footer-->
                         <div class="aside-footer flex-column-auto pt-5 pb-7 px-5" id="kt_aside_footer">
-                            <a class="btn btn-custom btn-primary w-100" href="#" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss-="click" title='Click here to access your user data!'>
+                            <a class="btn btn-custom btn-primary w-100" href="#" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss="click" title='Click here to access your user data!'>
                                 <span class="btn-label">Bienvenido
                                     <?php
                                     $session = session();

@@ -49,7 +49,7 @@ class AuthController extends BaseController
         // Configuración de las reglas de validación del formulario.
         $rules = [
             'name' => 'required|min_length[3]|max_length[50]', // El nombre es obligatorio y debe tener entre 3 y 50 caracteres.
-            'email' => 'required|valid_email|is_unique[users.email]', // El correo debe ser válido y único en la tabla `users`.
+            'email' => 'required|valid_email|is_unique[userbase.email]', // El correo debe ser válido y único en la tabla `users`.
             'password' => 'required|min_length[6]', // La contraseña debe ser obligatoria y tener al menos 6 caracteres.
             'password_confirm' => 'required|matches[password]', // La confirmación de la contraseña debe coincidir con la contraseña.
         ];

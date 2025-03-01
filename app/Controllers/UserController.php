@@ -24,19 +24,17 @@ class UserController extends BaseController{
             $query = $query->like('email', $email);
         }
 
-        // Get all users including deleted ones
-        $users = $query->findAll();
-
-        // Debug output
-        log_message('debug', 'Users retrieved: ' . print_r($users, true));
-
-        // Prepare data for view
+        // Set up pagination
         $data = [
             'title' => 'Gestión de Usuarios',
-            'users' => $users,
             'name' => $name,
             'email' => $email
         ];
+
+        // Get paginated results
+        $perPage = 10; // Number of items per page
+        $data['users'] = $query->paginate($perPage);
+        $data['pager'] = $userModel->pager;
 
         return view('users', $data);
     }
@@ -50,42 +48,41 @@ class UserController extends BaseController{
         $data['user']=$id? $userModel->find($id):null;
         
         if($this->request->getMethod()=="POST"){
-
             //Validation rules
             $validation= \Config\Services::validation();
             $validation->setRules([
                 "name"=>'required|min_length[3]|max_length[50]',
-                // BE CAREFUL, EMAIL REQUIRES TABLE 
-                "email" => 'required|valid|is_unique[users.email]',
+                // BE CAREFUL, EMAIL REQUIRES TABLE  
+                "email" => 'required|valid_email|is_unique[userbase.email]',
                 "password"=>'required|min_length[3]|max_length[50]',
             ]);
-            // if Removed verifications, program works
-            // if (!$validation->withRequest($this->request)->run()) {
+
+            if (!$validation->withRequest($this->request)->run()) {
                 //Shows errors with the validation
-            //     $data['$validation']=$validation;
-            // }else{
+                $data['validation'] = $validation;
+            } else {
                 $userData=[
                     'name'=>$this->request->getPost('name'),
                     'email'=>$this->request->getPost('email'),
                     'password'=>$this->request->getPost('password'),
                     'role'=>$this->request->getPost('role')
                 ];
+                
                 if(isset($id)){
-                    // Actualizar usuario existente
                     // Update current user
                     $userModel->update($id,$userData);
-                    // $userModel->save($userData,$id);
                     $message='Usuario actualizado correctamente.';
                 }else{
                     // Create a new user
                     $userModel->save($userData);
                     $message='Usuario creado correctamente.';
                 }
-                // Redirigir al listado con un mensaje de éxito
+                
                 // Reroute to the list with a new success message
                 return redirect()->to('/users')->with('success',$message);
-                }
-            // }
+            }
+        }
+        
         return view('user_formView',$data);
     }
     /**
@@ -101,11 +98,11 @@ class UserController extends BaseController{
         // ];
         // $userModel->update($id,$userData["deleted_at"]);
         return redirect()->to('/users')->with('success','Usuario eliminado correctamente');
-    }
+    } 
     public function restore($id)  {
         $userModel=new UserModel();
         $userModel->where('id',$id)->update( ["deleted_at"=>null]); //Eliminar usuario
-        // $sql="UPDATE users SET deleted_at=null WHERE id=$id";
+        // $sql="UPDATE use rb ase SET deleted_at=null WHERE id=$id";
         // if($conn->query($sql)===TRUE){
         //     log_message("info","user restored");
         // }else{

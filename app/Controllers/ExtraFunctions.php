@@ -4,10 +4,10 @@ use App\Controllers\BaseController;
 class ExtraFunctions extends BaseController 
 {
     public function export(){
-        $con = mysqli_connect("localhost", "root", "", "users");
-        // "localhost","root","","users");
+        $con = mysqli_connect("localhost", "root", "", "userbase");
+        // "localhost","root","","userbase");
         $file_ext_name="csv";
-        $select="SELECT * FROM users";
+        $select = "SELECT * FROM userbase";
         $query=mysqli_query($con,$select);
 
         if (mysqli_num_rows($query)>0) {
@@ -20,7 +20,7 @@ class ExtraFunctions extends BaseController
 
     }
     public function import(){
-        $con = mysqli_connect("localhost", "root", "", "users");
+        $con = mysqli_connect("localhost", "root", "", "userbase");
         $fileName=$_FILES['import_file']['name'];
         $file_ext=pathinfo($fileName,PATHINFO_EXTENSION);
         $allowed_extensions=["csv","xls","xlsx","ods"];
@@ -82,4 +82,3 @@ class ExtraFunctions extends BaseController
 
 
 }
-
