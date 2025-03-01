@@ -7,6 +7,20 @@ use App\Models\UserModel;
 
 class AuthController extends BaseController
 {
+    protected $session;
+
+    public function __construct()
+    {
+        $this->session = session();
+    }
+
+    public function checkAuth()
+    {
+        if (!$this->session->get('user')) {
+            return redirect()->to('/login')->with('error', 'Haz login primero');
+        }
+        return true;
+    }
 
     /**
      * Muestra el formulario de registro de usuario.
@@ -56,7 +70,7 @@ class AuthController extends BaseController
                 'email' => $this->request->getPost('email'), // Obtenemos el correo del formulario.
                 'password' => password_hash($this->request->getPost('password'), PASSWORD_DEFAULT), // Encriptamos la contraseña antes de guardarla.
             ]);
-            dd($data);
+            // dd($data);
             $userModel->save($data);
 
             // Redirigimos al formulario de inicio de sesión con un mensaje de éxito.
@@ -106,9 +120,9 @@ class AuthController extends BaseController
 
 
 
-        if ($user && password_verify($this->request->getPost('password'), $user['password']) || TRUE) {
+        if ($user && password_verify($this->request->getPost('password'), $user['password'])) {
             // Si las credenciales son correctas, guardamos datos del usuario en la sesión.
-            $session->set([
+            $session->set('user', [
                 'id' => $user['id'],           // ID del usuario.
                 'name' => $user['name'],       // Nombre del usuario.
                 'email' => $user['email'],     // Correo del usuario.
@@ -118,7 +132,7 @@ class AuthController extends BaseController
 
 
             // Redirigimos a la página de inicio con un mensaje de éxito.
-            return redirect()->to('/users')->with('success', 'Inicio de sesión exitoso.');
+            return redirect()->to('/')->with('success', 'Se ha iniciado la sesión.');
         } else {
             // Si las credenciales son incorrectas, mostramos un mensaje de error.
 

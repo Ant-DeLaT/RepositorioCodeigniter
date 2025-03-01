@@ -5,53 +5,40 @@ use CodeIgniter\Router\RouteCollection;
 /**
  * @var RouteCollection $routes
  */
-// RUTAS DEL INDEX; NO BORRAR, DESCOMENTAR SI SE QUIEREN USAR
+
+// Home routes
 $routes->get('/', 'Home::index');
-    // $routes->get('home', 'Home::index');
-// RECUERDA USAR RUTAS "RELATIVAS" EN EL NAVEGADOR
-    // $routes->get('home/getUsers','Home::getUsers');
-    // $routes->get('home/create','Home::create');
-    // $routes->post('home/create','Home::create');
 $routes->get('/papapa', 'quicCont::getret');
 
-// USERS ROUTES
-$routes->get('/users', 'UserController::index');//Listar usuarios
-$routes->get('/users/save', 'UserController::saveUser'); //Mostrar formulario para crear usuario
-$routes->get('/users/save/(:num)', 'UserController::saveUser/$1'); //Mostrar formulario para editar usuario
-$routes->post('/users/save/', 'UserController::saveUser');// Crear usuario (POST)
-$routes->post('/users/save/(:num)', 'UserController::saveUser/$1'); //Editar usuario (POST)
-$routes->get('/users/delete/(:num)', 'UserController::delete/$1'); //Eliminar usuario
-$routes->get('/users/restore/(:num)','UserController::restore/$1'); //deletes "deleted_at"; MUST BE FIXED
+// Authentication routes
+$routes->get('/login', 'AuthController::login');
+$routes->post('/login/process', 'AuthController::loginProcess');
+$routes->get('/register', 'AuthController::register');
+$routes->post('/register/process', 'AuthController::registerProcess');
+$routes->get('/logout', 'AuthController::logout');
 
-// ACTIVITY, SECONDARY TABLE
+// Users routes
+$routes->get('/users', 'UserController::index');
+$routes->get('/users/save', 'UserController::saveUser');
+$routes->get('/users/save/(:num)', 'UserController::saveUser/$1');
+$routes->post('/users/save/', 'UserController::saveUser');
+$routes->post('/users/save/(:num)', 'UserController::saveUser/$1');
+$routes->get('/users/delete/(:num)', 'UserController::delete/$1');
+$routes->get('/users/restore/(:num)', 'UserController::restore/$1');
 
-$routes->get(from: '/act', to: 'ActivityController::index');
-$routes->get(from: '/act/save', to: 'ActivityController::index');
-$routes->get('/act/save/(:num)', 'ActivityController::saveUser/$1'); //Mostrar formulario para editar usuario
-$routes->post('/act/save/', 'ActivityController::saveUser');// Crear usuario (POST)
-$routes->post('/act/save/(:num)', 'ActivityController::saveUser/$1'); //Editar usuario (POST)
-$routes->get('/act/delete/(:num)', 'ActivityController::delete/$1'); //Eliminar usuario
-$routes->get('/act/restore/(:num)','ActivityController::restore/$1');
+// Activity routes
+$routes->get('/act', 'ActivityController::index');
+$routes->get('/act/save', 'ActivityController::index');
+$routes->get('/act/save/(:num)', 'ActivityController::saveUser/$1');
+$routes->post('/act/save/', 'ActivityController::saveUser');
+$routes->post('/act/save/(:num)', 'ActivityController::saveUser/$1');
+$routes->get('/act/delete/(:num)', 'ActivityController::delete/$1');
+$routes->get('/act/restore/(:num)', 'ActivityController::restore/$1');
 
-
-
+// Other routes
 $routes->get('/metronic', 'UserController::metronic');
-
-
-// PROCESAR LOGIN/REGISTER
-$routes->get('/login', 'AuthController::login'); //Login page
-// $routes->get('/logina', 'AuthController::logina'); //Second login; TEMP
-$routes->post('/login/process', 'AuthController::loginProcess'); //Process login
-$routes->get('/register', 'AuthController::register');//Página de registro
-// $routes->get('/registera', 'AuthController::registera'); //Second register; TEMP
-$routes->post('/register/process', 'AuthController::registerProcess'); //Procesar registro
-$routes->get('/logout', 'AuthController::logout'); //Close the session
-
-
-$routes->resource("CalendarController",['only'=>['calendar','create','update','delete']]);
-$routes->get("/About","ExtraFunctions::About");
-$routes->get("/FAQ","ExtraFunctions::FAQ");
-
-
-$routes->get('/exportExcel', 'ExtraFunctions::export'); // Exports excel 
-$routes->get('/importExcel', 'ExtraFunctions::import'); // Imports information from excels
+$routes->resource("CalendarController", ['only' => ['calendar', 'create', 'update', 'delete']]);
+$routes->get("/About", "ExtraFunctions::About");
+$routes->get("/FAQ", "ExtraFunctions::FAQ");
+$routes->get('/exportExcel', 'ExtraFunctions::export');
+$routes->get('/importExcel', 'ExtraFunctions::import');
